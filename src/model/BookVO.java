@@ -3,16 +3,16 @@ package model;
 import java.sql.Date;
 
 public class BookVO {
-	private int book_id;
+	private long book_id;
 	private int room_id;
 	private String customer_id;
 	private String book_begin;
 	private String book_last;
 	private Date book_date;
-	public int getBook_id() {
+	public long getBook_id() {
 		return book_id;
 	}
-	public void setBook_id(int book_id) {
+	public void setBook_id(long book_id) {
 		this.book_id = book_id;
 	}
 	public int getRoom_id() {
@@ -45,7 +45,7 @@ public class BookVO {
 	public void setBook_date(Date book_date) {
 		this.book_date = book_date;
 	}
-	public BookVO(int book_id, int room_id, String customer_id, String book_begin, String book_last, Date book_date) {
+	public BookVO(long book_id, int room_id, String customer_id, String book_begin, String book_last, Date book_date) {
 		super();
 		this.book_id = book_id;
 		this.room_id = room_id;
