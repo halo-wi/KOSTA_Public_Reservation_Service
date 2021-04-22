@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+
 
 public class RoomVO {
  private int room_id;
@@ -11,8 +11,8 @@ public class RoomVO {
  private String room_location;
  private String img;
  private String phone;
- private Date room_start;
- private Date room_end;
+ private String room_start;
+ private String room_end;
  private int room_cancel;
 public int getRoom_id() {
 	return room_id;
@@ -62,16 +62,16 @@ public String getPhone() {
 public void setPhone(String phone) {
 	this.phone = phone;
 }
-public Date getRoom_start() {
+public String getRoom_start() {
 	return room_start;
 }
-public void setRoom_start(Date room_start) {
+public void setRoom_start(String room_start) {
 	this.room_start = room_start;
 }
-public Date getRoom_end() {
+public String getRoom_end() {
 	return room_end;
 }
-public void setRoom_end(Date room_end) {
+public void setRoom_end(String room_end) {
 	this.room_end = room_end;
 }
 public int getRoom_cancel() {
@@ -81,7 +81,7 @@ public void setRoom_cancel(int room_cancel) {
 	this.room_cancel = room_cancel;
 }
 public RoomVO(int room_id, String room_state, String adress, double mapx, double mapy, String room_location, String img,
-		String phone, Date room_start, Date room_end, int room_cancel) {
+		String phone, String room_start, String room_end, int room_cancel) {
 	super();
 	this.room_id = room_id;
 	this.room_state = room_state;

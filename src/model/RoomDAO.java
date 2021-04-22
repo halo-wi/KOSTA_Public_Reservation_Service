@@ -1,7 +1,7 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -108,8 +108,8 @@ public class RoomDAO {
 		room.setMapy(rs.getDouble("mapy"));
 		room.setPhone(rs.getString("phone"));
 		room.setRoom_cancel(rs.getInt("room_cancel"));
-		room.setRoom_end(rs.getDate("room_end"));
-		room.setRoom_start(rs.getDate("room_start"));
+		room.setRoom_end(rs.getString("room_end"));
+		room.setRoom_start(rs.getString("room_start"));
 		room.setRoom_location(rs.getString("room_location"));
 		room.setRoom_state(rs.getString("room_state"));
 		
@@ -133,8 +133,8 @@ public class RoomDAO {
 			st.setString(6,roomid.getRoom_location() );
 			st.setString(7, roomid.getImg());
 			st.setString(8, roomid.getPhone());
-			st.setDate(9, (Date) roomid.getRoom_start());
-			st.setDate(10, (Date) roomid.getRoom_end());
+			st.setString(9,  roomid.getRoom_start());
+			st.setString(10, roomid.getRoom_end());
 			st.setInt(11, roomid.getRoom_cancel());
 			room = st.executeUpdate();
 		} catch (SQLException e) {
@@ -172,8 +172,8 @@ public class RoomDAO {
 			st.setString(5,roomid.getRoom_location() );
 			st.setString(6, roomid.getImg());
 			st.setString(7, roomid.getPhone());
-			st.setDate(8, (Date) roomid.getRoom_start());
-			st.setDate(9, (Date) roomid.getRoom_end());
+			st.setString(8,  roomid.getRoom_start());
+			st.setString(9,  roomid.getRoom_end());
 			st.setInt(10, roomid.getRoom_cancel());
 			room = st.executeUpdate();
 		} catch (SQLException e) {
