@@ -41,7 +41,7 @@ public class RoomDAO {
 		String sql="select * from room where room_location=?";
 		try {
 			st=conn.prepareStatement(sql);
-			st.setString(1,adress );
+			st.setString(1,adress);
 			rs=st.executeQuery();
 			while(rs.next()) {
 				roomlist.add(makeRoom(rs));
