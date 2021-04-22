@@ -3,9 +3,10 @@ KOSTA 213기 3조 WebProject 서울시 공공회의실 예약 서비스
 
 
 PM : 김성휘 (web-Fullstack)
-Backend : 고석우 (web-Fullstack), 남후승 (web-Fullstack)
+
 Frontend : 강성빈 (web-Fullstack), 임세혁 (web-Fullstack)
 
+Backend : 고석우 (web-Fullstack, 조장), 남후승 (web-Fullstack)
 
 화면구성 /
  
