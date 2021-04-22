@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,7 +99,7 @@ public class BookDAO {
 	}
 	
 	// book_id 입력받아서 예약 조회
-	public BookVO bookSelectByBookId(int book_id) {
+	public BookVO bookSelectByBookId(long book_id) {
 			
 		BookVO book = null;
 		Connection conn = DBUtil.getConnection();
@@ -109,7 +108,7 @@ public class BookDAO {
 		String sql = "select * from book where book_id = ?";
 		try {
 			st = conn.prepareStatement(sql);
-			st.setInt(1, book_id);
+			st.setLong(1, book_id);
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
@@ -151,7 +150,7 @@ public class BookDAO {
 	}
 	
 	// customer_id와 book_id 입력받아서 예약 테이블에서
-	public int deleteEmp(String customer_id ,int book_id) {
+	public int deleteEmp(String customer_id ,long book_id) {
 		int result = 0;
 		
 		Connection conn = DBUtil.getConnection();
@@ -160,7 +159,7 @@ public class BookDAO {
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, customer_id);
-			pst.setInt(2, book_id);
+			pst.setLong(2, book_id);
 			result = pst.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
