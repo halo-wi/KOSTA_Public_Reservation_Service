@@ -1,20 +1,22 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import utility.DBUtil2;
+import logic.BookId;
+import utility.DBUtil;
 
 public class BookDAO {
 	
 	// 예약리스트 전체 조회 
 	public List<BookVO> bookSelectAll() {
 		List<BookVO> booklist = new ArrayList<BookVO>();
-		Connection conn = DBUtil2.getConnection();
+		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		String sql = "select * from book";
@@ -29,15 +31,40 @@ public class BookDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			DBUtil2.dbClose(rs, st, conn);
+			DBUtil.dbClose(rs, st, conn);
 		}
 		return booklist;
 	}
 	
+	// room_id, book_date 입력받아서 예약 조회
+		public List<BookVO> bookSelectCustId(int room_id, Date book_date) {
+			List<BookVO> booklist = new ArrayList<BookVO>();
+			Connection conn = DBUtil.getConnection();
+			PreparedStatement st = null;
+			ResultSet rs = null;
+			String sql = "select * from book where room_id = ? and book_date = ?";
+			try {
+				st = conn.prepareStatement(sql);
+				st.setInt(1, room_id);
+				st.setDate(2, book_date);
+				rs = st.executeQuery();
+				
+				while(rs.next()) {
+					booklist.add(makeBook(rs));
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				DBUtil.dbClose(rs, st, conn);
+			}
+			return booklist;
+		}
+	
 	// customer_id 입력받아서 예약리스트 조회
 	public List<BookVO> bookSelectCustId(String customer_id) {
 		List<BookVO> booklist = new ArrayList<BookVO>();
-		Connection conn = DBUtil2.getConnection();
+		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		String sql = "select * from book where customer_id = ?";
@@ -53,7 +80,7 @@ public class BookDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			DBUtil2.dbClose(rs, st, conn);
+			DBUtil.dbClose(rs, st, conn);
 		}
 		return booklist;
 	}
@@ -61,7 +88,7 @@ public class BookDAO {
 	private BookVO makeBook(ResultSet rs) throws SQLException {
 		BookVO book = new BookVO();
 		
-		book.setBook_id(rs.getInt("book_id"));
+		book.setBook_id(rs.getLong("book_id"));
 		book.setRoom_id(rs.getInt("room_id"));
 		book.setCustomer_id(rs.getString("customer_id"));
 		book.setBook_begin(rs.getString("book_begin"));
@@ -72,16 +99,16 @@ public class BookDAO {
 	}
 	
 	// book_id 입력받아서 예약 조회
-	public BookVO bookSelectByBookId(int book_id) {
+	public BookVO bookSelectByBookId(long book_id) {
 			
 		BookVO book = null;
-		Connection conn = DBUtil2.getConnection();
+		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		String sql = "select * from book where book_id = ?";
 		try {
 			st = conn.prepareStatement(sql);
-			st.setInt(1, book_id);
+			st.setLong(1, book_id);
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
@@ -91,7 +118,7 @@ public class BookDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			DBUtil2.dbClose(rs, st, conn);
+			DBUtil.dbClose(rs, st, conn);
 		}
 		return book;
 	}
@@ -99,13 +126,14 @@ public class BookDAO {
 	// book 입력받아서 예약 테이블에 추가
 	public int insertBook(BookVO book) {
 		int result = 0; // insert된 건 수
-
-		Connection conn = DBUtil2.getConnection();
+		BookId bookId = new BookId();
+		long getBookId = Long.parseLong(bookId.getBookId());
+		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		String sql = "insert into book values(?,?,?,?,?,?)";
 		try {
 			st = conn.prepareStatement(sql);
-			st.setInt(1, book.getBook_id());
+			st.setLong(1, getBookId);
 			st.setInt(2, book.getRoom_id());
 			st.setString(3, book.getCustomer_id());
 			st.setString(4, book.getBook_begin());
@@ -116,28 +144,28 @@ public class BookDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			DBUtil2.dbClose(null, st, conn);
+			DBUtil.dbClose(null, st, conn);
 		}
 		return result;
 	}
 	
 	// customer_id와 book_id 입력받아서 예약 테이블에서
-	public int deleteEmp(String customer_id ,int book_id) {
+	public int deleteEmp(String customer_id ,long book_id) {
 		int result = 0;
 		
-		Connection conn = DBUtil2.getConnection();
+		Connection conn = DBUtil.getConnection();
 		PreparedStatement pst = null;
 		String sql = "delete from book where customer_id=? and book_id=?"; 
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, customer_id);
-			pst.setInt(2, book_id);
+			pst.setLong(2, book_id);
 			result = pst.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			DBUtil2.dbClose(null, pst, conn);
+			DBUtil.dbClose(null, pst, conn);
 		}
 		return result;
 	}
