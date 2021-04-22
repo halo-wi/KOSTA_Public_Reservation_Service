@@ -67,6 +67,7 @@ public class AdminDAO {
 		  result = ps.executeUpdate();
 		  DBUtil.dbClose(null, ps, conn);
 		  System.out.println("admin dao 수정-강성빈");
+		  System.out.println("admin dao 수정-강성빈 다시 ?");
 		  return result;
 		  }
 }
