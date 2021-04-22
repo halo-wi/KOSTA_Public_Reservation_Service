@@ -10,29 +10,7 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <context-param>
-  <param-name>dbname</param-name>
-  <param-value>oracle11g</param-value>
-  </context-param>
-  
-   <context-param>
-  <param-name>userid</param-name>
-  <param-value>hr</param-value>
-  </context-param>
-  
-  <servlet>
-     <servlet-name>my1</servlet-name>
-     <servlet-class>com.kosta.controller.FirstServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-      <servlet-name>my1</servlet-name>
-      <url-pattern>/first</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-      <servlet-name>my1</servlet-name>
-      <url-pattern>/first2</url-pattern>
-  </servlet-mapping>
-
+ 
 <resource-ref>
  <description>Oracle Datasource example</description>
  <res-ref-name>jdbc/myoracle</res-ref-name>
@@ -41,37 +19,14 @@
 </resource-ref>
 
 
-<servlet>
-  <servlet-name>initParam</servlet-name>
-  <servlet-class>com.kosta.empcontroller.InitParameterServlet2</servlet-class>
-
-   <init-param>
-     <param-name>email</param-name>
-     <param-value>wed0406@daum.net</param-value>
-  </init-param>
-  <init-param>
-     <param-name>phone</param-name>
-     <param-value>01-8978-6767</param-value>
-  </init-param>
-    <load-on-startup>2</load-on-startup>
-</servlet>
-<servlet-mapping>
-<servlet-name>initParam</servlet-name>
-<url-pattern>/param3</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-<servlet-name>initParam</servlet-name>
-<url-pattern>/param4</url-pattern>
-</servlet-mapping>
-
-<error-page>
+<!-- <error-page>
 <error-code>404</error-code>
 <location>/common/error404.jsp</location>
 </error-page>
 <error-page>
 <error-code>500</error-code>
 <location>/common/error500.jsp</location>
-</error-page>
+</error-page> -->
 
 
 </web-app>

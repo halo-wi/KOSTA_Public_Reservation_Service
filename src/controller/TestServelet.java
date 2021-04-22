@@ -1,25 +1,30 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.CustomerDAO;
 
 /**
- * Servlet implementation class SearchServelet
+ * Servlet implementation class TestServelet
  */
-@WebServlet("/SearchAllServelet")
-public class SearchAllServelet extends HttpServlet {
+@WebServlet("/TestServelet")
+public class TestServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
+     * @throws SQLException 
      * @see HttpServlet#HttpServlet()
      */
-    public SearchAllServelet() {
+    public TestServelet() throws SQLException {
         super();
-        // TODO Auto-generated constructor stub
+        CustomerDAO dao = new CustomerDAO();
+		System.out.println(dao.customer_search("qwe"));
     }
 
 	/**
