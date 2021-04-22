@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import utility.DBUtil2;
+import utility.DBUtil;
 
 public class BookDAO {
 	
 	// 예약리스트 전체 조회 
 	public List<BookVO> bookSelectAll() {
 		List<BookVO> booklist = new ArrayList<BookVO>();
-		Connection conn = DBUtil2.getConnection();
+		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		String sql = "select * from book";
@@ -29,7 +29,7 @@ public class BookDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			DBUtil2.dbClose(rs, st, conn);
+			DBUtil.dbClose(rs, st, conn);
 		}
 		return booklist;
 	}
@@ -37,7 +37,7 @@ public class BookDAO {
 	// customer_id 입력받아서 예약리스트 조회
 	public List<BookVO> bookSelectCustId(String customer_id) {
 		List<BookVO> booklist = new ArrayList<BookVO>();
-		Connection conn = DBUtil2.getConnection();
+		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		String sql = "select * from book where customer_id = ?";
@@ -53,7 +53,7 @@ public class BookDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			DBUtil2.dbClose(rs, st, conn);
+			DBUtil.dbClose(rs, st, conn);
 		}
 		return booklist;
 	}
@@ -75,7 +75,7 @@ public class BookDAO {
 	public BookVO bookSelectByBookId(int book_id) {
 			
 		BookVO book = null;
-		Connection conn = DBUtil2.getConnection();
+		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		String sql = "select * from book where book_id = ?";
@@ -91,7 +91,7 @@ public class BookDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			DBUtil2.dbClose(rs, st, conn);
+			DBUtil.dbClose(rs, st, conn);
 		}
 		return book;
 	}
@@ -100,7 +100,7 @@ public class BookDAO {
 	public int insertBook(BookVO book) {
 		int result = 0; // insert된 건 수
 
-		Connection conn = DBUtil2.getConnection();
+		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		String sql = "insert into book values(?,?,?,?,?,?)";
 		try {
@@ -116,7 +116,7 @@ public class BookDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			DBUtil2.dbClose(null, st, conn);
+			DBUtil.dbClose(null, st, conn);
 		}
 		return result;
 	}
@@ -125,7 +125,7 @@ public class BookDAO {
 	public int deleteEmp(String customer_id ,int book_id) {
 		int result = 0;
 		
-		Connection conn = DBUtil2.getConnection();
+		Connection conn = DBUtil.getConnection();
 		PreparedStatement pst = null;
 		String sql = "delete from book where customer_id=? and book_id=?"; 
 		try {
@@ -137,7 +137,7 @@ public class BookDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			DBUtil2.dbClose(null, pst, conn);
+			DBUtil.dbClose(null, pst, conn);
 		}
 		return result;
 	}

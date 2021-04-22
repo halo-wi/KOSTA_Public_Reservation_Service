@@ -16,6 +16,17 @@ public class CustomerVO {
 	public CustomerVO() {
 		super();
 	}
+	
+	public CustomerVO(String customer_id, String customer_pw) {
+		super();
+		this.customer_id = customer_id;
+		this.customer_pw = customer_pw;
+	}
+	
+	public CustomerVO(String customer_id) {
+		super();
+		this.customer_id = customer_id;
+	}
 	public String getCustomer_id() {
 		return customer_id;
 	}

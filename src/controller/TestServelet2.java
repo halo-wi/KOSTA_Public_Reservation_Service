@@ -10,17 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import logic.ReservationChk;
+import model.BookDAO;
 import model.CustomerDAO;
 import model.RoomDAO;
 
 /**
  * Servlet implementation class TestServelet
  */
-@WebServlet("/TestServelet")
-public class TestServelet extends HttpServlet {
+@WebServlet("/TestServelet1")
+public class TestServelet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-    public TestServelet() throws SQLException {
+    public TestServelet2() throws SQLException {
         super();
         
     }
@@ -29,9 +30,8 @@ public class TestServelet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ReservationChk chk = new ReservationChk();
-		System.out.println(chk.reservationChk(1001, "21/04/22").size());
-		
+		BookDAO dao = new BookDAO();
+		System.out.println(dao.bookSelectByBookId(1001));
 	}
 
 	/**
