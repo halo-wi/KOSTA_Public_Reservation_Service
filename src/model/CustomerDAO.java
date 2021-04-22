@@ -12,7 +12,7 @@ public class CustomerDAO {
 	public int customer_login(String customer_id, String customer_pw) {
 
 		int result = 0;
-		String sql = "select customer_pw from customeri where customer_id = ?";
+		String sql = "select customer_pw from customer where customer_id = ?";
 		conn = DBUtil.getConnection();
 		try {
 			ps = conn.prepareStatement(sql);
@@ -40,7 +40,7 @@ public class CustomerDAO {
 			throws SQLException {
 
 		int result = 0;
-		String sql = "insert into customeri values(?, ?, ?, ?)";
+		String sql = "insert into customer values(?, ?, ?, ?)";
 		conn = DBUtil.getConnection();
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, customer_id);
@@ -54,7 +54,7 @@ public class CustomerDAO {
 	}
 	public int customer_withdraw(String customer_id, String customer_pw) throws SQLException {
 		int result = 0;
-		String sql = "delete from customeri where customer_id = ? and customer_pw = ?";
+		String sql = "delete from customer where customer_id = ? and customer_pw = ?";
 		conn = DBUtil.getConnection();
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, customer_id);
@@ -67,7 +67,7 @@ public class CustomerDAO {
 			throws SQLException {
 		int result = 0;
 
-		String sql = "update customeri " + " set customer_name = ? and customer_phone = ?"
+		String sql = "update customer " + " set customer_name = ? and customer_phone = ?"
 				+ " where customer_id = ? and customer_pw = ?";
 		conn = DBUtil.getConnection();
 		ps = conn.prepareStatement(sql);
@@ -83,7 +83,7 @@ public class CustomerDAO {
 	public CustomerVO customer_search(String customer_id) throws SQLException {
 		
 		CustomerVO customer = new CustomerVO();
-		String sql = "select * from customeri where customer_id = ?";
+		String sql = "select * from customer where customer_id = ?";
 		conn = DBUtil.getConnection();
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, customer_id);
