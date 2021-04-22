@@ -11,6 +11,11 @@ public class AdminVO {
 	public AdminVO() {
 		super();
 	}
+	
+	public AdminVO(String admin_id) {
+		super();
+		this.admin_id = admin_id;
+	}
 	public String getAdmin_id() {
 		return admin_id;
 	}

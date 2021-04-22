@@ -1,15 +1,9 @@
 package model;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
-import logic.BookId;
-import utility.DBUtil;
+import java.sql.*;;
+import java.util.*;
+import logic.*;
+import utility.*;
 
 public class BookDAO {
 	
@@ -126,8 +120,6 @@ public class BookDAO {
 	// book 입력받아서 예약 테이블에 추가
 	public int insertBook(BookVO book) {
 		int result = 0; // insert된 건 수
-		BookId bookId = new BookId();
-		long getBookId = Long.parseLong(bookId.getBookId());
 		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		String sql = "insert into book values(?,?,?,?,?,?)";
