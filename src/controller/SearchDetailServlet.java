@@ -14,34 +14,24 @@ import model.RoomDAO;
 import model.RoomVO;
 
 /**
- * Servlet implementation class SearchServelet
+ * Servlet implementation class SearchDetailServlet
  */
-@WebServlet("/Room/searchall")
-public class SearchAllServelet extends HttpServlet {
+@WebServlet("/Room/searchDetail")
+public class SearchDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SearchAllServelet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String val= request.getParameter("roomid");
+		int room_id=Integer.parseInt(val);
 		RoomDAO dao=new RoomDAO();
-		List<RoomVO> list=dao.selectAll();
-	
-		RoomVO vo=new RoomVO();
-		request.setAttribute("roomall", list);
-		RequestDispatcher rd=request.getRequestDispatcher("Room.jsp");
+		RoomVO list=dao.selectByRoomId(room_id);
+		request.setAttribute("mapx", request.getParameter("mapx"));
+		request.setAttribute("mapy", request.getParameter("mapy"));
+		request.setAttribute("adress", request.getParameter("adress"));
+		RequestDispatcher rd=request.getRequestDispatcher("roomdetail.jsp");
 		rd.forward(request, response);
 	}
 
-	
 
 }
