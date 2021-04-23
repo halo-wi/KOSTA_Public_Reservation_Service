@@ -3,6 +3,7 @@ package model;
 
 
 public class RoomVO {
+ private int row_num;
  private int room_id;
  private String room_state;
  private String adress;
@@ -14,6 +15,11 @@ public class RoomVO {
  private String room_start;
  private String room_end;
  private int room_cancel;
+ 
+ 
+public int getRow_num() {
+	return row_num;
+}
 public int getRoom_id() {
 	return room_id;
 }
