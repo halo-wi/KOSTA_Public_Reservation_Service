@@ -12,14 +12,13 @@ import java.util.List;
 import utility.DBUtil;
 
 public class RoomDAO {
-	
+
 	public List<RoomVO> selectPage(int frow, int lrow) throws SQLException {
 		List<RoomVO> roomlist = new ArrayList<RoomVO>();
 		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		String sql = "select * from (select rownum aa, bb.*from ("
-				+ "    select * from room order by 1 ) bb  )"
+		String sql = "select * from (select rownum aa, bb.*from (" + "    select * from room order by 1 ) bb  )"
 				+ "where aa between ? and ?";
 		try {
 			st = conn.prepareStatement(sql);
@@ -30,6 +29,27 @@ public class RoomDAO {
 				roomlist.add(makeRoom(rs));
 			}
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(rs, st, conn);
+		}
+		return roomlist;
+	}
+
+	public List<RoomVO> selectForSearch() {
+		List<RoomVO> roomlist = new ArrayList<RoomVO>();
+		Connection conn = DBUtil.getConnection();
+		Statement st = null;
+		ResultSet rs = null;
+		String sql = "select room_location from room  group by room_location";
+		try {
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+			while (rs.next()) {
+				roomlist.add(makeRoom(rs));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			DBUtil.dbClose(rs, st, conn);
