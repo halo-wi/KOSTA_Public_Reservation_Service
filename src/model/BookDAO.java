@@ -1,6 +1,7 @@
 package model;
 
-import java.sql.*;;
+import java.sql.*;
+import java.sql.Date;
 import java.util.*;
 import logic.*;
 import utility.*;
@@ -125,7 +126,7 @@ public class BookDAO {
 		String sql = "insert into book values(?,?,?,?,?,?)";
 		try {
 			st = conn.prepareStatement(sql);
-			st.setLong(1, getBookId);
+			st.setLong(1, book.getBook_id());
 			st.setInt(2, book.getRoom_id());
 			st.setString(3, book.getCustomer_id());
 			st.setString(4, book.getBook_begin());
