@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+ㅇㅇ
 <table>
 <tr>
 <td>회의실 번호</td>
@@ -22,16 +23,20 @@
 <td>회의실 닫는 시간</td>
 <td>회의실 취소기준일</td>
 </tr>
-${roomall}
+
 <aa:forEach items="${roomall}" var="room">
+<aa:url value="searchDetail" var="rd">
+<aa:param name="roomid" value="${room.room_id}"></aa:param>
+<aa:param name="mapx" value="${room.mapx}"></aa:param>
+<aa:param name="mapy" value="${room.mapy}"></aa:param>
+<aa:param name="adress" value="${room.adress}"></aa:param>
+</aa:url>
 <tr>
-<td>${room.room_id}</td>
+
+<td><a href="${rd}">${room.adress}</a></td>
 <td>${room.room_state}</td>
-<td>${room.adress}</td>
-<td>${room.mapx}</td>
-<td>${room.mapy}</td>
 <td>${room.room_location}</td>
-<td>${room.img}</td>
+<td><img src="${room.img}"></td>
 <td>${room.phone}</td>
 <td>${room.room_start}</td>
 <td>${room.room_end}</td>
@@ -40,6 +45,8 @@ ${roomall}
 </tr>
 </aa:forEach>
 </table>
+
+
 
 </body>
 </html>
