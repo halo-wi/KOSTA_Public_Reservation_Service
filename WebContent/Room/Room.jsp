@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-ㅇㅇ
 <table>
 <tr>
 <td>회의실 번호</td>
