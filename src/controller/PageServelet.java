@@ -15,20 +15,20 @@ import model.RoomDAO;
 import model.RoomVO;
 
 /**
- * Servlet implementation class TestServelet
+ * Servlet implementation class PageServelet
  */
-@WebServlet("/TestServelet")
-public class TestServelet extends HttpServlet {
+@WebServlet("/PageServelet")
+public class PageServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-    public TestServelet() throws SQLException {
+  
+    public PageServelet() {
         super();
-        
+        // TODO Auto-generated constructor stub
     }
 
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+
 		RoomDAO dao=new RoomDAO();
 		List<RoomVO> list = null;
 		try {
@@ -41,7 +41,9 @@ public class TestServelet extends HttpServlet {
 		request.setAttribute("roomall", list);
 		RequestDispatcher rd=request.getRequestDispatcher("Room/Room.jsp");
 		rd.forward(request, response);
-		
-		
+	
 	}
+
+
+
 }
