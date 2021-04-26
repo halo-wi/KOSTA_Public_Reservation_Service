@@ -5,9 +5,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="javascript:kakaologin();"><img alt="" src="../img/카카오로그인.jpg"></a>
+
+<a href="javascript:kakaologin();" ><img alt="" src="../img/카카오로그인.jpg"></a>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script>
+    var email;
+    var nickname;
 	window.Kakao.init("6eb4a80e6c215b46736c99b7c1857a09");
 	function kakaologin() {
 		window.Kakao.Auth.login({
@@ -18,11 +21,22 @@
 					url:'/v2/user/me',
 					success: function(response) {
 				        console.log(response);
+				        email=response.kakao_account.email;
+				        nickname=response.kakao_account.profile.nickname;
+				        document.getElementById("email").value = email;
+				        document.getElementById("nickname").value = nickname;
+				        document.getElementById("login").submit();
+				        //location.href = "LoginKakaoServelet?email="+response.kakao_account.email+
+				        				//"&nickname="+response.kakao_account.profile.nickname;
 				    }
 				});
 			}
 		});
 	}
 </script>
+<form action="LoginKakaoServelet" method="post" id="login">
+  <input type="hidden" name="email" id="email"><br>
+  <input type="hidden" name="nickname" id="nickname"><br>
+</form>
 </body>
 </html>
