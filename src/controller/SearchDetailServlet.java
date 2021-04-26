@@ -29,6 +29,7 @@ public class SearchDetailServlet extends HttpServlet {
 		request.setAttribute("mapx", request.getParameter("mapx"));
 		request.setAttribute("mapy", request.getParameter("mapy"));
 		request.setAttribute("adress", request.getParameter("adress"));
+		request.setAttribute("list", list);
 		RequestDispatcher rd=request.getRequestDispatcher("roomdetail.jsp");
 		rd.forward(request, response);
 	}
