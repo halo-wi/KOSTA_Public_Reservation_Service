@@ -91,37 +91,6 @@ public class RoomDAO {
 		return roomlist;
 	}
 
-	public int MaxRow() throws SQLException {
-		Connection conn = DBUtil.getConnection();
-		Statement st = null;
-		ResultSet rs = null;
-		String sql = "select count(*) room_count from room";
-		st = conn.createStatement();
-		rs = st.executeQuery(sql);
-		return rs.getInt(1);
-	}
-
-	public List<RoomVO> selectAll() {
-		List<RoomVO> roomlist = new ArrayList<RoomVO>();
-		Connection conn = DBUtil.getConnection();
-		Statement st = null;
-		ResultSet rs = null;
-		String sql = "select * from room";
-		try {
-			st = conn.createStatement();
-			rs = st.executeQuery(sql);
-			while (rs.next()) {
-				roomlist.add(makeRoom(rs));
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			DBUtil.dbClose(rs, st, conn);
-		}
-		return roomlist;
-	}
-
 	public List<RoomVO> selectByLocation(String adress) {
 		List<RoomVO> roomlist = new ArrayList<RoomVO>();
 		Connection conn = DBUtil.getConnection();
