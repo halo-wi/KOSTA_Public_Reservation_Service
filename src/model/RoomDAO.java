@@ -59,7 +59,7 @@ public class RoomDAO {
 		return roomlist;
 	}
 
-	
+
 	public int MaxRow() throws SQLException {
 		Connection conn = DBUtil.getConnection();
 		Statement st = null;
