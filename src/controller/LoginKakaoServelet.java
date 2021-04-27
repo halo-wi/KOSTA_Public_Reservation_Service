@@ -17,11 +17,21 @@ import model.CustomerVO;
 @WebServlet("/Login/LoginKakaoServelet")
 public class LoginKakaoServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		doPost(request, response);
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("euc-kr");
+		System.out.println("LoginKakaoServelet.....");
 		String email = request.getParameter("email");
 		String nickname = request.getParameter("nickname");
+		
+		byte[] utf8StringBuffer = nickname.getBytes("utf-8");
+		nickname = new String(utf8StringBuffer, "utf-8");
+	
 		CustomerDAO dao = new CustomerDAO();
 		CustomerVO customer = new CustomerVO();
 		RequestDispatcher rd = null;
@@ -35,6 +45,8 @@ public class LoginKakaoServelet extends HttpServlet {
 				session.setAttribute("nickname", nickname);
 				rd = request.getRequestDispatcher("/Home/home.jsp");
 			} else {
+				request.setAttribute("email", email);
+				request.setAttribute("nickname", nickname);
 				rd = request.getRequestDispatcher("/join/Kakaojoin.jsp");
 			}
 			rd.forward(request, response);
