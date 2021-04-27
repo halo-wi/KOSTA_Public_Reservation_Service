@@ -1,22 +1,63 @@
+
+
 <!doctype html>
 <html lang="ko">
 <head>
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript"
+	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+	charset="utf-8"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<meta charset="UTF-8">
+<title>예약정보조회</title>
 </head>
 <body>
-<script type="text/javascript">
-  var naver_id_login = new naver_id_login("8S_iNrmYWtRUNjvQAXoN", "http://localhost:8090/PublicBookService/Login/navercallback.html");
-  // 접근 토큰 값 출력
-  alert(naver_id_login.oauthParams.access_token);
-  // 네이버 사용자 프로필 조회
-  naver_id_login.get_naver_userprofile("naverSignInCallback()");
-  // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
-  function naverSignInCallback() {
-    alert(naver_id_login.getProfileData('email'));
-    alert(naver_id_login.getProfileData('nickname'));
-    alert(naver_id_login.getProfileData('age'));
-  }
-</script>
+	<script type="text/javascript">
+		var naver_id_login = new naver_id_login("8S_iNrmYWtRUNjvQAXoN",
+				"http://localhost:8090/PublicBookService/Login/navercallback.html");
+		// 접근 토큰 값 출력
+		alert(naver_id_login.oauthParams.access_token);
+		// 네이버 사용자 프로필 조회
+		naver_id_login.get_naver_userprofile("naverSignInCallback()");
+		// 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+		function naverSignInCallback() {
+			alert(naver_id_login.getProfileData('email'));
+			alert(naver_id_login.getProfileData('nickname'));
+			alert(naver_id_login.getProfileData('age'));
+			alert(naver_id_login.getProfileData('date'));
+			alert(naver_id_login.getProfileData('loation'));
+		}
+	</script>
+
+<!--  	<c:choose>
+		<c:when test="${membersList==null}">
+			<tr>
+				<td colspan=5><b>예약정보가 없습니다.</b></td>
+			</tr>
+		</c:when>
+
+-->
+		
+			<table border="1" align="center">
+				<tr align="center" bgcolor="center">
+					<td width="7%"><b>이메일</b></td>
+					<td width="7%"><b>별명</b></td>
+					<td width="7%"><b>나이</b></td>
+					<td width="7%"><b>예약일</b></td>
+					<td width="7%"><b>장소</b></td>
+				</tr>
+
+
+				
+					<tr align="center">
+						<td>${membersList[i].email}</td>
+						<td>${membersList[i].nickname}</td>
+						<td>${membersList[i].age}</td>
+						<td>${membersList[i].date}</td>
+						<td>${membersList[i].location}</td>
+					</tr>
+				
+
+			</table>
 </body>
 </html>
