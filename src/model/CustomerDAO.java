@@ -85,18 +85,20 @@ public class CustomerDAO {
 	}
 	public CustomerVO customer_searchById(String customer_id) throws SQLException {
 		
-		CustomerVO customer = new CustomerVO();
+		CustomerVO customer = null;
 		String sql = "select * from customer where customer_id = ?";
 		conn = DBUtil.getConnection();
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, customer_id);
 		rs = ps.executeQuery();
 		while (rs.next()) {
+			customer = new CustomerVO();
 			customer.setCustomer_id(rs.getString(1));
 			customer.setCustomer_name(rs.getString(2));
 			customer.setCustomer_pw(rs.getString(3));
 			customer.setCustomer_phone(rs.getString(4));
 			customer.setEmail(rs.getString(5));
+			System.out.println(customer);
 		}
 		DBUtil.dbClose(rs, ps, conn);
 		return customer;

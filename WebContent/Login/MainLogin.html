@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ZOOM_OUT login</title>
+</head>
+<body>
+<h1>ZOOM_OUT login</h1>
+<div id="Normal_login">
+<form action="LoginServelet" method="post">
+아이디:<input type="text" name="userid"><br>
+비밀번호:<input type="password" name="userpw"><br>
+<input type="submit" value="로그인">
+</form>
+</div>
+
+<div id="Kakao_login">
+<a href="javascript:kakaologin();" ><img alt="" src="../img/카카오로그인.jpg"></a>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+    var email;
+    var nickname;
+	window.Kakao.init("6eb4a80e6c215b46736c99b7c1857a09");
+	function kakaologin() {
+		window.Kakao.Auth.login({
+			scope: 'profile, account_email',
+			success: function(authObj) {
+				console.log(authObj);
+				window.Kakao.API.request({
+					url:'/v2/user/me',
+					success: function(response) {
+				        console.log(response);
+				        email=response.kakao_account.email;
+				        nickname=response.kakao_account.profile.nickname;
+				        document.getElementById("email").value = email;
+				        document.getElementById("nickname").value = nickname;
+				        document.getElementById("login").submit();
+				        //location.href = "LoginKakaoServelet?email="+response.kakao_account.email+
+				        				//"&nickname="+response.kakao_account.profile.nickname;
+				    }
+				});
+			}
+		});
+	}
+</script>
+<form action="LoginKakaoServelet" method="post" id="login">
+  <input type="hidden" name="email" id="email"><br>
+  <input type="hidden" name="nickname" id="nickname"><br> 
+</form>
+</div>
+
+<div id="Naver_login">
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+  <div id="naver_id_login"></div>
+  <!-- //네이버아이디로로그인 버튼 노출 영역 -->
+  <script type="text/javascript">
+  	var naver_id_login = new naver_id_login("8S_iNrmYWtRUNjvQAXoN", "http://localhost:8090/KOSTA_Public_Reservation_Service/Login/navercallback.html");
+  	var state = naver_id_login.getUniqState();
+  	naver_id_login.setButton("white", 2,40);
+  	naver_id_login.setDomain("http://localhost:8090");
+  	naver_id_login.setState(state);
+  	naver_id_login.init_naver_id_login();
+  </script>
+</div>
+
+</body>
+</html>
