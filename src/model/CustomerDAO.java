@@ -69,18 +69,18 @@ public class CustomerDAO {
 			throws SQLException {
 		int result = 0;
 
-		String sql = "update customer " + " set customer_name = ? and customer_phone = ? and email = ?"
+		String sql = "update customer " + " set customer_name = ?, customer_phone = ?, email = ?"
 				+ " where customer_id = ? and customer_pw = ?";
 		conn = DBUtil.getConnection();
 		ps = conn.prepareStatement(sql);
-		ps.setString(3, customer_id);
+		ps.setString(4, customer_id);
 		ps.setString(1, customer_name);
-		ps.setString(4, customer_pw);
-		//ps.setString(6, customer_pw2);
+		ps.setString(5, customer_pw);
 		ps.setString(2, customer_phone);
-		ps.setString(5, email);
+		ps.setString(3, email);
 
 		result = ps.executeUpdate();
+		System.out.println("dao="+result);
 		DBUtil.dbClose(rs, ps, conn);
 		return result;
 	}
@@ -115,7 +115,24 @@ public class CustomerDAO {
 			customer.setCustomer_name(rs.getString(2));
 			customer.setCustomer_pw(rs.getString(3));
 			customer.setCustomer_phone(rs.getString(4));
-			customer.setCustomer_phone(rs.getString(5));
+			customer.setEmail(rs.getString(5));
+		}
+		DBUtil.dbClose(rs, ps, conn);
+		return customer;
+	}
+	public CustomerVO customer_search_email(String email) throws SQLException {
+		
+		CustomerVO customer = new CustomerVO();
+		String sql = "select * from customer where email = ?";
+		conn = DBUtil.getConnection();
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, email);
+		rs = ps.executeQuery();
+		while (rs.next()) {
+			customer.setCustomer_id(rs.getString(1));
+			customer.setCustomer_name(rs.getString(2));
+			customer.setCustomer_pw(rs.getString(3));
+			customer.setCustomer_phone(rs.getString(4));
 		}
 		DBUtil.dbClose(rs, ps, conn);
 		return customer;

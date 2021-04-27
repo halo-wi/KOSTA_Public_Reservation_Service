@@ -17,28 +17,47 @@ import model.CustomerVO;
 @WebServlet("/Login/LoginKakaoServelet")
 public class LoginKakaoServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		doPost(request, response);
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("euc-kr");
+		System.out.println("LoginKakaoServelet.....");
 		String email = request.getParameter("email");
 		String nickname = request.getParameter("nickname");
+		
+		byte[] utf8StringBuffer = nickname.getBytes("utf-8");
+		nickname = new String(utf8StringBuffer, "utf-8");
+	
 		CustomerDAO dao = new CustomerDAO();
 		CustomerVO customer = new CustomerVO();
 		RequestDispatcher rd = null;
-		try {
+		try {System.out.println(1);
 			customer = dao.customer_searchByEmail(email);
-			if (customer.getEmail() == email) {
+			System.out.println(email);
+			System.out.println(customer.getEmail());
+			System.out.println(customer);
+			if (customer.getEmail().equals(email)) {
+				System.out.println(123);
 				request.setAttribute("name", customer.getCustomer_name());
 				HttpSession session = request.getSession();// 있으면얻고 없으면 만든다.
 				System.out.println(session.isNew() == true ? "로그인중..." : "세션만료");
+				
 				session.setAttribute("email", email);
 				session.setAttribute("nickname", nickname);
-				rd = request.getRequestDispatcher("/Home/home.jsp");
+				rd = request.getRequestDispatcher("/BookCheck/BookCheckMainPage.jsp");
 			} else {
+				System.out.println(456);
+				request.setAttribute("email", email);
+				request.setAttribute("nickname", nickname);
 				rd = request.getRequestDispatcher("/join/Kakaojoin.jsp");
 			}
 			rd.forward(request, response);
 		} catch (SQLException e) {
+			e.printStackTrace();
 			System.out.println("sql 오류");
 		}
 	}

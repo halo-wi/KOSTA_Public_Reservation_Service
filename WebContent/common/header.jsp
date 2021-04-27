@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-헤더
+<script type="text/javascript">
+	var nickname = <%session.getAttribute("nickname"); %>
+</script>
+<h1>${nickname }</h1>
 </body>
 </html>
