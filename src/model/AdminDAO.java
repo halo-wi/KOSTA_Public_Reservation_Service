@@ -66,10 +66,7 @@ public class AdminDAO {
 		 
 		  result = ps.executeUpdate();
 		  DBUtil.dbClose(null, ps, conn);
-<<<<<<< HEAD
-=======
 
->>>>>>> branch '강성빈' of https://github.com/halo-wi/KOSTA_Public_Reservation_Service
 		  return result;
 		  }
 }

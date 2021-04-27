@@ -114,7 +114,7 @@ public class CustomerDAO {
 			customer.setCustomer_name(rs.getString(2));
 			customer.setCustomer_pw(rs.getString(3));
 			customer.setCustomer_phone(rs.getString(4));
-			customer.setCustomer_phone(rs.getString(5));
+			customer.setEmail(rs.getString(5));
 		}
 		DBUtil.dbClose(rs, ps, conn);
 		return customer;
