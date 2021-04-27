@@ -17,25 +17,29 @@ import model.CustomerVO;
 @WebServlet("/Login/LoginKakaoServelet")
 public class LoginKakaoServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String nickname = request.getParameter("nickname");
 		CustomerDAO dao = new CustomerDAO();
 		CustomerVO customer = new CustomerVO();
+		RequestDispatcher rd = null;
 		try {
-			customer=dao.customer_searchByEmail(email);
-			request.setAttribute("name", customer.getCustomer_name());
-			HttpSession session = request.getSession();//있으면얻고 없으면 만든다. 
-			System.out.println(session.isNew()==true? "로그인중...":"세션만료");
-			session.setAttribute("email", email);
-			session.setAttribute("nickname", nickname);
-		} catch (SQLException e) {
-			RequestDispatcher rd = request.getRequestDispatcher("/join/kakaojoin.jsp");
+			customer = dao.customer_searchByEmail(email);
+			if (customer.getEmail() == email) {
+				request.setAttribute("name", customer.getCustomer_name());
+				HttpSession session = request.getSession();// 있으면얻고 없으면 만든다.
+				System.out.println(session.isNew() == true ? "로그인중..." : "세션만료");
+				session.setAttribute("email", email);
+				session.setAttribute("nickname", nickname);
+				rd = request.getRequestDispatcher("/Home/home.jsp");
+			} else {
+				rd = request.getRequestDispatcher("/join/Kakaojoin.jsp");
+			}
 			rd.forward(request, response);
+		} catch (SQLException e) {
+			System.out.println("sql 오류");
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/Home/home.jsp");
-		rd.forward(request, response);
 	}
 }
