@@ -31,6 +31,8 @@
 				    <input type="hidden" name="search_date" value="${search_date}">
 				    <input type="hidden" name="mapx" value="${room.mapx}">
 				    <input type="hidden" name="mapy" value="${room.mapy}">
+				    <input type="hidden" name="room_start" value="${room.room_start}">
+				    <input type="hidden" name="room_end" value="${room.room_end}">
 				    <c:choose>
 				    	<c:when test="${room.today_state eq true}">
 				    		<input type="submit" value="예약하기">
