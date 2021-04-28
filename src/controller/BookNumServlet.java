@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.BookDAO;
 import model.BookVO;
+import model.RoomDAO;
+import model.RoomVO;
 
 /**
  * Servlet implementation class BookNumServlet
@@ -30,9 +32,10 @@ public class BookNumServlet extends HttpServlet {
 		long cVal=Long.parseLong(val);//롱값으로 전환
 		BookDAO dao=new BookDAO(); //dao 호출
 		BookVO vo=dao.bookSelectByBookId(cVal);//vo에 넣음
-		if(vo==null) {
-		}
+		RoomDAO dao2=new RoomDAO();//룸 dao 호출
+		RoomVO vo2=dao2.selectByRoomId(vo.getRoom_id());//vo2에 넣음
 		request.setAttribute("bookinfo", vo);//값 저장
+		request.setAttribute("bookinfo2", vo2);//값 저장
 		
 		RequestDispatcher rd=request.getRequestDispatcher("BookCheckResult.jsp");
 		rd.forward(request, response);

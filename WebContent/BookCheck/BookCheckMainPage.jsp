@@ -17,7 +17,7 @@
 
 <script >
 function idchk() {
-	var uid=<%=session.getAttribute("email") %>;
+	var uid=<%=(String)session.getAttribute("email") %>;
 	if (uid==null) {
 		location.href="../Login/loginfrom.html";
 	}else{
