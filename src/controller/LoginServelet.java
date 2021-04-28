@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -43,9 +44,14 @@ public class LoginServelet extends HttpServlet {
 			System.out.println(session.isNew());
 			session.setAttribute("email", email);
 			session.setAttribute("nickname", nickname);
-			rd = request.getRequestDispatcher("../Home/home.jsp");
-			//sendredirect
-			rd.forward(request, response);
-		};
+			response.sendRedirect("../Home/home.jsp");
+		}
+		else {
+			PrintWriter pw = response.getWriter();
+			pw.println("<script language='javascript'>");
+			pw.println("alert('로그인실패')");
+			pw.println("</script>");
+			response.sendRedirect("../join/Join.html");
+		}
 	}
 }

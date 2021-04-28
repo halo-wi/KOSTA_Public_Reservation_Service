@@ -91,6 +91,7 @@ public class CustomerDAO {
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, customer_id);
 		rs = ps.executeQuery();
+		System.out.println("실행");
 		while (rs.next()) {
 			customer = new CustomerVO();
 			customer.setCustomer_id(rs.getString(1));

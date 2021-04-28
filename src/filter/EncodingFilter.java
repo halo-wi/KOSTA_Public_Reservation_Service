@@ -23,9 +23,11 @@ public class EncodingFilter implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 		request.setCharacterEncoding("utf-8");
+		
 		// pass the request along the filter chain
 		//서블릿으로 가기
 		chain.doFilter(request, response);
+		//response.setCharacterEncoding("text/html;charset=utf-8");
 	}
 	public void init(FilterConfig fConfig) throws ServletException {
 	}
