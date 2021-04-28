@@ -11,14 +11,19 @@
 <div id="map" style="width:250px;height:250px;"></div>
 <script>
 var map = new naver.maps.Map('map', {
-    center: new naver.maps.LatLng(${mapy}, ${mapx}),
+    center: new naver.maps.LatLng(${param.mapy}, ${param.mapx}),
     zoom: 17
 });
 
 var marker = new naver.maps.Marker({
-    position: new naver.maps.LatLng(${mapy}, ${mapx}),
+    position: new naver.maps.LatLng(${param.mapy}, ${param.mapx}),
     map: map
 });
 </script>
+<p>${param.day}</p> 
+<p>${param.month}</p>
+<p>${param.year}</p>
+<p>${param.roomid}</p>
+<p>${param.search_date}</p>
 </body>
 </html>

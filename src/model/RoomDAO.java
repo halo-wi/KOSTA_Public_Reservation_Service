@@ -59,6 +59,7 @@ public class RoomDAO {
 		return roomlist;
 	}
 
+
 	public int MaxRow() throws SQLException {
 		Connection conn = DBUtil.getConnection();
 		Statement st = null;
@@ -68,14 +69,13 @@ public class RoomDAO {
 		rs = st.executeQuery(sql);
 		return rs.getInt(1);
 	}
-	
-	public List<RoomVO> selectAll(){
-		List<RoomVO> roomlist=new ArrayList<RoomVO>();
-		Connection conn=DBUtil.getConnection();
-		Statement st=null;
-		ResultSet rs=null;
-		String sql="select * from room";
 
+	public List<RoomVO> selectAll() {
+		List<RoomVO> roomlist = new ArrayList<RoomVO>();
+		Connection conn = DBUtil.getConnection();
+		Statement st = null;
+		ResultSet rs = null;
+		String sql = "select * from room";
 		try {
 			st = conn.createStatement();
 			rs = st.executeQuery(sql);

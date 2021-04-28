@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="../common/header.jsp"></jsp:include>
-
+<h1>${nickname } 님 환영합니다</h1>
 </body>
 </html>

@@ -16,7 +16,7 @@ import model.RoomVO;
 /**
  * Servlet implementation class SearchDetailServlet
  */
-@WebServlet("/Room/searchDetail")
+@WebServlet("/Search/searchDetail")
 public class SearchDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,8 +29,8 @@ public class SearchDetailServlet extends HttpServlet {
 		request.setAttribute("mapx", request.getParameter("mapx"));
 		request.setAttribute("mapy", request.getParameter("mapy"));
 		request.setAttribute("adress", request.getParameter("adress"));
-		request.setAttribute("list", list);
-		RequestDispatcher rd=request.getRequestDispatcher("roomdetail.jsp");
+	  request.setAttribute("list", list);
+    RequestDispatcher rd=request.getRequestDispatcher("../Room/roomdetail.jsp");
 		rd.forward(request, response);
 	}
 
