@@ -66,6 +66,7 @@ public class AdminDAO {
 		 
 		  result = ps.executeUpdate();
 		  DBUtil.dbClose(null, ps, conn);
+
 		  return result;
 		  }
 }
