@@ -120,13 +120,14 @@ public class BookDAO {
 	
 	// book 입력받아서 예약 테이블에 추가
 	public int insertBook(BookVO book) {
+		BookId bookId = new BookId();
 		int result = 0; // insert된 건 수
 		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		String sql = "insert into book values(?,?,?,?,?,?)";
 		try {
 			st = conn.prepareStatement(sql);
-			st.setLong(1, book.getBook_id());
+			st.setLong(1, Long.parseLong(bookId.getBookId()));
 			st.setInt(2, book.getRoom_id());
 			st.setString(3, book.getCustomer_id());
 			st.setString(4, book.getBook_begin());
