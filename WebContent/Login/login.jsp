@@ -51,30 +51,33 @@
 			</div>
 		</div>
 	</nav>
+	<div>
+		<form name="loginForm" action="LoginServelet" method="post"
+			class="loginForm">
+			<h2>Login</h2>
+			<div class="idForm">
+				<input type="text" name="userid" id="id" placeholder="ID">
+			</div>
+			<div class="passForm">
+				<input type="password" name="userpw" id="pw" placeholder="PW">
+			</div>
+			<button type="button" class="btn" onclick="button()">LOG IN</button>
+			<script>
+				function button() {
+					if (document.getElementById("id").value == ""
+							|| document.getElementById("pw").value == "") {
+						alert("올바르게 입력해주세요");
+						return false;
+					} else
+						document.loginForm.submit();
 
-	<form action="LoginServelet" method="post" class="loginForm">
-		<h2>Login</h2>
-		<div class="idForm">
-			<input type="text" name="userid" id="id" placeholder="ID">
-		</div>
-		<div class="passForm">
-			<input type="password" name="userpw" id="pw" placeholder="PW">
-		</div>
-		<button type="button" class="btn" onclick="button()">LOG IN</button>
-		<script>
-			function button() {
-				if (document.getElementById("id").value == ""
-						|| document.getElementById("pw").value == "") {
-					alert("올바르게 입력해주세요");
-					return false;
-				} else
-					document.loginForm.submit();
-
-			}
-		</script>
+				}
+			</script>
+		</form>
 
 		<div id="Kakao_login">
-			<a href="javascript:kakaologin();"><button type="button" id="kakaobtn" onclick="button()">카카오 로그인</button></a>
+			<a href="javascript:kakaologin();"><img alt=""
+				src="../img/kakao_login_medium_narrow.png"></a>
 			<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 			<script>
 				var email;
@@ -112,12 +115,12 @@
 					type="hidden" name="nickname" id="nickname"><br>
 			</form>
 		</div>
+	</div>
 
+	<div class="bottomText">
+		Don't you have ID? <a href="signup.jsp">sign up</a>
+	</div>
 
-		<div class="bottomText">
-			Don't you have ID? <a href="signup.jsp">sign up</a>
-		</div>
-	</form>
 
 	<script>
 		var x = document.getElementById("login");
