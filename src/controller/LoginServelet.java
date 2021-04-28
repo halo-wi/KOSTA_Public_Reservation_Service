@@ -1,41 +1,51 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.CustomerDAO;
+import model.CustomerVO;
 
 /**
  * Servlet implementation class LoginServelet
  */
-@WebServlet("/LoginServelet")
+@WebServlet("/Login/LoginServelet")
 public class LoginServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginServelet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String userid = request.getParameter("userid");
+		String userpw = request.getParameter("userpw");
+		CustomerDAO dao = new CustomerDAO();
+		CustomerVO customer = new CustomerVO();
+		RequestDispatcher rd = null;
+		if (dao.customer_login(userid, userpw) != 0) {
+			System.out.println("login?");
+			try {
+				customer = dao.customer_searchById(userid);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			String email = customer.getEmail();
+			String nickname = customer.getCustomer_name();
+			System.out.println("nickname:" + nickname);
+			HttpSession session = request.getSession();// 있으면얻고 없으면 만든다.
+			System.out.println(session.isNew());
+			session.setAttribute("email", email);
+			session.setAttribute("nickname", nickname);
+			rd = request.getRequestDispatcher("../Home/home.jsp");
+			//sendredirect
+			rd.forward(request, response);
+		};
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

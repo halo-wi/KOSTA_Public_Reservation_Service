@@ -41,16 +41,16 @@ public class LoginKakaoServelet extends HttpServlet {
 			System.out.println(customer.getEmail());
 			System.out.println(customer);
 			if (customer.getEmail().equals(email)) {
-				System.out.println(123);
+				System.out.println("로그인 성공");
 				request.setAttribute("name", customer.getCustomer_name());
 				HttpSession session = request.getSession();// 있으면얻고 없으면 만든다.
-				System.out.println(session.isNew() == true ? "로그인중..." : "세션만료");
+				System.out.println(session.isNew() == true ? "세션할당.." : "세션있음..");
 				
 				session.setAttribute("email", email);
 				session.setAttribute("nickname", nickname);
-				rd = request.getRequestDispatcher("/BookCheck/BookCheckMainPage.jsp");
+				rd = request.getRequestDispatcher("/Home/home.jsp");
 			} else {
-				System.out.println(456);
+				System.out.println("로그인 실패");
 				request.setAttribute("email", email);
 				request.setAttribute("nickname", nickname);
 				rd = request.getRequestDispatcher("/join/Kakaojoin.jsp");
