@@ -34,6 +34,51 @@ public class RoomDAO {
 		}
 		return roomlist;
 	}
+	
+	public List<RoomVO> selectPageByLocation(String adress, int frow, int lrow) {
+		List<RoomVO> roomlist = new ArrayList<RoomVO>();
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from (select rownum aa, bb.*from (" + " select * from room where room_location=? order by 1 ) bb  )"
+				+ "where aa between ? and ?";
+		try {
+			st = conn.prepareStatement(sql);
+			st.setString(1, adress);
+			st.setInt(2, frow);
+			st.setInt(3, lrow);
+			rs = st.executeQuery();
+			while (rs.next()) {
+				roomlist.add(makeRoom(rs));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(rs, st, conn);
+		}
+		return roomlist;
+	}
+//	public List<RoomVO> selectByLocation(String adress) {
+//		List<RoomVO> roomlist = new ArrayList<RoomVO>();
+//		Connection conn = DBUtil.getConnection();
+//		PreparedStatement st = null;
+//		ResultSet rs = null;
+//		String sql = "select * from room where room_location=?";
+//		try {
+//			st = conn.prepareStatement(sql);
+//			st.setString(1, adress);
+//			rs = st.executeQuery();
+//			while (rs.next()) {
+//				roomlist.add(makeRoom(rs));
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} finally {
+//			DBUtil.dbClose(rs, st, conn);
+//		}
+//		return roomlist;
+//	}
 
 
 	public List<String> selectForSearch() {
@@ -59,15 +104,35 @@ public class RoomDAO {
 		return roomlist;
 	}
 
-
 	public int MaxRow() throws SQLException {
 		Connection conn = DBUtil.getConnection();
 		Statement st = null;
 		ResultSet rs = null;
+		int result = 0;
 		String sql = "select count(*) room_count from room";
 		st = conn.createStatement();
 		rs = st.executeQuery(sql);
-		return rs.getInt(1);
+		while(rs.next()) {
+			result = rs.getInt(1);
+		}
+		
+		return result; 
+	}
+	
+	public int locationRow(String adress) throws SQLException {
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		int result = 0;
+		String sql = "select count(*) room_count from room where room_location=?";
+		st = conn.prepareStatement(sql);
+		st.setString(1,adress);
+		rs = st.executeQuery();
+		while(rs.next()) {
+			result = rs.getInt(1);
+		}
+		
+		return result; 
 	}
 
 	public List<RoomVO> selectAll() {
@@ -79,28 +144,6 @@ public class RoomDAO {
 		try {
 			st = conn.createStatement();
 			rs = st.executeQuery(sql);
-			while (rs.next()) {
-				roomlist.add(makeRoom(rs));
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			DBUtil.dbClose(rs, st, conn);
-		}
-		return roomlist;
-	}
-
-	public List<RoomVO> selectByLocation(String adress) {
-		List<RoomVO> roomlist = new ArrayList<RoomVO>();
-		Connection conn = DBUtil.getConnection();
-		PreparedStatement st = null;
-		ResultSet rs = null;
-		String sql = "select * from room where room_location=?";
-		try {
-			st = conn.prepareStatement(sql);
-			st.setString(1, adress);
-			rs = st.executeQuery();
 			while (rs.next()) {
 				roomlist.add(makeRoom(rs));
 			}
