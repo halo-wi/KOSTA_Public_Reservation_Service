@@ -41,7 +41,7 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav text-uppercase ml-auto">
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
-							href="#services">예약</a></li>
+							href="../Search/roomlocation">예약하기</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="../BookCheck/BookCheckMainPage.jsp">예약조회</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
