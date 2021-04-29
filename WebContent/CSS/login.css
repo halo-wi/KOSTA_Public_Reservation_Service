@@ -24,6 +24,7 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	border-radius: 15px;
+	border : 1px solid black;
 }
 
 .loginForm h2 {
@@ -81,43 +82,6 @@ body {
 	display: inline;
 }
 
-#kakao {
-	position: relative;
-	left: 15%;
-	transform: translateX(-50%);
-	margin-bottom: 40px;
-	width: 35%;
-	height: 40px;
-	background: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
-	background-position: left;
-	background-size: 200%;
-	color: white;
-	font-weight: bold;
-	border: none;
-	cursor: pointer;
-	transition: 0.4s;
-	display: inline;
-	border-radius: 15px;
-}
-
-#naver {
-	position: relative;
-	left: 20%;
-	transform: translateX(-50%);
-	margin-bottom: 40px;
-	width: 35%;
-	height: 40px;
-	background: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
-	background-position: left;
-	background-size: 200%;
-	color: white;
-	font-weight: bold;
-	border: none;
-	cursor: pointer;
-	transition: 0.4s;
-	display: inline;
-	border-radius: 15px;
-}
 
 .btn:hover {
 	background-position: right;
@@ -127,38 +91,11 @@ body {
 	text-align: center;
 }
 
-#Kakao_login {
-	position: relative;
-	left: 20%;
-	transform: translateX(-50%);
-	margin-bottom: 40px;
-	width:20px;
-	height: 40px;
+#Kakao_login{
+	border : 1px solid black;
+	position : absolute;
+	top : 300px;
+	left : 200px;
 
-	background-position: left;
 
-	color: white;
-	font-weight: bold;
-	border: none;
-	cursor: pointer;
-	transition: 0.4s;
-	display: inline;
-	border-radius: 15px;
 }
-#kakaobtn{
-position: relative;
-	left: 40%;
-	transform: translateX(-50%);
-	margin-bottom: 40px;
-	width: 80%;
-	height: 40px;
-	background-image : yellow;
-	
-	background-position: left;
-	background-size: 200%;
-	color: white;
-	font-weight: bold;
-	border: none;
-	cursor: pointer;
-	transition: 0.4s;
-	display: inline;}
