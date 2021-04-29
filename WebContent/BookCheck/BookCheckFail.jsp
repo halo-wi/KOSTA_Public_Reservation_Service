@@ -4,13 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>예약 확인 페이지</title>
+<title>예약 확인 실패</title>
 <style >
-form{margin-top: 100px;}
+h1{margin-top: 100px;}
 </style>
 </head>
 <body>
 <header><jsp:include page="/common/header.jsp"></jsp:include></header>
+<h1>해당 예약 번호는 검색 결과가 존재하지 않습니다.</h1>
+<h1>다시 확인 후 검색해주세요</h1>
 <form action="BookNum">
 <input type="number" name="booknum" required>
 <input type="submit" value="예약 번호로 조회">
@@ -24,12 +26,9 @@ function idchk() {
 	var uid="<%=(String)session.getAttribute("email") %>";
 
 	if (uid==null) {
-		location.href="../Login/login.jsp";
+		location.href="../Login/loginfrom.html";
 	}else{
 		location.href="../Mypage/bookchk?email="+uid;
 	}
-}
-</script>
-
 </body>
 </html>
