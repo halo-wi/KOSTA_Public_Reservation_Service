@@ -6,22 +6,37 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회의실 정보</title>
+<style >
+table{margin-top: 100px;}
+#tt img{width:300px; height: 150px;}
+#tt{border: 2px double black;
+background-color: royalblue;
+padding: 10px;
+text-align: center;
+}
+td,tr{
+border: 2px double black;
+}
+tr:first-child{
+background-color: steelblue;}
+body a{color: skyblue;}
+</style>
 </head>
 <body>
-<table>
+<header><jsp:include page="/common/header.jsp"></jsp:include></header>
+
+<table id="tt">
 <tr>
-<td>회의실 번호</td>
+
 <td>회의실 상태</td>
 <td>회의실 주소</td>
-<td>회의실 경도</td>
-<td>회의실 위도</td>
-<td>회의실 지역구</td>
+<td>회의실 <br>지역구</td>
 <td>회의실 이미지</td>
 <td>회의실 전화번호</td>
-<td>회의실 여는 시간</td>
-<td>회의실 닫는 시간</td>
-<td>회의실 취소기준일</td>
+<td>회의실 <br>여는 <br>시간</td>
+<td>회의실 <br>닫는 <br>시간</td>
+<td>회의실 <br>취소<br>기준일</td>
 </tr>
 
 <aa:forEach items="${roomall}" var="room">
