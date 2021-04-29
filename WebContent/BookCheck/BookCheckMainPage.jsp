@@ -24,7 +24,7 @@ function idchk() {
 	var uid="<%=(String)session.getAttribute("email") %>";
 
 	if (uid==null) {
-		location.href="../Login/loginfrom.html";
+		location.href="../Login/login.jsp";
 	}else{
 		location.href="../Mypage/bookchk?email="+uid;
 	}
