@@ -23,6 +23,6 @@
 <li>취소는 ${bookinfo2.room_cancel}일 이내에 할 수 있습니다.</li>
 </ul>
 </c:if>
-<jsp:include page="/common/footer.jsp"></jsp:include>
+
 </body>
 </html>

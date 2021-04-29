@@ -51,7 +51,7 @@
 <input type="hidden" name="email" value=${email } required>
 <input type="hidden" name="nickname" value=${nickname } required>
 <input type="submit" name="connect" value="아이디연동하기">
-<jsp:include page="/common/footer.jsp"></jsp:include>
+
 </form>
 </body>
 </html>

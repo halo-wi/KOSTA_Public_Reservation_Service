@@ -114,7 +114,6 @@ function selectBoxChange() {
 <!-- search_date는 앞에서 받아온다. -->
 
 
-<jsp:include page="/common/footer.jsp"></jsp:include>
 </form>
 </body>
 </html>

@@ -11,6 +11,7 @@ h1{ color: red; }
 </style>
 </head>
 <body>
+
 	<jsp:include page="/common/header.jsp"></jsp:include>
 	<div id="reservelook">
 		<h1>${chk==null?"예약이 실패했습니다":"예약이 성공했습니다"}</h1>
