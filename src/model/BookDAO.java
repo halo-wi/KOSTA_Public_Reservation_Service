@@ -164,4 +164,40 @@ public class BookDAO {
 		return result;
 	}
 	
+	//예약정보수정
+
+	/*public int Book_modify(String customer_id,  String room_id, String customer_id, long book_begin, String book_last, String book_date)
+	   {
+		int result = 0;
+		
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement pst = null;
+		
+		String sql = "update book " + " set customer_id=?", book_id=?, room_id=?, book_begin=? " 
+		+ "where book_last=? and book_date=?";
+		
+		
+		Connection conn = DBUtil.getConnection();
+		
+		
+		conn = DBUtil.getConnection();
+		ps = conn.prepareStatement(sql);
+		ps.setString(4, book_begin);
+		ps.setString(1, book_id);
+		ps.setString(5, book_last);
+		ps.setString(2, room_id);
+		ps.setString(3, customer_id);
+		ps.setString(6, book_date);
+		
+
+		
+		result = ps.excuteUpdate();
+		
+		DBUtil.dbClose(rs,ps, conn);
+
+		
+	
+		return book;
+	}
+	*/
 }

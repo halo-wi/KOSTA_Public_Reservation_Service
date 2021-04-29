@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"> 	 	 	
 <title>예약 확인 페이지</title>
 <style >
 form{margin-top: 100px;}

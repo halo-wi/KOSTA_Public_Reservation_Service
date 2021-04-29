@@ -139,9 +139,11 @@ public class CustomerDAO {
 		DBUtil.dbClose(rs, ps, conn);
 		return customer;
 	}
- public CustomerDTO getCustomer(String customer_id, String customer_pw, String customer_name, String customer_phone, email);
-	 
-	 CustomerDTO customer = new CustomerDTO(); 
+
+ public CustomerVO getCustomer(String customer_id, String customer_pw, String customer_name, String customer_phone, email){
+	 return;
+
+ CustomerVO customer = new CustomerVO(); 
 	 connection conn = null;
 	 PreparedStatement = null;
 	 String SQL = "UPDATE CUSTOMER SET Customer_pw = ?, customer_name=?, customer_phone=?, email=? WHERE customer_id=?";
@@ -154,7 +156,7 @@ public class CustomerDAO {
 		ps.setString(3, email); 
 		rs = ps.executeQuery();
 		if(rs.next()) {
-			customer.setcustomer_id(customer_id);
+			customer.setcustomer_id(rs.getString("customer_id"));
 			customer.setcustomer_name(rs.getString("customer_name"));
 			customer.setcustomer_pw(rs.getString("customer_pw"));
 			customer.setcustomer_phone(rs.getString("customer_phone"));
@@ -173,5 +175,3 @@ public class CustomerDAO {
 	 			}
 	 			return customer;
 	 		}
-
-}
