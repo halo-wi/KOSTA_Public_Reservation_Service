@@ -45,7 +45,9 @@ text-align: center;
 >>>>>>> branch 'master' of https://github.com/halo-wi/KOSTA_Public_Reservation_Service
 </form>
 
+
 </div>
+
 
 </body>
 </html>
