@@ -20,15 +20,13 @@ import model.RoomDAO;
 import model.RoomVO;
 
 /**
- * Servlet implementation class CustomerIdBookChkServlet
+ * Servlet implementation class IntoMyPageServlet
  */
-@WebServlet("/Mypage/bookchk")
-public class CustomerIdBookChkServlet extends HttpServlet {
+@WebServlet("/Mypage/IntoMyPage")
+public class IntoMyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-
-	
+   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		String val=request.getParameter("email");//값 받아오기
@@ -37,23 +35,15 @@ public class CustomerIdBookChkServlet extends HttpServlet {
 		RoomDAO dao3=new RoomDAO();
 		try {
 			CustomerVO bo2=dao2.customer_search_email(val);//customer_id 구하기
-			List<BookVO> vo=dao.bookSelectCustId(bo2.getCustomer_id());//vo 획득 및 회원 아이디로 검색
 			
-			List<RoomVO> vo3=new ArrayList<RoomVO>();
-			for(BookVO lv:vo) {
-				vo3.add(dao3.selectByRoomId(lv.getRoom_id()));
-			}
-			
-			request.setAttribute("list", vo); //값 저장
-			request.setAttribute("list2", vo3); //값 저장
-			RequestDispatcher rd=request.getRequestDispatcher("../BookCheck/BookCheckResultList.jsp");
+			request.setAttribute("list", bo2); //값 저장
+			RequestDispatcher rd=request.getRequestDispatcher("../Mypage/mypage.jsp");
 			rd.forward(request, response);//값 전달
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	

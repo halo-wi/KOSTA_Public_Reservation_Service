@@ -30,7 +30,7 @@
 </head>
 <body>
 회원가입 페이지 입니다.
-
+<jsp:include page="/common/header.jsp"></jsp:include>
 
 <form action="Join" method="post" name="join">
 아이디:<input type="text" name="customerid" id="id" required>
@@ -51,6 +51,7 @@
 <input type="hidden" name="email" value=${email } required>
 <input type="hidden" name="nickname" value=${nickname } required>
 <input type="submit" name="connect" value="아이디연동하기">
+<jsp:include page="/common/footer.jsp"></jsp:include>
 </form>
 </body>
 </html>

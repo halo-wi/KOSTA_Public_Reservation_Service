@@ -12,7 +12,7 @@
 
     left: 0;
 
-    bottom: 0;
+    bottom: 0px;
 
     width: 100%;
 
