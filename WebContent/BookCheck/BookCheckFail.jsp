@@ -38,6 +38,7 @@ function idchk() {
 	}else{
 		location.href="../Mypage/bookchk?email="+uid;
 	}
-	</script>
+
+	</script >
 </body>
 </html>

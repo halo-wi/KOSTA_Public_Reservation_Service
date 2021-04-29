@@ -140,9 +140,18 @@ hr {
 }
 
 table {
+	text-align: center;
 	width: 800px;
 	margin: 20px auto;
+	border: solid 1px black;
 }
+td,tr {
+	border: solid 1px black;
+	width: 100px;
+	height: 40px;
+}
+
+
 
 #sighupsubmitbuttons {
 	width: 140px;
@@ -226,7 +235,6 @@ table {
 /* reservelook */
 #reservelook{
 	
-	
 	margin-top: 120px;
 	margin-left: 40px;
 	list-style-type: none;
@@ -243,5 +251,14 @@ table {
         float: right;
         box-sizing: border-box;
       }
+#bookchklist{
+	margin-top: 120px;
+	margin-left: 40px;
+	list-style-type: none;
+	font-size: 12pt;
+}
 
+#bookingCheck{
+	margin-top: 1px;
+}
 

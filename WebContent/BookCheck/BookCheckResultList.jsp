@@ -12,18 +12,16 @@
 </head>
 <body>
 <jsp:include page="/common/header.jsp"></jsp:include>
-<table>
+
+<table id="bookchklist">
 <tr>
 <td>예약 번호</td>
-<td>에약 시작 시간</td>
-<td>에약 종료 시간</td>
-<td>에약일</td>
+<td>예약 시작 시간</td>
+<td>예약 종료 시간</td>
+<td>예약일</td>
 <td>예약 장소</td>
-<td>지역구</td>
 <td>전화번호</td>
 <td>취소 가능일</td>
-
-
 </tr>
 <c:forEach items="${list}" var="lol">
 <tr><td>${lol.book_id}</td></tr>
@@ -35,12 +33,7 @@
 <tr><td>${lol2.room_location}</td></tr>
 <tr><td>${lol2.phone}</td></tr>
 <tr><td>${lol2.room_cancel}</td></tr>
-</c:forEach>
-
-
-</c:forEach>
+</c:forEach> </c:forEach>
 </table>
-
-
 </body>
 </html>
