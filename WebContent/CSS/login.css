@@ -87,7 +87,7 @@ body {
 	background-position: right;
 }
 
-/* Ä«Ä«¿À ·Î±×ÀÎ ¹öÆ° */
+/* Ä«Ä«ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° */
 #Kakao_login{
 	position : absolute;
 	top : 400px;
@@ -157,3 +157,24 @@ table{
 	margin-top : 100px;
 	
 }
+/* reservelook */
+#reservelook{
+	
+	
+	margin-top: 120px;
+	margin-left: 40px;
+	list-style-type: none;
+	font-size: 14pt;
+	
+}
+	div.left {
+        width: 30%;
+        float: left;
+        box-sizing: border-box;
+      }
+      div.right {
+        width: 70%;
+        float: right;
+        box-sizing: border-box;
+      }
+
