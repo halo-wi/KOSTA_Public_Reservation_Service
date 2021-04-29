@@ -12,6 +12,7 @@
 
 </head>
 <body>
+<jsp:include page="/common/header.jsp"></jsp:include>
 <!-- 서블릿에서 보내준 값을 찍는 jsp -->
 <table>
 	<c:forEach var="room" items="${room_list}" > 

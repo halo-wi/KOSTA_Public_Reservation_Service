@@ -11,6 +11,7 @@
 
 </head>
 <body>
+<jsp:include page="/common/header.jsp"></jsp:include>
 <table>
 <tr>
 <td>예약 번호</td>
@@ -39,5 +40,7 @@
 
 </c:forEach>
 </table>
+
+<jsp:include page="/common/footer.jsp"></jsp:include>
 </body>
 </html>

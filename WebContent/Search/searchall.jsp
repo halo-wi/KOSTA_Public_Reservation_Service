@@ -49,6 +49,7 @@ $(function() {
 </head>
 
 <body>
+<jsp:include page="/common/header.jsp"></jsp:include>
 <h1>검색 페이지</h1>
 
 <!-- 지역구 리스트 값 받아오는 부분 -->

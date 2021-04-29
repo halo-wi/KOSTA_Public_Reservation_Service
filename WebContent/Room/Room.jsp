@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/common/header.jsp"></jsp:include>
 <table>
 <tr>
 <td>회의실 번호</td>
@@ -47,6 +48,6 @@
 </table>
 
 
-
+<jsp:include page="/common/footer.jsp"></jsp:include>
 </body>
 </html>
