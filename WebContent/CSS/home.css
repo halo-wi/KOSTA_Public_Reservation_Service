@@ -264,7 +264,8 @@ input {
 }
 
 button,
-select {
+select,
+input {
   text-transform: none;
 }
 

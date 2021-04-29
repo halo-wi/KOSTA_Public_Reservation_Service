@@ -20,19 +20,19 @@ public class CustomerDAO {
 			rs = ps.executeQuery();
 			if (rs.next()) {
 				if (rs.getString(1).equals(customer_pw)) {
-					result = 1;
+					result = 0;
 				} else {
 					System.out.println("비밀번호 오류");
-					result = 0;
+					result = 1;
 				}
 			} else {
 				System.out.println("ID가 존재하지 않습니다");
-				result = 0;
+				result = 2;
 			}
 			DBUtil.dbClose(rs, ps, conn);
 		} catch (SQLException e) {
 			System.out.println("알 수 없는 오류 발생");
-			result = 0;
+			result = 3;
 		}
 		return result;
 	}
@@ -91,6 +91,7 @@ public class CustomerDAO {
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, customer_id);
 		rs = ps.executeQuery();
+		System.out.println("실행");
 		while (rs.next()) {
 			customer = new CustomerVO();
 			customer.setCustomer_id(rs.getString(1));
