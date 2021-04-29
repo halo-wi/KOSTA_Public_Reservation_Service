@@ -1,34 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Agency - Start Bootstrap Theme</title>
-<link rel="icon" type="image/x-icon" href="../img/favicon.ico" />
-<!-- Font Awesome icons (free version)-->
-<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
-	crossorigin="anonymous"></script>
-<!-- Google fonts-->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet" type="text/css" />
-<link
-	href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
-	rel="stylesheet" type="text/css" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<link href="../CSS/home.css" rel="stylesheet" />
-<link href="../CSS/login.css" rel="stylesheet" />
+
+<title>login</title>
+<jsp:include page="../common/header.jsp"></jsp:include>
 </head>
-<body id="page-top">
-<jsp:include page="/common/header.jsp"></jsp:include>
-	<div>
-		<form name="loginForm" action="LoginServelet" method="post"
-			class="loginForm">
-			<h2>Login</h2>
+<body>
+
+	<section id="login">
+		<form name="loginform" action="LoginServelet" method="post"
+			id="loginForm">
+			<h2>ZOOM OUT</h2>
 			<div class="idForm">
 				<input type="text" name="userid" id="id" placeholder="ID">
 			</div>
@@ -43,12 +29,10 @@
 						alert("올바르게 입력해주세요");
 						return false;
 					} else
-						document.loginForm.submit();
-
+						document.loginform.submit();
 				}
 			</script>
 		</form>
-
 		<div id="Kakao_login">
 			<a href="javascript:kakaologin();"><img alt=""
 				src="../img/kakao_login_medium_narrow.png"></a>
@@ -84,18 +68,40 @@
 							});
 				}
 			</script>
-			<form action="LoginKakaoServelet" method="post" id="login">
+			<form action="LoginKakaoServelet" method="post" id="loginkakao">
 				<input type="hidden" name="email" id="email"><br> <input
 					type="hidden" name="nickname" id="nickname"><br>
 			</form>
 		</div>
-	</div>
-
-	<div class="bottomText">
-		Don't you have ID? <a href="signup.jsp">sign up</a>
-	</div>
 
 
+		<div id="Naver_login">
+			<script type="text/javascript"
+				src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+				charset="utf-8"></script>
+			<script type="text/javascript"
+				src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+			<!-- 네이버아이디로로그인 버튼 노출 영역 -->
+			<div id="naver_id_login"></div>
+			<!-- //네이버아이디로로그인 버튼 노출 영역 -->
+			<script type="text/javascript">
+				var naver_id_login = new naver_id_login(
+						"8S_iNrmYWtRUNjvQAXoN",
+						"http://localhost:8090/KOSTA_Public_Reservation_Service/Login/navercallback.html");
+				var state = naver_id_login.getUniqState();
+				naver_id_login.setButton("green", 3, 40);
+				naver_id_login.setDomain("http://localhost:8090");
+				naver_id_login.setState(state);
+				naver_id_login.init_naver_id_login();
+			</script>
+		</div>
+
+		<div id="bottomText">
+			아직 회원이 아니신가요? <a href="signup.jsp" style="color: #2c98bf">회원가입</a>
+		</div>
+
+
+	</section>
 	<script>
 		var x = document.getElementById("login");
 		var y = document.getElementById("register");
@@ -114,6 +120,7 @@
 		}
 	</script>
 
+
 	<!-- Bootstrap core JS-->
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script
@@ -126,6 +133,7 @@
 	<script src="assets/mail/contact_me.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
-	<jsp:include page="/common/footer.jsp"></jsp:include>
+	<%-- <jsp:include page="/common/footer.jsp"></jsp:include> --%>
+
 </body>
 </html>

@@ -4,20 +4,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 <title>Insert title here</title>
 
 <!-- jQeury -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+<script>
+$(function() {
+	
+    /* 검색 버튼 클릭 시 셀렉트 된 옵션을 서블릿으로 전달 */ 
+	$(".btn_search_dd").on("click", function() {
+		// 지역구 선택유도
+		/* if($("#room_location option:selected").val() == "지역구"){
+			alert("지역구를 선택해주세요.");
+		} */
+		console.log($("#room_location option:selected").val());
+		console.log($(".btn_search_dd").val());
+		var date = new Date($('#date_input').val());
+		$.ajax({
+			url:"searchall2",
+			data: {"room_location":$("#room_location option:selected").val(),
+				"page_num":$(this).val(),
+				"year":${year},
+				"month":${month},
+				"day":${day}}, 
+			success:function(responseData) {
+				$("#here").html(responseData); /* 받아온 값들을 here에 찍어줌 */
+			}
+		});
+	});
+	$('html').scrollTop(0);
+});
+</script>
 </head>
 <body>
-<jsp:include page="/common/header.jsp"></jsp:include>
-<!-- 서블릿에서 보내준 값을 찍는 jsp -->
+<!-- header -->
+<header><jsp:include page="/common/header.jsp"></jsp:include></header>
 
+<!-- 서블릿에서 보내준 값을 찍는 jsp -->
 <div id="search_room">
 	<ul>
-		<c:forEach var="room" items="${room_list}"> 
+		<c:forEach var="room" items="${room_list}">
+			<div class="container p-3 my-3 border">
 			<li>
 				<span>
 					<img style="width:500px" src="${room.img}">
@@ -53,7 +86,14 @@
 				</div>
 				<!-- <td><a href="../Room/roomdetail.jsp">예약하기</button> -->
 			</li>	
+			</div>
 		</c:forEach>
+	</ul>
+	<!-- page숫자 띄워주는 부분 -->
+	<ul>
+	<c:forEach var="row" items="${pages}" begin="0" end="${searchRow}" varStatus="status">
+		<input type="button" class="btn_search_dd" value=${row}>
+	</c:forEach>
 	</ul>
 </div>
 </body>

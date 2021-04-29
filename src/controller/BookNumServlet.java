@@ -28,8 +28,6 @@ public class BookNumServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		String val=request.getParameter("booknum");// 예약 번호를 스트링으로 받음
-		
-		PrintWriter out=response.getWriter();
 		long cVal=Long.parseLong(val);//롱값으로 전환
 		BookDAO dao=new BookDAO(); //dao 호출
 		BookVO vo=dao.bookSelectByBookId(cVal);//vo에 넣음

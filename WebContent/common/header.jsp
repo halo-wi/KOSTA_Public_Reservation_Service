@@ -43,7 +43,7 @@
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="#services">예약</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
-							href="../BookCheck/BookCheckMainPage.jsp">조회</a></li>
+							href="../BookCheck/BookCheckMainPage.jsp">예약조회</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="../Login/login.jsp">로그인</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
