@@ -15,6 +15,7 @@
 
 </head>
 <body>
+<jsp:include page="/common/header.jsp"></jsp:include>
 <div id="map" style="width:250px;height:250px;"></div>
 <script>
 var map = new naver.maps.Map('map', {
@@ -111,6 +112,9 @@ function selectBoxChange() {
 <!-- book_begin은 사용자가 입력 -->
 <!-- book_last는 사용자가 입력 -->
 <!-- search_date는 앞에서 받아온다. -->
+
+
+<jsp:include page="/common/footer.jsp"></jsp:include>
 </form>
 </body>
 </html>

@@ -11,6 +11,7 @@ form{margin-top: 100px;}
 </style>
 
 </head>
+
 <body >
 <header><jsp:include page="/common/header.jsp"></jsp:include></header>
 <form action="">
@@ -21,6 +22,7 @@ form{margin-top: 100px;}
 <input type="submit" value="수정하기">
 </form>
 
+<jsp:include page="/common/footer.jsp"></jsp:include>
 
 </body>
 </html>

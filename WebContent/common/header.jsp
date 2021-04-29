@@ -43,13 +43,13 @@
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="#services">예약</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
-							href="#portfolio">조회</a></li>
+							href="../BookCheck/BookCheckMainPage.jsp">조회</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="../Login/login.jsp">로그인</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
-							href="#team">회원가입</a></li>
+							href="../join/Join.html">회원가입</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
-							href="#contact">마이페이지</a></li>
+							href="../Mypage/ontoMypage.jsp">마이페이지</a></li>
 					</ul>
 				</div>
 			</div>
