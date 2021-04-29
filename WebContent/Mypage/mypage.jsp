@@ -23,6 +23,7 @@ text-align: center;
 </style>
 
 </head>
+
 <body >
 <header><jsp:include page="/common/header.jsp"></jsp:include></header>
 <div id="div">
@@ -33,6 +34,7 @@ text-align: center;
 전화번호:<input type="text" placeholder="수정할 전화번호" value="${customer_phone}"><br>
 <input type="submit"  value="수정하기">
 </form>
+
 </div>
 
 </body>

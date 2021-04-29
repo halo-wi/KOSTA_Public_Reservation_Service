@@ -25,8 +25,8 @@ body a{color: skyblue;}
 </head>
 <body>
 <header><jsp:include page="/common/header.jsp"></jsp:include></header>
-
 <table id="tt">
+
 <tr>
 
 <td>회의실 상태</td>
@@ -62,6 +62,6 @@ body a{color: skyblue;}
 </table>
 
 
-
+<jsp:include page="/common/footer.jsp"></jsp:include>
 </body>
 </html>
