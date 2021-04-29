@@ -22,7 +22,5 @@ form{margin-top: 100px;}
 <input type="submit" value="수정하기">
 </form>
 
-<jsp:include page="/common/footer.jsp"></jsp:include>
-
 </body>
 </html>
