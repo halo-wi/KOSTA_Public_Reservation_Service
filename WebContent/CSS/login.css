@@ -309,7 +309,8 @@ button {
 	position: absolute;
 	left: 45%;
 /* 	left: 350px; */
-	margin-top: 20px;
+	/* margin-top: 20px; */
+	top: 20px;
 }
 
 #room_info > #room_info_address {
@@ -322,20 +323,9 @@ button {
 	font-size: 20px;
 }
 
-#room_info > #room_info_roomid {
-	
-}
-
-#room_info > #room_info_state {
-	
-}
-
-#room_info > #room_info_phone {
-	
-}
-
-#room_info > #room_info_time {
-	
+#room_info > #room_info_content {
+	margin-top: 25%;
+	font-size: 18px;
 }
 
 #room_page {
@@ -349,11 +339,52 @@ button {
 	
 }
 
+#room_img {
+	position: relative;
+}
+
+#info_img {
+	
+	left: 10px;
+	z-index: 2;
+	top: -133px;
+	width:200px;
+}
+
+#info_img > #room_info_roomid {
+	position: absolute;
+	left: 10px;
+	z-index: 2;
+	top: -133px;
+	font-weight: bold;
+	
+	background-color: #fed136;
+	color: black;
+	border-radius: 5px;
+	padding: 2px;
+	font-size: 13px;
+}
+
+#info_img > #room_info_state {
+	position: absolute;
+	right: 10px;
+	z-index: 2;
+	top: -133px;
+	
+	background-color: #FF7F50;
+	color: white;
+	border-radius: 5px;
+	padding: 2px;
+	margin-left: 51%;
+	font-size: 13px;	
+}
+
 #room_img > img {
 	border-radius: 20px 0px 0px 20px;
 	width: 40%; 
 	height: 300px;
 }
+
 
 
 /* 남후승 CSS (searchall.jsp) */
