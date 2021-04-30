@@ -48,7 +48,7 @@ public class LoginKakaoServelet extends HttpServlet {
 				
 				session.setAttribute("email", email);
 				session.setAttribute("nickname", nickname);
-				rd = request.getRequestDispatcher("/Home/home.jsp");
+				rd = request.getRequestDispatcher("/Home/home.html");
 			} else {
 				System.out.println("로그인 실패");
 				request.setAttribute("email", email);

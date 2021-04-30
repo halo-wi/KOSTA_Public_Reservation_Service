@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,8 +12,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import logic.ReservationChk;
+import model.CustomerDAO;
+import model.CustomerVO;
 import model.RoomDAO;
 import model.RoomVO;
 
@@ -33,6 +38,20 @@ public class SearchDetailServlet extends HttpServlet {
 		int cut_room_end= Integer.parseInt(full_room_end.substring(0,full_room_end.indexOf(":")));
 		int room_id=Integer.parseInt(val);
 		int[] state_arr;
+		HttpSession session=request.getSession();
+		CustomerDAO dao2=new CustomerDAO();
+		try {
+			CustomerVO vo2=dao2.customer_search_email((String)session.getAttribute("email"));
+			if(vo2==null) {
+				RequestDispatcher rd2=request.getRequestDispatcher("../Login/login.jsp");
+				rd2.forward(request, response);
+			}else {
+			request.setAttribute("session",vo2.getCustomer_id() );
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		RoomDAO dao=new RoomDAO();
 		RoomVO list=dao.selectByRoomId(room_id);
@@ -58,6 +77,7 @@ public class SearchDetailServlet extends HttpServlet {
 		request.setAttribute("search_date", search_date);
 		request.setAttribute("cut_room_end", cut_room_end);
 		request.setAttribute("list", list);
+		
 		
 
 		RequestDispatcher rd=request.getRequestDispatcher("../Room/roomdetail.jsp");
