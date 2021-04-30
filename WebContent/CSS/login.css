@@ -138,9 +138,18 @@ body {
 }
 
 table {
+	text-align: center;
 	width: 800px;
 	margin: 20px auto;
+	border: solid 1px black;
 }
+td,tr {
+	border: solid 1px black;
+	width: 100px;
+	height: 40px;
+}
+
+
 
 #sighupsubmitbuttons {
 	width: 140px;
@@ -235,23 +244,35 @@ button {
 	padding: 30px;
 }
 /* reservelook */
-#reservelook {
+
+#reservelook{
+
 	margin-top: 120px;
 	margin-left: 40px;
 	list-style-type: none;
 	font-size: 14pt;
 }
 
-div.left {
-	width: 30%;
-	float: left;
-	box-sizing: border-box;
+	div.left {
+        width: 30%;
+        float: left;
+        box-sizing: border-box;
+      }
+      div.right {
+        width: 70%;
+        float: right;
+        box-sizing: border-box;
+      }
+#bookchklist{
+	margin-top: 120px;
+	margin-left: 40px;
+	list-style-type: none;
+	font-size: 12pt;
 }
 
-div.right {
-	width: 70%;
-	float: right;
-	box-sizing: border-box;
+#bookingCheck{
+	margin-top: 1px;
+
 }
 
 #content{
