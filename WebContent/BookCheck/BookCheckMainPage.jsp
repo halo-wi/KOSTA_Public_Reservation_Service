@@ -9,7 +9,7 @@
 
 <link href="../CSS/footer.css" rel="stylesheet" />
 
-<link href="../CSS/BookChkMain.css" rel="stylesheet" />
+
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
 	href="https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans+KR:wght@100&family=Nunito+Sans:wght@200&display=swap"
@@ -83,22 +83,5 @@ div.left {
          height: 100%;
       }
 
-
 </style>
-
-</head>
-
-<h3 id="bookingCheckTitle">예약 조회하기</h3>
-<hr>
-
-<div id="bookingCheck">
-	<div class="left">
-		<button id="CheckOption_byNo">예약번호로 조회</button>
-		</div>
-		<div class="right">
-		<button id="CheckOption_byID">아이디로 조회</button>
-	</div>
-</div>
-
-</body>
 </html>
