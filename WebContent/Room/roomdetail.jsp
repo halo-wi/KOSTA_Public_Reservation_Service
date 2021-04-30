@@ -7,7 +7,44 @@
 <meta charset="UTF-8">
 <title>정보 상세 표시</title>
 <style >
-#map{}
+
+#getdown{margin-top: 130px;
+font-size: 25px;
+text-align: center;}
+#roomlist{
+float: right;
+margin-right: 250px;
+}
+#img{
+position:relative;
+float:left;
+margin-left: 250px;
+}
+img{
+width: 450px;
+height: 480px;}
+#map{postion:absolute;}
+#former{
+text-align: center;}
+
+#submit{
+ background-color:  Silver; 
+  color: black; 
+  border: 2px solid  Silver;
+  padding:5px;
+}
+#submit:hover {
+  background-color: Khaki;
+  color: white;
+  border: 2px solid  Khaki;
+   padding:5px;
+}
+#ctg{
+padding:5px;
+}
+#ctg_nm{
+padding:5px;
+}
 </style>
 <!-- jQeury -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -18,7 +55,23 @@
 </head>
 <body>
 <jsp:include page="/common/header.jsp"></jsp:include>
-<div id="map" style="width:250px;height:250px;"></div>
+
+<h1 id="getdown">${list.adress}</h1>
+<hr>
+<div>
+<div id="img">
+<img  src="${list.img}"/>
+</div>
+<div id="roomlist">
+<p>주소:${list.adress}</p>
+<p>전화번호:${list.phone}</p>
+<p>시작시간:${list.room_start}</p>
+<p>종료시간:${list.room_end}</p>
+<p>취소 가능일:${list.room_cancel}</p>
+</div>
+</div>
+
+<div id="map" style="width:450px;height:260px;"></div>
 <script>
 var map = new naver.maps.Map('map', {
     center: new naver.maps.LatLng(${param.mapy}, ${param.mapx}),
@@ -70,16 +123,12 @@ function selectBoxChange() {
 	
 }
 </script>
-<p>${param.day}</p> 
-<p>${param.month}</p>
-<p>${param.year}</p>
-<p>${param.roomid}</p>
-<p>${param.search_date}</p>
-<hr>
-<form action="../Room/roomreservation">
+
+
+<form action="../Room/roomreservation" id="former">
 	<input type="hidden" name="roomid" value="${param.roomid}">
 	<%-- <input type="hidden" name="customerid" value="${param.roomid}"> --%>
-	회원이름:<input type="hidden" name="customerid" value="${session}"><br>
+	<input type="hidden" name="customerid" value="${session}"><br>
 	
 	<!-- 회의실 예약 시작시간/종료시간 선택 -->
 	<!-- 첫 번째 셀렉트박스 -->
@@ -106,7 +155,7 @@ function selectBoxChange() {
  		<option>종료시간</option>
 	</select>
 	<input type="hidden" name="search_date" value="${param.search_date}">
-	<input type="submit">
+	<input type="submit" id="submit">
 	
 <!-- 예약번호 DAO에서 자동으로 넣어준다. --> 
 <!-- room_id는 앞에서 받아온다. -->
@@ -117,5 +166,6 @@ function selectBoxChange() {
 
 
 </form>
+
 </body>
 </html>
