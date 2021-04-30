@@ -21,6 +21,7 @@
 <!-- //제이쿼리 ui js -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+<jsp:include page="../common/header2.jsp"></jsp:include>
 
 </head>
 
@@ -94,6 +95,6 @@ $(function() {
 });
 </script>
 	<!-- header -->
-	<header><jsp:include page="/common/header2.jsp"></jsp:include></header>
+	
 </body>
 </html>
