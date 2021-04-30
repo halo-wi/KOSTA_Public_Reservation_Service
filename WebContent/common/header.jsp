@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,12 +40,22 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav text-uppercase ml-auto">
+						<c:if test="${email!=null}">
+						<li class="nav-item" ><a class="nav-link js-scroll-trigger"
+						 style="font-size: 3pt;"> ${nickname}님 환영합니다.</a></li>
+						</c:if>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="../Search/roomlocation">예약하기</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="../BookCheck/BookCheckMainPage.jsp">예약조회</a></li>
+						<c:if test="${email==null}">
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="../Login/login.jsp">로그인</a></li>
+						</c:if>
+						<c:if test="${email!=null}">
+						<li class="nav-item"><a class="nav-link js-scroll-trigger"
+							href="../Login/logout.jsp"> 로그아웃</a></li>
+						</c:if>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="../join/Join.html">회원가입</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"

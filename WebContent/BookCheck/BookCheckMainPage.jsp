@@ -44,9 +44,6 @@
 	}
 </script>
 
-
-	});
-</script>
 <style>
 div.left {
         width: 50%;
