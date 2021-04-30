@@ -143,4 +143,24 @@ public class BookDAO {
 		return result;
 	}
 
+	public int deleteBook(int emp) {
+		String sql = "delete from room     " + "where book_id=?";
+		Connection conn;
+		PreparedStatement st = null;
+		int result = 0;
+		conn = DBUtil.getConnection();
+		try {
+			st = conn.prepareStatement(sql);
+			st.setInt(1, emp);
+			result = st.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(null, st, conn);
+
+		}
+		return result;
+	}
 }

@@ -24,7 +24,10 @@
 <td>취소 가능일</td>
 </tr>
 <c:forEach items="${list}" var="lol">
-<tr><td>${lol.book_id}</td></tr>
+<c:url value="BookNum" var="bn">
+<c:param name="booknum" value="${lol.book_id}"></c:param>
+</c:url>
+<tr><td><a href="${bn}">${lol.book_id}</a></td></tr>
 <tr><td>${lol.book_begin}</td></tr>
 <tr><td>${lol.book_last}</td></tr>
 <tr><td>${lol.book_date}</td></tr>
