@@ -51,7 +51,7 @@ $(function() {
 	<ul>
 		<c:forEach var="room" items="${room_list}">
 			<div id="room_container" class="row">
-			<div class="col" style="padding-left:0px;">
+			<div class="col" id="room_container_col" style="padding-left:0px;">
 			<li id="room_list">
 				<span id="room_img">
 					<img src="${room.img}">
@@ -62,7 +62,8 @@ $(function() {
 				</span>
 				<span id="room_info">
 					<div id="room_info_address">${room.adress}</div>
-					<div id="room_info_content">
+				</span>
+					<span id="room_info_content">
 						<div id="room_info_location">
 							<span>
 								<i class="fas fa-map-marked-alt" aria-hidden="true"></i>
@@ -83,8 +84,7 @@ $(function() {
 							</span>
 							${room.room_start}~${room.room_end}
 						</div>
-					</div>		
-				</span>
+					</span>		
 				<div>
 					<form action="searchDetail">
 					    <input type="hidden" name="roomid" value="${room.room_id}">
