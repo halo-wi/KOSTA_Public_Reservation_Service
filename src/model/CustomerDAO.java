@@ -139,7 +139,8 @@ public class CustomerDAO {
 		DBUtil.dbClose(rs, ps, conn);
 		return customer;
 	}
-
+}
+}
  public CustomerVO getCustomer(String customer_id, String customer_pw, String customer_name, String customer_phone, email){
 	 return;
 

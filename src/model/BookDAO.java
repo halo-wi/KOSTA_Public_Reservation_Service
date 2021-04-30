@@ -166,38 +166,41 @@ public class BookDAO {
 	
 	//예약정보수정
 
-	/*public int Book_modify(String customer_id,  String room_id, String customer_id, long book_begin, String book_last, String book_date)
+	public int Book_modify(String customer_id,  String room_id, long book_begin, String book_last, String search_date)
 	   {
 		int result = 0;
 		
 		Connection conn = DBUtil.getConnection();
 		PreparedStatement pst = null;
 		
-		String sql = "update book " + " set customer_id=?", book_id=?, room_id=?, book_begin=? " 
-		+ "where book_last=? and book_date=?";
+		String sql = "update book " + " set customer_id=?, room_id=?, book_begin=? "
+		+ "where book_last=? and search_date=?";
 		
-		
-		Connection conn = DBUtil.getConnection();
+	
 		
 		
 		conn = DBUtil.getConnection();
-		ps = conn.prepareStatement(sql);
-		ps.setString(4, book_begin);
-		ps.setString(1, book_id);
-		ps.setString(5, book_last);
-		ps.setString(2, room_id);
-		ps.setString(3, customer_id);
-		ps.setString(6, book_date);
-		
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setLong(3, book_begin);
+			
+			pst.setString(4, book_last);
+			pst.setString(2, room_id);
+			pst.setString(1, customer_id);
+			pst.setString(5, search_date);
+			
 
+			
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		result = ps.excuteUpdate();
 		
-		DBUtil.dbClose(rs,ps, conn);
+		DBUtil.dbClose(null, pst, conn);
 
-		
-	
-		return book;
+		return result;
 	}
-	*/
+	
 }

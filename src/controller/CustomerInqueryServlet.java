@@ -27,28 +27,28 @@ public class ReservationModifyServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		String bookid = request.getParameter("book_id");
+	
 		String roomid = request.getParameter("roomid");
 		String customerid = request.getParameter("customerid");
 		String book_begin = request.getParameter("book_begin");
 		String book_last = request.getParameter("book_last");
-		String book_date = request.getParameter("book_date");
+		String search_date = request.getParameter("search_date");
 		
 		CustomerDAO dao = new CustomerDAO();
 		
-		System.out.println(bookid);
+		
 		System.out.println(roomid);
 		System.out.println(customerid);
 		System.out.println(book_begin);
 		System.out.println(book_last);
-		System.out.println(book_date);
+		System.out.println(search_date);
 		
 		
 
 		if (roomid != null && customerid !=null && book_begin !=null && book_last != null && search_date != null) {
 			try {
 				
-				int vo = dao.book_modify(roomid, customerid, book_begin, book_last, search_date);
+				int vo = dao.Book_modify(roomid, customerid, book_begin, book_last, search_date);
 				
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
