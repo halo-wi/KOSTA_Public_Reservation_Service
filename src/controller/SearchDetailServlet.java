@@ -41,11 +41,16 @@ public class SearchDetailServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		CustomerDAO dao2=new CustomerDAO();
 		try {
-			CustomerVO vo2=dao2.customer_search_email((String)session.getAttribute("email"));
-			if(vo2==null) {
+			String nsession=(String)session.getAttribute("email");
+			if(nsession==null) {
+				
 				RequestDispatcher rd2=request.getRequestDispatcher("../Login/login.jsp");
 				rd2.forward(request, response);
+			
+			
+			
 			}else {
+				CustomerVO vo2=dao2.customer_search_email(nsession);
 			request.setAttribute("session",vo2.getCustomer_id() );
 			}
 		} catch (SQLException e) {
