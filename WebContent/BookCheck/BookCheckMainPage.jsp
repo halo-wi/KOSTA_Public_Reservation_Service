@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>예약 확인 페이지</title>
 <jsp:include page="/common/header.jsp"></jsp:include>
-<link href="../CSS/BookChkMain.css" rel="stylesheet" />
+
 </head>
 
 
