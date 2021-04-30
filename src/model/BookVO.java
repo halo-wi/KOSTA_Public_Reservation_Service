@@ -9,6 +9,35 @@ public class BookVO {
 	private String book_begin;
 	private String book_last;
 	private Date book_date;
+	private String adress;
+	private int room_cancel;
+	private String img;
+	private String phone;
+	public int getRoom_cancel() {
+		return room_cancel;
+	}
+	public void setRoom_cancel(int room_cancel) {
+		this.room_cancel = room_cancel;
+	}
+	public String getAdress() {
+		return adress;
+	}
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
+
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public long getBook_id() {
 		return book_id;
 	}

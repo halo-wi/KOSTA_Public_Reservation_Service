@@ -16,32 +16,31 @@ import model.BookDAO;
 import model.BookVO;
 import model.CustomerDAO;
 import model.CustomerVO;
-import model.RoomDAO;
-import model.RoomVO;
 
 /**
- * Servlet implementation class IntoMyPageServlet
+ * Servlet implementation class BookListByIdServelet
  */
-@WebServlet("/Mypage/IntoMyPage")
-public class IntoMyPageServlet extends HttpServlet {
+@WebServlet("/BookCheck/BookListByIdServelet")
+public class BookListByIdServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-   
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");
-		String val=request.getParameter("email");//값 받아오기
-		CustomerDAO dao2=new CustomerDAO();//비교용 dao 획득
+		String email = request.getParameter("email");
+		BookDAO bookDAO = new BookDAO();
+		List<BookVO> booklist =  new ArrayList<BookVO>();
+		CustomerDAO cDAO = new CustomerDAO();
+		CustomerVO cVO = new CustomerVO();
 		try {
-			CustomerVO bo2=dao2.customer_search_email(val);//customer_id 구하기
-			
-			request.setAttribute("list", bo2); //값 저장
-			RequestDispatcher rd=request.getRequestDispatcher("../Mypage/mypage.jsp");
-			rd.forward(request, response);//값 전달
-			
+			cVO = cDAO.customer_search_email(email);
+			booklist = bookDAO.bookSelectbyId(cVO.getCustomer_id());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		request.setAttribute("list", booklist);
+		RequestDispatcher rd=request.getRequestDispatcher("../BookCheck/BookCheckResultList.jsp");
+		rd.forward(request, response);
 	}
 
 	
