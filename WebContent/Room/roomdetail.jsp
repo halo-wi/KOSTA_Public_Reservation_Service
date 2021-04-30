@@ -149,7 +149,7 @@ function selectBoxChange() {
 			</c:choose>	
 		</c:forEach>
 	</select>
-	
+	~
 	<!-- 두 번째 셀렉트박스 -->
  	<select id="ctg_nm" name="book_last">
  		<option>종료시간</option>
