@@ -6,7 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>예약확인</title>
+<link href="../CSS/footer.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans+KR:wght@100&family=Nunito+Sans:wght@200&display=swap"
+	rel="stylesheet">
 <style>
+
 h1 {
 	color: red;
 }
@@ -14,26 +20,26 @@ h1 {
 </head>
 <body>
 	<jsp:include page="/common/header.jsp"></jsp:include>
-	<h1>${bookinfo==null?"예약 정보가 없습니다":"예약 정보 출력"}</h1>
-	<div id="reservelook">
-	<br>
-	<br>
-	<div class="left">
-		 <c:if test="${bookinfo!=null}"> 
-			<ul style="list-style-type: none;">
-				<li>예약 번호: ${bookinfo.book_id }</li>
-				<li>주소: ${bookinfo2.adress}</li>
-				<li>예약일: ${bookinfo.book_date }</li>
-				<li>예약 시작 시간: ${bookinfo.book_begin }</li>
-				<li>예약 종료 시간: ${bookinfo.book_last }</li>
+	<div id = "contents" style = "border : 1px solid black;">
+	
+			<h2 id = "BookCheckResultTitle" style="font-family: 'Noto Sans KR', sans-serif;">
+				예약내역
+			</h2>
+			<div id = "room-img" ></div>
+			<div id = "BookCheck"></div>
 
-			</ul>
-		 </c:if>
-		</div>
-		<div class="right">
-	<img src=${bookinfo2.img } width="250px" height="90px">
 	</div>
-		<p style="font-size: 9pt;">전화번호: ${bookinfo2.phone}    | 취소는 ${bookinfo2.room_cancel}일 이내에 할 수 있습니다. | </p>
-	</div>
+	
+	
+	<div id="footer">
+	<p>&copyZOOMOUT 팀원 강성빈 고석우 김성휘 남후승 임세혁</p>
+	<p>
+		<a href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"
+			target="_blank" style="color: grey;">
+			https://github.com/halo-wi/KOSTA_Public_Reservation_Service</a>
+	</p>
+
+</div>
+	
 </body>
 </html>
