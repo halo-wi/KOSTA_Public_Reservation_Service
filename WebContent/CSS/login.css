@@ -245,3 +245,36 @@ table {
       }
 
 
+/* 남후승 CSS (searchRoom.jsp) */
+#search_page {
+	
+}
+
+#room_list {
+	position: relative;
+	list-style: none;
+	margin: 20px;
+}
+
+#room_container {
+	border-color: black;
+	background-color: white;
+	margin: 10px 15% 10px 15%;
+	border-radius: 20px;
+	
+}
+
+#room_info {
+	position: absolute;
+	right: 20px;
+}
+
+
+#room_page {
+	text-align: center;
+}
+
+/* 남후승 CSS (searchall.jsp) */
+#room_location1 {
+	text-align: center;
+}
