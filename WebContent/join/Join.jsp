@@ -33,7 +33,6 @@
 
 	<jsp:include page="../common/header.jsp"></jsp:include>
 
-
 	<section id="signup">
 		<span id="signuptitle"><h3>회원가입</h3></span>
 		<hr>

@@ -21,7 +21,7 @@ public class LogoutServelet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(1);  
 		request.getSession().invalidate();
-		  response.sendRedirect("../Home/home.html");
+		  response.sendRedirect("../Home/home.jsp");
 		  return;
 	}
 

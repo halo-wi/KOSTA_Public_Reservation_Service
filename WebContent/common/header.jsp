@@ -30,7 +30,7 @@
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top"
 			id="mainNav">
 			<div class="container">
-				<a class="navbar-brand js-scroll-trigger" href="../Home/home.html"><img
+				<a class="navbar-brand js-scroll-trigger" href="../Home/home.jsp"><img
 					src="../img/navbar-logo.svg" alt="..." /></a>
 				<button class="navbar-toggler navbar-toggler-right" type="button"
 					data-toggle="collapse" data-target="#navbarResponsive"
@@ -42,7 +42,7 @@
 					<ul class="navbar-nav text-uppercase ml-auto">
 						<c:if test="${email!=null}">
 						<li class="nav-item" ><a class="nav-link js-scroll-trigger"
-						 style="font-size: 3pt;"> ${nickname}님 환영합니다.</a></li>
+						 style="font-size: 3pt;"> &nbsp;&nbsp;${nickname}님<br>환영합니다.</a></li>
 						</c:if>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="../Search/roomlocation">예약하기</a></li>
@@ -57,7 +57,7 @@
 							href="../Login/logout.jsp"> 로그아웃</a></li>
 						</c:if>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
-							href="../join/Join.html">회원가입</a></li>
+							href="../join/Join.jsp">회원가입</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="../Mypage/ontoMypage.jsp">마이페이지</a></li>
 					</ul>
