@@ -119,15 +119,16 @@ public class BookDAO {
 	}
 	
 	// book 입력받아서 예약 테이블에 추가
-	public int insertBook(BookVO book) {
+	public long insertBook(BookVO book) {
 		BookId bookId = new BookId();
+		long id = Long.parseLong(bookId.getBookId());
 		int result = 0; // insert된 건 수
 		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		String sql = "insert into book values(?,?,?,?,?,?)";
 		try {
 			st = conn.prepareStatement(sql);
-			st.setLong(1, Long.parseLong(bookId.getBookId()));
+			st.setLong(1, id);
 			st.setInt(2, book.getRoom_id());
 			st.setString(3, book.getCustomer_id());
 			st.setString(4, book.getBook_begin());
@@ -135,12 +136,15 @@ public class BookDAO {
 			st.setDate(6, book.getBook_date());
 			
 			result = st.executeUpdate();
+			conn.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBUtil.dbClose(null, st, conn);
 		}
-		return result;
+		
+		if(result!=0) return id;
+		else return result;
 	}
 
 	public int deleteBook(int emp) {
