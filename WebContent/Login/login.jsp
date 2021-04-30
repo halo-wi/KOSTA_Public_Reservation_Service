@@ -12,7 +12,7 @@
 <body>
 
 	<section id="login">
-		<form name="loginform" action="LoginServelet" method="post"
+		<form name="loginform" action="../Login/LoginServelet" method="post"
 			id="loginForm">
 			<h2>ZOOM OUT</h2>
 			<div class="idForm">

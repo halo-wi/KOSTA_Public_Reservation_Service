@@ -31,7 +31,8 @@
 			id="mainNav">
 			<div class="container">
 				<a class="navbar-brand js-scroll-trigger" href="../Home/home.jsp"><img
-					src="../img/navbar-logo.svg" alt="..." /></a>
+
+					src="../img/로고_배경제거.png" alt="..." /></a>
 				<button class="navbar-toggler navbar-toggler-right" type="button"
 					data-toggle="collapse" data-target="#navbarResponsive"
 					aria-controls="navbarResponsive" aria-expanded="false"
