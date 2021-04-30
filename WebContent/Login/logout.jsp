@@ -11,8 +11,8 @@
 </head>
 <body>
 
-	<section id="login">
-		<form name="loginform" action="Logout" method="post" id="loginForm">
+	<section id="login" >
+		<form name="loginform" action="Logout" method="post" id="loginForm" style=" height: 100px; ">
 			<h2>ZOOM OUT</h2>
 			<input type="hidden" value=${nickname } name="nickname">
 			<input type="hidden" value=${email } name="email">

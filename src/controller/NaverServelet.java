@@ -14,8 +14,8 @@ import javax.servlet.http.HttpSession;
 import model.CustomerDAO;
 import model.CustomerVO;
 
-@WebServlet("/Login/LoginKakaoServelet")
-public class LoginKakaoServelet extends HttpServlet {
+@WebServlet("/Login/LoginNaverServelet")
+public class NaverServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -24,7 +24,7 @@ public class LoginKakaoServelet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("euc-kr");
 		System.out.println("LoginKakaoServelet.....");
 		String email = request.getParameter("email");
 		String nickname = request.getParameter("nickname");
