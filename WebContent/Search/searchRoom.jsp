@@ -12,8 +12,6 @@
 
 <title>Insert title here</title>
 
-<!-- jQeury -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 $(function() {
 	
@@ -43,26 +41,25 @@ $(function() {
 </script>
 </head>
 <body>
-<!-- header -->
-<header><jsp:include page="/common/header.jsp"></jsp:include></header>
 
 <!-- 서블릿에서 보내준 값을 찍는 jsp -->
 <div id="search_room">
 	<ul>
 		<c:forEach var="room" items="${room_list}">
-			<div class="container p-3 my-3 border">
-			<li>
-				<span>
-					<img style="width:500px" src="${room.img}">
+			<div id="room_container" class="row">
+			<div class="col">
+			<li id="room_list">
+				<span id="room_img">
+					<img style="width:300px; height:200px" src="${room.img}">
 				</span>
-				<div>
+				<span id="room_info">
 					<div>${room.room_location}</div>
 					<div>${room.adress}</div>		
 					<div>${room.room_id}</div>
 					<div>${room.room_state}</div>
 					<div>${room.phone}</div>
 					<div>${room.room_start}~${room.room_end}</div>
-				</div>
+				</span>
 				<div>
 					<form action="searchDetail">
 					    <input type="hidden" name="roomid" value="${room.room_id}">
@@ -85,16 +82,19 @@ $(function() {
 					</form>
 				</div>
 				<!-- <td><a href="../Room/roomdetail.jsp">예약하기</button> -->
-			</li>	
+			</li>
+			</div>
 			</div>
 		</c:forEach>
 	</ul>
 	<!-- page숫자 띄워주는 부분 -->
-	<ul>
+	<ul id="room_page">
 	<c:forEach var="row" items="${pages}" begin="0" end="${searchRow}" varStatus="status">
 		<input type="button" class="btn_search_dd" value=${row}>
 	</c:forEach>
 	</ul>
 </div>
+<!-- header -->
+<header><jsp:include page="/common/header2.jsp"></jsp:include></header>
 </body>
 </html>

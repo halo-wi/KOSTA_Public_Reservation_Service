@@ -21,30 +21,29 @@
 
 </head>
 
-<body>
-<!-- header -->
-<%-- <header><jsp:include page="/common/header.jsp"></jsp:include></header> --%>
+<body id="page-top">
 
 <section id="search_page">
-	<h1>검색 페이지</h1>
 	<!-- 지역구 리스트 값 받아오는 부분 -->
-	<select name="room_location" id="room_location">
-		<option>
-			<p>전체지역</p>
-		</option>
-		<c:forEach var="location" items="${room_location_list}" > 
+	<div id="room_location1">
+		<select name="room_location" id="room_location">
 			<option>
-				<p>${location}</p>
-			</option>		
-		</c:forEach>
-	</select>
+				<p>전체지역</p>
+			</option>
+			<c:forEach var="location" items="${room_location_list}" > 
+				<option>
+					<p>${location}</p>
+				</option>		
+			</c:forEach>
+		</select>
 	
-	<!-- 날짜 입력하는 부분 -->
-	<input type="text" id="date_input" value="">
 	
-	<!-- 셀렉트 된 입력 값들 전송하는 버튼 -->
-	<button type="button" class="btn_search" id="btn_search" value="1">검색</button>
-	
+		<!-- 날짜 입력하는 부분 -->
+		<input type="text" id="date_input" value="">
+		
+		<!-- 셀렉트 된 입력 값들 전송하는 버튼 -->
+		<button type="button" class="btn_search" id="btn_search" value="1">검색</button>
+		</div>
 	<!-- 받아온 값 띄워주는 부분 -->
 	<div id="here"></div>
 	
@@ -57,10 +56,11 @@
 </section>
 
 <script>
+
 $(function() {
 	
 	 // datepicker의 default값을 오늘 날짜로 바꿔준다./ 오늘 날짜 이전은 비활성화 시킴
-    $( "#date_input" ).datepicker({ minDate: 0}).datepicker("setDate", new Date());
+    jQuery( "#date_input" ).datepicker({ minDate: 0}).datepicker("setDate", new Date());
     
 	console.log($("#room_location option:selected").val());
 	console.log($(".btn_search_dd").val());
@@ -90,5 +90,7 @@ $(function() {
    
 });
 </script>
+<!-- header -->
+<header><jsp:include page="/common/header2.jsp"></jsp:include></header>
 </body>
 </html>
