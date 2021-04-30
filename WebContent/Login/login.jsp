@@ -59,7 +59,7 @@
 													document
 															.getElementById("nickname").value = nickname;
 													document.getElementById(
-															"login").submit();
+															"loginkakao").submit();
 													//location.href = "LoginKakaoServelet?email="+response.kakao_account.email+
 													//"&nickname="+response.kakao_account.profile.nickname;
 												}
