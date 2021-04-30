@@ -10,6 +10,10 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
+<!-- Bootstrap icon-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <title>Insert title here</title>
 
 <script>
@@ -47,18 +51,24 @@ $(function() {
 	<ul>
 		<c:forEach var="room" items="${room_list}">
 			<div id="room_container" class="row">
-			<div class="col">
+			<div class="col" style="padding-left:0px;">
 			<li id="room_list">
 				<span id="room_img">
-					<img style="width:300px; height:200px" src="${room.img}">
+					<img src="${room.img}">
 				</span>
 				<span id="room_info">
-					<div>${room.room_location}</div>
-					<div>${room.adress}</div>		
-					<div>${room.room_id}</div>
-					<div>${room.room_state}</div>
-					<div>${room.phone}</div>
-					<div>${room.room_start}~${room.room_end}</div>
+					<div id="room_info_address">${room.adress}</div>		
+					<div id="room_info_location">${room.room_location}</div>
+					<div id="room_info_roomid">${room.room_id}</div>
+					<div id="room_info_state">${room.room_state}</div>
+					<div id="room_info_phone">${room.phone}</div>
+					<div id="room_info_time">
+						<span>
+							<i class="fa fa-comment-o" aria-hidden="true"></i>
+							사용 가능 시간
+						</span>
+						${room.room_start}~${room.room_end}
+					</div>
 				</span>
 				<div>
 					<form action="searchDetail">
@@ -73,7 +83,7 @@ $(function() {
 					    <input type="hidden" name="room_end" value="${room.room_end}">
 					    <c:choose>
 					    	<c:when test="${room.today_state eq true}">
-					    		<input type="submit" value="예약하기">
+					    		<input id="reservation_btn" type="submit" value="예약하기">
 					    	</c:when>
 							<c:when test="${room.today_state eq false}">
 								<span>예약불가</span>				    
