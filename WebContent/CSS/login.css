@@ -144,12 +144,11 @@ hr {
 
 table {
 	text-align: center;
-	width: 800px;
+	width: 1000px;
 	margin: 20px auto;
-	border: solid 1px black;
 }
 td,tr {
-	border: solid 1px black;
+
 	width: 100px;
 	height: 40px;
 }
@@ -424,4 +423,9 @@ button {
 	background-image : url("../img/gradation.jpg");
 }
 
-
+.form-control{
+	width: 150px;
+	border-bottom: solid 1px black;
+	float: left;	
+	
+}
