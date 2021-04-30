@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>예약확인</title>
 <style>
 h1{ color: red; }
 </style>
@@ -23,8 +23,8 @@ h1{ color: red; }
 				<li>예약 번호: ${chk.book_id }</li>
 				<li>주소: ${chk2.adress}</li>
 				<li>예약일: ${chk.book_date }</li>
-				<li>예약 시작 시간: ${chk.book_begin }</li>
-				<li>예약 종료 시간: ${chk.book_last }</li>
+				<li>시작 시간: ${chk.book_begin }</li>
+				<li>종료 시간: ${chk.book_last }</li>
 			</ul>
 		</c:if> 
 		</div>
