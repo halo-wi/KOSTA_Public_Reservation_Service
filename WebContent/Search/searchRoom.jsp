@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <!-- Bootstrap icon-->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
 
 <title>Insert title here</title>
@@ -55,20 +55,35 @@ $(function() {
 			<li id="room_list">
 				<span id="room_img">
 					<img src="${room.img}">
+					<div id="info_img">
+						<span id="room_info_roomid">No.&nbsp;${room.room_id}</span>
+						<span id="room_info_state">${room.room_state}</span>					
+					</div>
 				</span>
 				<span id="room_info">
-					<div id="room_info_address">${room.adress}</div>		
-					<div id="room_info_location">${room.room_location}</div>
-					<div id="room_info_roomid">${room.room_id}</div>
-					<div id="room_info_state">${room.room_state}</div>
-					<div id="room_info_phone">${room.phone}</div>
-					<div id="room_info_time">
-						<span>
-							<i class="fa fa-comment-o" aria-hidden="true"></i>
-							사용 가능 시간
-						</span>
-						${room.room_start}~${room.room_end}
-					</div>
+					<div id="room_info_address">${room.adress}</div>
+					<div id="room_info_content">
+						<div id="room_info_location">
+							<span>
+								<i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+							</span>
+							${room.room_location}
+						</div>
+						<div id="room_info_phone">
+							<span>
+								<i class="fas fa-phone-alt" aria-hidden="true"></i>
+								문의 전화 &nbsp;
+							</span>
+							${room.phone}
+						</div>
+						<div id="room_info_time">
+							<span>
+								<i class="fas fa-clock" aria-hidden="true"></i>
+								사용 가능 시간 &nbsp;
+							</span>
+							${room.room_start}~${room.room_end}
+						</div>
+					</div>		
 				</span>
 				<div>
 					<form action="searchDetail">
