@@ -283,34 +283,47 @@ button {
 
 }
 #room-img{
-	margin-top:20px;
-	position : absolute;
-	width : 400px;
+
+	width: 500px;
 	height: 400px;
-	background-image: url("../img/test.jpg");
-	background-size : contain;
-	background-repeat: no-repeat;
-	background-position:center;
-	left : 10%;
-	margin-left: -10px;
-	border : 1px solid black;
+	float :left;
+	margin-top: 20px;
+	text-align: center;
+	padding: 30px;
+	margin-left: 60px;
 
 	
 }
 #BookCheck{
-	margin-top:20px;
-	position : absolute;
-	width : 400px;
+	border : 1px solid black;
+	border-radius : 10px;
+	width: 500px;
 	height: 400px;
-	background-image: url("../img/test.jpg");
-	background-size : contain;
-	background-repeat: no-repeat;
-	background-position:center;
+	float :left;
+	margin-top: 50px;
 
-	margin-left: -10px;
-	border : 3px solid red;
+	padding: 30px;
+	margin-left: 60px;
 
 }
+
+#bookchkcontents{
+	border : 1px solid black;
+	margin-top:20px;
+	margin-left : 20px;
+	text-align: left;
+}
+.bookchkcontentsText{
+	margin-left: 20px;
+}
+
+#bookCancelBtn{
+	background-color : lightblue !important;
+	color :white;
+	width : 100px;
+}
+
+
 
 /* 남후승 CSS (searchRoom.jsp) */
 
@@ -452,9 +465,24 @@ button {
 	background-image : url("../img/gradation.jpg");
 }
 
+
+/* 마이페이지 CSS */
+
+#mypagecontent{
+	position : absolute;
+	top : 30%; 
+	width : 70%;
+	height : 500px;
+	border : 1px solid black;
+	margin-left : 210px;
+	padding : 40px;
+}
+
+
 .form-control{
 	width: 150px;
 	border-bottom: solid 1px black;
 	float: left;	
 	
 }
+
