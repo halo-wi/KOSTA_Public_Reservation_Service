@@ -23,20 +23,18 @@
 <td>전화번호</td>
 <td>취소 가능일</td>
 </tr>
-<c:forEach items="${list}" var="lol">
+<c:forEach items="${list}" var="list">
 <c:url value="BookNum" var="bn">
-<c:param name="booknum" value="${lol.book_id}"></c:param>
+<c:param name="booknum" value="${list.book_id}"></c:param>
 </c:url>
-<tr><td><a href="${bn}">${lol.book_id}</a></td></tr>
-<tr><td>${lol.book_begin}</td></tr>
-<tr><td>${lol.book_last}</td></tr>
-<tr><td>${lol.book_date}</td></tr>
-<c:forEach items="${list2} " var="lol2">
-<tr><td>${lol2.adress}</td></tr>
-<tr><td>${lol2.room_location}</td></tr>
-<tr><td>${lol2.phone}</td></tr>
-<tr><td>${lol2.room_cancel}</td></tr>
-</c:forEach> </c:forEach>
+<tr><td><a href="${bn}">${list.book_id}</a></td></tr>
+<tr><td>${list.book_begin}</td></tr>
+<tr><td>${list.book_last}</td></tr>
+<tr><td>${list.book_date}</td></tr>
+<tr><td>${list.adress}</td></tr>
+<tr><td>${list.phone}</td></tr>
+<tr><td>${list.room_cancel}</td></tr>
+</c:forEach>
 </table>
 </body>
 </html>
