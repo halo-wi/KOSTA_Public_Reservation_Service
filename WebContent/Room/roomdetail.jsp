@@ -6,7 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>정보 상세 표시</title>
-
+<style >
+#map{}
+</style>
 <!-- jQeury -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -77,7 +79,7 @@ function selectBoxChange() {
 <form action="../Room/roomreservation">
 	<input type="hidden" name="roomid" value="${param.roomid}">
 	<%-- <input type="hidden" name="customerid" value="${param.roomid}"> --%>
-	회원이름:<input type="text" name="customerid"><br>
+	회원이름:<input type="hidden" name="customerid" value="${session}"><br>
 	
 	<!-- 회의실 예약 시작시간/종료시간 선택 -->
 	<!-- 첫 번째 셀렉트박스 -->
