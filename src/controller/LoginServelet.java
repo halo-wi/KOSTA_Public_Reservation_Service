@@ -44,7 +44,7 @@ public class LoginServelet extends HttpServlet {
 			System.out.println(session.isNew());
 			session.setAttribute("email", email);
 			session.setAttribute("nickname", nickname);
-			response.sendRedirect("../Home/home.html");
+			response.sendRedirect("../Home/home.jsp");
 		}
 		else if (login == 1) {
 			out.println("<script>");
