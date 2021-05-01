@@ -18,7 +18,7 @@ form{margin-top:150px }
 	</form>
 	<script>
 function idchk() {
-	var uid=<%=(String) session.getAttribute("email")%>;
+	var uid="<%=(String) session.getAttribute("email")%>";
 
 			if (uid == null) {
 				location.href = "../Login/login.jsp";
@@ -27,7 +27,7 @@ function idchk() {
 			}
 		}
 function bookchk() {
-	var uid=<%=(String) session.getAttribute("email")%>;
+	var uid="<%=(String) session.getAttribute("email")%>";
 
 			if (uid == null) {
 				location.href = "../Login/login.jsp";
