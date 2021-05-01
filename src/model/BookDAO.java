@@ -147,15 +147,15 @@ public class BookDAO {
 		else return result;
 	}
 
-	public int deleteBook(int emp) {
-		String sql = "delete from room     " + "where book_id=?";
+	public int deleteBook(long book_id) {
+		String sql = "delete from book" + "where book_id=?";
 		Connection conn;
 		PreparedStatement st = null;
 		int result = 0;
 		conn = DBUtil.getConnection();
 		try {
 			st = conn.prepareStatement(sql);
-			st.setInt(1, emp);
+			st.setLong(1, book_id);
 			result = st.executeUpdate();
 
 		} catch (SQLException e) {

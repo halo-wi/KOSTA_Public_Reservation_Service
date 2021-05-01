@@ -22,7 +22,7 @@ h1 {
 <body>
 	<jsp:include page="/common/header.jsp"></jsp:include>
 
-	<div id="contents"">
+	<div id="contents">
 		<h2 id="BookCheckResultTitle"
 			style="font-family: 'Noto Sans KR', sans-serif;">예약내역</h2>
 		<div id="room-img">
@@ -40,13 +40,22 @@ h1 {
 				<p class="bookchkcontentsText">종료시간 : ${bookinfo.book_last }</p>
 
 				<div id="bookCancel">
-					<button type="button" id="bookCancelBtn" class="btn btn-dark">예약취소</button>
+					<button type="button" id="bookCancelBtn" class="btn btn-dark" onclick="bookdelet()">예약취소</button>
 				</div>
 			</div>
 		</div>
 
 
 	</div>
+
+<script>
+	function bookdelet() {
+		var bookid=${bookinfo.book_id };
+			location.href = "../BookCheck/DeleteServelet?bookid="+bookid;
+	}
+</script>
+
+
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script

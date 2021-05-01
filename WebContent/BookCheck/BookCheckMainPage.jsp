@@ -42,7 +42,7 @@
 				</c:if>
 				<c:if test="${email!=null}">
 			<button type="button" id="checkById_btn" name="bookid"
-				onclick="idchk()" value="">예약조회</button>
+				onclick="bookchk()" value="">예약조회</button>
 				</c:if>
 		</div>
 	</div>
@@ -60,16 +60,16 @@
 
 <script>
 	function idchk() {
-		var uid =
-<%=(String) session.getAttribute("email")%>
-	;
-
-		if (uid == null) {
 			location.href = "../Login/login.jsp";
-		} else {
-			location.href = "../Mypage/bookchk?email=" + uid;
-		}
 	}
+	
+	function bookchk() {	
+		var uid="<%=(String) session.getAttribute("email")%>";
+			location.href = "../BookCheck/BookListByIdServelet?email=" + uid;
+	}
+
+	
+	
 </script>
 
 <style>
