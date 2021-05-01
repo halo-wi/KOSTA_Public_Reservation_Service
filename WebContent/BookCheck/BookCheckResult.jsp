@@ -40,7 +40,7 @@ h1 {
 				<p class="bookchkcontentsText">종료시간 : ${bookinfo.book_last }</p>
 
 				<div id="bookCancel">
-					<button type="button" id="bookCancelBtn" class="btn btn-dark" onclick="delBook()">예약취소</button>
+					<button type="button" id="bookCancelBtn" class="btn btn-dark">예약취소</button>
 				</div>
 			</div>
 		</div>
@@ -64,11 +64,7 @@ h1 {
 		</p>
 
 	</div>
-<script >
-function delBook(){
-	location.href="../Search/BookCan?book_id="+${bookinfo.book_id}
-}
-</script>
+
 
 </body>
 </html>
