@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,7 +17,7 @@ form{margin-top:150px }
 	</form>
 	<script>
 function idchk() {
-	var uid=<%=(String) session.getAttribute("email")%>;
+	var uid="<%=(String) session.getAttribute("email")%>";
 
 			if (uid == null) {
 				location.href = "../Login/login.jsp";
@@ -27,7 +26,7 @@ function idchk() {
 			}
 		}
 function bookchk() {
-	var uid=<%=(String) session.getAttribute("email")%>;
+	var uid="<%=(String) session.getAttribute("email")%>";
 
 			if (uid == null) {
 				location.href = "../Login/login.jsp";
