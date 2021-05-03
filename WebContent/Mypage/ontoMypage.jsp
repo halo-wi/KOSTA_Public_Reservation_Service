@@ -6,7 +6,9 @@
 <meta charset="UTF-8">
 <title>마이페이지 들어가는 버튼</title>
 <style>
-form{margin-top:150px }
+form {
+	margin-top: 150px
+}
 </style>
 </head>
 <body>
@@ -17,7 +19,6 @@ form{margin-top:150px }
 	<script>
 function idchk() {
 	var uid="<%=(String) session.getAttribute("email")%>";
-
 			if (uid == null) {
 				location.href = "../Login/login.jsp";
 			} else {

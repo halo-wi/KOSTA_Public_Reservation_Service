@@ -9744,8 +9744,8 @@ header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
-  color: #fff;
-  background-image: url("../img/header-bg.jpg");
+  color: black;
+  background-image: url("../img/home-bg.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
