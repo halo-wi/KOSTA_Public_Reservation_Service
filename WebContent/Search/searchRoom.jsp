@@ -106,7 +106,7 @@ $(function() {
 					    <input type="hidden" name="room_end" value="${room.room_end}">
 					    <c:choose>
 					    	<c:when test="${room.today_state eq true}">
-					    		<input class="reservation_btn_on" type="submit" value="예약하기">
+					    		<input class="reservation_btn_on" type="submit" value="예약하기" onclick="onclick()">
 					    	</c:when>
 							<c:when test="${room.today_state eq false}">
 								<span class="reservation_btn_off" value="예약불가">예약불가</span>		    
@@ -123,10 +123,21 @@ $(function() {
 	<!-- page숫자 띄워주는 부분 -->
 	<ul id="room_page">
 	<c:forEach var="row" items="${pages}" begin="0" end="${searchRow}" varStatus="status">
-		<input type="button" class="btn_search_dd" value=${row}>
+		<input type="button" class="btn_search_dd" value="${row}">
 	</c:forEach>
 	</ul>
 </div>
+<script>
+function onclick() {
+	var uid="<%=(String) session.getAttribute("email")%>";
+	if (uid == null) {
+		location.href = "../Login/login.jsp";
+	} else {
+		location.href = "../Room/searchDetail"
+	}
+	
+}
+</script>
 <!-- header -->
 <header><jsp:include page="/common/header2.jsp"></jsp:include></header>
 </body>
