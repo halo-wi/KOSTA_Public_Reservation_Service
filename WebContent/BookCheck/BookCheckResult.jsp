@@ -18,10 +18,12 @@ h1 {
 </style>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=99s5cztafe"></script>
+	<link href="../CSS/footer.css" rel="stylesheet" />
 </head>
 <body>
-	<jsp:include page="/common/header.jsp"></jsp:include>
-
+	<jsp:include page="/common/header2.jsp"></jsp:include>
+	
 	<div id="contents">
 		<h2 id="BookCheckResultTitle"
 			style="font-family: 'Noto Sans KR', sans-serif;">예약내역</h2>
@@ -44,7 +46,25 @@ h1 {
 				</div>
 			</div>
 		</div>
-
+		<!-- 오시는 길 -->
+			<div class="item_viewbox_top_tabcon_box" style=" clear: both; margin-left: 100px;">
+				<p id="tabcon4" class="sub_text_tit_type01">오시는 길</p>
+				<div class="map_address">
+					<i class="fas fa-map-marker-alt" style="color:blue" aria-hidden="true"></i>
+					<p class="item_viewbox_top_tabcon_box05_text">${list.adress}</p>
+				</div>
+				<!-- 네이버 map -->
+				<div id="map" style="width:780px;height:330px;"></div>
+			</div>
+	</div>
+	
+	<div id="footer">
+		<p>&copyZOOMOUT 팀원 강성빈 고석우 김성휘 남후승 임세혁</p>
+		<p>
+			<a href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"
+				target="_blank" style="color: grey;">
+				https://github.com/halo-wi/KOSTA_Public_Reservation_Service</a>
+		</p>
 
 	</div>
 
@@ -63,17 +83,16 @@ h1 {
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
+<script>
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(${bookinfo2.mapy}, ${bookinfo2.mapx}),
+    zoom: 17
+});
 
-	<div id="footer">
-		<p>&copyZOOMOUT 팀원 강성빈 고석우 김성휘 남후승 임세혁</p>
-		<p>
-			<a href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"
-				target="_blank" style="color: grey;">
-				https://github.com/halo-wi/KOSTA_Public_Reservation_Service</a>
-		</p>
-
-	</div>
-
-
+var marker = new naver.maps.Marker({
+    position: new naver.maps.LatLng(${bookinfo2.mapy}, ${bookinfo2.mapx}),
+    map: map
+});
+</script>
 </body>
 </html>

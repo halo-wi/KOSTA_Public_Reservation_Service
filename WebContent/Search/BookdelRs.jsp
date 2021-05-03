@@ -15,7 +15,7 @@ text-align: center;
 </style>
 </head>
 <body>
-<header><jsp:include page="/common/header.jsp"></jsp:include></header>
+<header><jsp:include page="/common/header2.jsp"></jsp:include></header>
 <div id="getdown">
 <h1>해당 예약은 ${message}개 취소되었습니다.</h1>
 </div>

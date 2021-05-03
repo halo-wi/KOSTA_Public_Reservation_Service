@@ -147,8 +147,8 @@ public class BookDAO {
 		else return result;
 	}
 
-	public int deleteBook(long book_id) {
-		String sql = "delete from book" + "where book_id=?";
+	public int deleteBook(long book_id) throws SQLException {
+		String sql = "delete from book where book_id=?";
 		Connection conn;
 		PreparedStatement st = null;
 		int result = 0;
@@ -157,7 +157,6 @@ public class BookDAO {
 			st = conn.prepareStatement(sql);
 			st.setLong(1, book_id);
 			result = st.executeUpdate();
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -170,17 +169,18 @@ public class BookDAO {
 	
 	public List<BookVO> bookSelectbyId(String customer_id) {
 		List<BookVO> booklist = new ArrayList<BookVO>();
-		BookVO bookVO = new BookVO();
 		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		String sql = "select * from book join room on book.room_id=room.room_id where customer_id = ?";
+		String sql = "select * from book join room on book.room_id=room.room_id "
+				+ "where customer_id = ?";
 		try {
 			st = conn.prepareStatement(sql);
 			st.setString(1, customer_id);
 			rs = st.executeQuery();
 			
 			while(rs.next()) {
+				BookVO bookVO = new BookVO();
 				bookVO.setBook_id(rs.getLong(1));
 				bookVO.setBook_begin(rs.getString("book_begin"));
 				bookVO.setBook_last(rs.getString("book_last"));

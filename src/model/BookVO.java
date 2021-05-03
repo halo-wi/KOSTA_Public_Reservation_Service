@@ -13,6 +13,7 @@ public class BookVO {
 	private int room_cancel;
 	private String img;
 	private String phone;
+	
 	public int getRoom_cancel() {
 		return room_cancel;
 	}

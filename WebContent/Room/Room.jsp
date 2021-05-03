@@ -24,7 +24,7 @@ body a{color: skyblue;}
 </style>
 </head>
 <body>
-<header><jsp:include page="/common/header.jsp"></jsp:include></header>
+<header><jsp:include page="/common/header2.jsp"></jsp:include></header>
 <table id="tt">
 
 <tr>

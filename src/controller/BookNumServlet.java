@@ -32,18 +32,15 @@ public class BookNumServlet extends HttpServlet {
 		BookVO vo=dao.bookSelectByBookId(cVal);//vo에 넣음
 		if(vo==null) {
 			//없을 경우 메시지 띄우고 다른 페이지로 보냄
-			
 			RequestDispatcher rd=request.getRequestDispatcher("BookCheckFail.jsp");
-			rd.forward(request, response);
-			
-		
-		
-			
+			rd.forward(request, response);	
 		}else {
 			RoomDAO dao2=new RoomDAO();//룸 dao 호출
 			RoomVO vo2=dao2.selectByRoomId(vo.getRoom_id());//vo2에 넣음
+			
 			request.setAttribute("bookinfo", vo);//값 저장
 			request.setAttribute("bookinfo2", vo2);//값 저장
+			
 		RequestDispatcher rd=request.getRequestDispatcher("BookCheckResult.jsp");
 		rd.forward(request, response);
 		}
