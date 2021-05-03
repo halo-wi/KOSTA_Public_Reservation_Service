@@ -506,11 +506,23 @@ input[type=text]#date_input {
 .header {
 	margin-top: 126px;
 }
+.header_room_id {
+	background-color:#fed136; 
+	display:inline;
+	font-size: 39px;
+	font-weight: bold;
+}
+.header_room_address {
+	display:inline;
+	font-size: 39px;
+	font-weight: bold;
+}
 
 .detail_img>img {
 	position: relative;
 	width: 780px;
 	height: 400px;
+	box-shadow: 5px 5px 5px gray;
 }
 
 .sub_text_tit_type01 {
@@ -690,6 +702,76 @@ input[type=text]#date_input {
 	border: 1px solid #006be0;
 	background: #006be0;
 	color: white;
+}
+
+/* 남후승 CSS (ReservLook.jsp) */
+#reservelook {
+    text-align: center;
+    position: relative;
+    top: 120px;
+    width: 1000px;
+    height: 400px;
+    margin: 0 auto;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+#reservelook > h1 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: gray;
+    color: white;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.reservelook_left > img{
+    width: 300px;
+	height: 200px;
+	box-shadow: 2px 2px 2px grey;
+    border-radius: 6px;
+    margin-left: 90px;
+    
+}
+
+
+.reservelook_left {
+	float:left;
+}
+
+.reservelook_right {
+	float:left;
+	text-align: left;
+	margin-left: 50px;
+}
+
+.reservelook_right_contents_f {
+    position: relative;
+    width: 155px;
+    padding: 0 3px 0 4px;
+    font-family: "nanumsquare-eb";
+    font-size: 16px;
+    line-height: 32px;
+    color: #252526;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.reservelook_right_contents_s {
+    width: calc(100% - 180px);
+    /* padding-right: 10px; */
+    font-family: "nanumsquare-r";
+    font-size: 16px;
+    line-height: 32px;
+    color: #252526;
+    display: inline;
+}
+
+.reservelook_bottom_contents {
+    font-size: 9pt;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 9pt;
+    color: red;
 }
 
 @media screen and (max-width:1024px) {

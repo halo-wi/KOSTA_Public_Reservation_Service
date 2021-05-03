@@ -17,21 +17,45 @@ h1{ color: red; }
 		<h1>${chk==null?"예약이 실패했습니다":"예약이 성공했습니다"}</h1>
 		<br>
 		<br>
-		<div class="left">
+		<div class="reservelook_left">
+			<img src=${chk2.img } width="250px" height="90px">
+		</div>
+		<div class="reservelook_right">
 		<c:if test="${chk!=null}"> 
-			<ul  style="list-style-type: none;">
-				<li>예약 번호: ${id }</li>
-				<li>주소: ${chk2.adress}</li>
-				<li>예약일: ${chk.book_date }</li>
-				<li>시작 시간: ${chk.book_begin }</li>
-				<li>종료 시간: ${chk.book_last }</li>
+			<ul style="list-style-type: none;">
+				<li>
+					<i class="fas fa-angle-right"></i>
+					<div class="reservelook_right_contents_f">예약 번호</div>
+					<div class="reservelook_right_contents_s">${id}</div><br>
+				</li>
+				<li>
+					<i class="fas fa-angle-right"></i>
+					<div class="reservelook_right_contents_f">주소</div>
+					<div class="reservelook_right_contents_s">${chk2.adress}</div><br>
+				</li>
+				<li>
+					<i class="fas fa-angle-right"></i>
+					<div class="reservelook_right_contents_f">예약일</div>
+					<div class="reservelook_right_contents_s">${chk.book_date }</div><br>
+				</li>
+				<li>
+					<i class="fas fa-angle-right"></i>	
+					<div class="reservelook_right_contents_f">예약 시간	</div>
+					<div class="reservelook_right_contents_s">${chk.book_begin}~${chk.book_last}</div><br>
+				</li>
+				<li>
+					<i class="fas fa-angle-right"></i>
+					<div class="reservelook_right_contents_f">전화번호</div>
+					<div class="reservelook_right_contents_s">${chk2.phone}<br>
+					</div>
+				</li>
+				<li>
+					<div class="reservelook_bottom_contents">※ 예약 취소는 예약일로부터 ${chk2.room_cancel}일전까지 가능합니다.</div>
+				</li>
 			</ul>
 		</c:if> 
+		<button type="button">홈 화면</button>
 		</div>
-	<div class="right">
-	<img src=${chk2.img } width="250px" height="90px">
-	</div>
-		<p style="font-size: 9pt;">전화번호: ${chk2.phone}    | 취소는 ${chk2.room_cancel}일 이내에 할 수 있습니다. | </p>
 	</div>
 	
 </body>
