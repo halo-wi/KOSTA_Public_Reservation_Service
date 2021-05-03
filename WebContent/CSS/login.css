@@ -313,6 +313,17 @@ button {
 	width: 100px;
 }
 
+#content{
+	width : 100%;
+	height:700px;
+	background-image : url("../img/gradation.jpg");
+}
+
+
+
+
+
+
 /* 남후승 CSS (searchRoom.jsp) */
 #room_container:hover {
 	border: 1px solid gray;
@@ -361,7 +372,13 @@ button {
 	text-align: center;
 }
 
-#reservation_btn {
+.reservation_btn_on {
+	position: absolute;
+	bottom: 20px;
+	right:20px;
+}
+
+.reservation_btn_off {
 	position: absolute;
 	bottom: 20px;
 	right: 20px;
@@ -403,7 +420,7 @@ button {
 #info_img>#room_info_roomid {
 	position: absolute;
 	left: 10px;
-	z-index: 3;
+	z-index: 1;
 	top: -133px;
 	font-weight: bold;
 	background-color: #fed136;
@@ -416,7 +433,7 @@ button {
 #info_img>#room_info_state {
 	position: absolute;
 	right: 10px;
-	z-index: 3;
+	z-index: 1;
 	top: -133px;
 	background-color: #FF7F50;
 	color: white;
@@ -437,10 +454,496 @@ button {
 }
 
 /* 남후승 CSS (searchall.jsp) */
-#room_location1 {
+#room_location_list {
 	text-align: center;
 }
 
+#room_location {
+	width: 200px;
+	padding: 10px 10px 10px 130px;
+	border:1px solid #CACACA;
+	color:#666;
+	font-family: inherit;
+	background: url('https://t1.daumcdn.net/cfile/tistory/99761B495C84AA8716') no-repeat 0% 50%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input[type=text]#date_input {
+	width: 200px;
+	padding: 10px 10px 10px 103px; 
+	border:1px solid #CACACA;
+	color:#666; 
+	background:url('http://cfile23.uf.tistory.com/image/26100D4F5864C76827F535') no-repeat 10px 14px; 
+	background-size:15px;
+	
+} 
+
+#btn_search {
+	width: 200px;
+	height: 50px;
+	border: none;
+	border-radius: 50px;
+}
+
+
+/* 남후승 CSS (roomdetail.jsp) */
+.center_box {
+    width: 1200px;
+    margin: 0 auto;
+}
+.item_viewbox_top {
+    min-height: 1200px;
+    margin-top: 40px;
+}
+
+/* 왼쪽 콘텐츠 영역 */
+.item_viewbox_top_left {
+    float: left;
+    width: 780px;
+}
+
+.header {
+	margin-top: 126px;
+}
+.detail_img > img {
+	position: relative;
+	width: 780px;
+	height: 400px;
+}
+.sub_text_tit_type01 {
+	position:relative;
+	padding:0 0 0 16px;
+	margin-bottom:8px;
+	font-family:"nanumsquare-eb";
+	font-size:20px;
+	line-height:32px;
+	color:#444444;
+	letter-spacing:-1px;
+}
+.sub_text_tit_type01:before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 20px;
+    border-radius: 3px;
+    background: #97ccff;
+    position: absolute;
+    top: 6px;
+    left: 0;
+}
+.item_viewbox_top_tabcon_box03_content_box_list {
+	margin-top:18px;
+}
+.item_viewbox_top_tabcon_box03_content_box_list > li {
+	font-size:0;
+	padding-left:40px;
+}
+.item_viewbox_top_tabcon_box03_content_box_list > li + li {
+	margin-top:18px;
+}
+.item_viewbox_top_tabcon_box03_content_box_list > li > div {
+	box-sizing:border-box;
+	display:inline-block;
+	vertical-align:top;
+	letter-spacing:-1px;
+}
+.item_viewbox_top_tabcon_box03_content_box_list_f {
+	position:relative;
+	width:180px;
+	padding:0 10px 0 20px;
+	font-family:"nanumsquare-eb";
+	font-size:16px;
+	line-height:32px;
+	color: #252526;
+	font-weight: bold;
+}
+.item_viewbox_top_tabcon_box03_content_box_list_f:before {
+	content:'';
+	display:block;
+	width:16px;
+	height:16px;
+	background:url('/pc/images/item_viewbox_top_tabcon_box03_content_box_list_bul.png') no-repeat left top;
+	position:absolute;
+	top:7px;
+	left:0;
+}
+.item_viewbox_top_tabcon_box03_content_box_list_s {
+	width:calc(100% - 180px);
+	padding-right:10px;
+	font-family:"nanumsquare-r";
+	font-size:16px;
+	line-height:32px;
+	color: #252526;
+}
+.item_viewbox_top_tabcon_box05_text {
+    padding-left: 3px;
+    margin-top: 16px;
+    font-family: "nanumsquare-b";
+    font-size: 18px;
+    line-height: 26px;
+    color: #252526;
+    display: inline;
+}
+ .item_viewbox_top_tabcon_box {
+	position:relative;
+	padding-top:30px;
+	margin:30px 0;
+	border-top:1px solid #ebebeb;
+}
+.map_address {
+	margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.fas fa-map-marked-alt {
+	display: inline;
+}
+
+/* 오른쪽 사이드바 */
+.item_viewbox_top_right {
+    position: relative;
+    float: left;
+    width: 340px;
+    margin-left: 80px;
+    position: sticky;
+    top: 0px;
+}
+.item_viewbox_top_right_content_box_wrap {
+	position:relative;
+	margin-top: 127px;
+}
+.item_viewbox_top_right_content_box_wrap.abs {
+	position:absolute;
+	width: 100%;
+}
+.item_viewbox_top_right_content_box {
+	border:1px solid #e1e1e1;
+	border-radius:3px;
+}
+.item_viewbox_top_right_content_box_top_item_tit {
+	position:relative;
+	margin-bottom:24px;
+}
+.item_viewbox_top_right_content_box_top_item_tit_name {
+	padding:0 70px 0 10px;
+	font-family:"nanumsquare-eb";
+	font-size:22px;
+	line-height:26px;
+	color:#252526;
+	letter-spacing:-1px;
+}
+#ctg {
+	width: 100%;
+    padding: 16px 10px;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    border-right: 0px;
+    border-left: 0px;
+    font-family: "nanumsquare-b";
+    font-size: 16px;
+    line-height: 24px;
+    color: #a1a1a2;
+}
+#ctg_nm {
+	width: 100%;
+	padding: 16px 10px;
+    border-top: 0px;
+    border-bottom: 1px solid #ebebeb;
+    border-right: 0px;
+    border-left: 0px;
+    font-family: "nanumsquare-b";
+    font-size: 16px;
+    line-height: 24px;
+    color: #a1a1a2;
+}
+#submit {
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    padding-top: 4px;
+    margin-top: 0px;
+    border-radius: 0px 0px 3px 3px;
+    border: 1px solid #006be0;
+    background: #006be0;
+    color: white;
+}
+
+
+@media screen and (max-width:1024px) {
+	#room_container:hover {
+		border: 1px solid gray;
+	}
+	
+	#room_list {
+		position: relative;
+		list-style: none;
+		margin: 0px 20px 0px 0px;	
+	}
+	
+	#room_container {
+		border: 1px solid white;
+		background-color:  rgb(239, 239, 239);
+		margin: 10px 15% 10px 15%;
+		border-radius: 20px;
+	}
+	
+	#room_info {
+		position: absolute;
+		left: 45%;
+	/* 	left: 350px; */
+		/* margin-top: 20px; */
+		top: 20px;
+	}
+	
+	#room_info > #room_info_address {
+		font-size: 25px;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	
+	#room_info > #room_info_location {
+		font-size: 20px;
+	}
+	
+	#room_info_content {
+		position: absolute;
+		z-index: 1;
+		bottom: 50px;
+		left: 46%;
+		font-size: 1.1rem;
+	}
+	
+	#room_page {
+		text-align: center;
+	}
+	
+	.reservation_btn_on {
+		position: absolute;
+		bottom: 20px;
+		right:20px;
+	}
+	
+	.reservation_btn_off {
+		position: absolute;
+		bottom: 20px;
+		right:20px;
+	}
+	
+	#room_container img {
+		position: relative;
+		
+		 -webkit-transform:scale(1);
+	    -moz-transform:scale(1);
+	    -ms-transform:scale(1); 
+	    -o-transform:scale(1);  
+	    transform:scale(1);
+	    -webkit-transition:.3s;
+	    -moz-transition:.3s;
+	    -ms-transition:.3s;
+	    -o-transition:.3s;
+	    transition:.3s;
+	}
+	
+	#room_container:hover img {
+	    -webkit-transform:scale(1.1);
+	    -moz-transform:scale(1.1);
+	    -ms-transform:scale(1.1);   
+	    -o-transform:scale(1.1);
+	    transform:scale(1.1);
+	}
+	
+	#room_container {overflow: hidden;}
+	
+	#info_img {
+		left: 10px;
+		z-index: 2;
+		top: -133px;
+		width:200px;
+	}
+	
+	#info_img > #room_info_roomid {
+		position: absolute;
+		left: 10px;
+		z-index: 1;
+		top: -133px;
+		font-weight: bold;
+		
+		background-color: #fed136;
+		color: black;
+		border-radius: 5px;
+		padding: 2px;
+		font-size: 13px;
+	}
+	
+	#info_img > #room_info_state {
+		position: absolute;
+		right: 10px;
+		z-index: 1;
+		top: -133px;
+		
+		background-color: #FF7F50;
+		color: white;
+		border-radius: 5px;
+		padding: 2px;
+		margin-left: 51%;
+		font-size: 13px;	
+	}
+	
+	#room_img {
+		position: relative;
+	}
+	
+	#room_img > img {
+		border-radius: 20px 0px 0px 20px;
+		width: 40%; 
+		height: 300px;
+	}
+	
+	
+	
+}
+@media screen and (max-width:768px) {
+	#search_room {
+		width: 100%;
+	}
+	#search_page{
+		padding-top: 144px;
+	}
+	
+	#room_container:hover {
+		border: 1px solid gray;
+	}
+	
+	#room_list {
+		position: relative;
+		list-style: none;
+		margin: 0px 20px 0px 0px;	
+	}
+	
+	#room_container {
+		border: 1px solid white;
+		background-color:  rgb(239, 239, 239);
+		margin: 10px 15% 10px 15%;
+		border-radius: 20px;
+	}
+	
+	#room_info {
+		position: absolute;
+		left: 45%;
+	/* 	left: 350px; */
+		/* margin-top: 20px; */
+		top: 20px;
+	}
+	
+	#room_info > #room_info_address {
+		font-size: 20px;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	
+	#room_info > #room_info_location {
+		font-size: 15px;
+	}
+	
+	#room_info_content {
+		position: absolute;
+		z-index: 1;
+		bottom: 50px;
+		left: 46%;
+		font-size: 1rem;
+	}
+	
+	#room_page {
+		text-align: center;
+	}
+	
+	.reservation_btn_on {
+		position: absolute;
+		bottom: 20px;
+		right:20px;
+	}
+	
+	.reservation_btn_off {
+		position: absolute;
+		bottom: 20px;
+		right:20px;
+	}
+	
+	#room_container img {
+		position: relative;
+		
+		 -webkit-transform:scale(1);
+	    -moz-transform:scale(1);
+	    -ms-transform:scale(1); 
+	    -o-transform:scale(1);  
+	    transform:scale(1);
+	    -webkit-transition:.3s;
+	    -moz-transition:.3s;
+	    -ms-transition:.3s;
+	    -o-transition:.3s;
+	    transition:.3s;
+	}
+	
+	#room_container:hover img {
+	    -webkit-transform:scale(1.1);
+	    -moz-transform:scale(1.1);
+	    -ms-transform:scale(1.1);   
+	    -o-transform:scale(1.1);
+	    transform:scale(1.1);
+	}
+	
+	#room_container {overflow: hidden;}
+	
+	#info_img {
+		left: 10px;
+		z-index: 2;
+		top: -133px;
+		width:200px;
+	}
+	
+	#info_img > #room_info_roomid {
+		position: absolute;
+		left: 10px;
+		z-index: 1;
+		top: -133px;
+		font-weight: bold;
+		
+		background-color: #fed136;
+		color: black;
+		border-radius: 5px;
+		padding: 2px;
+		font-size: 13px;
+	}
+	
+	#info_img > #room_info_state {
+		position: absolute;
+	    width: 38px;
+	    right: 43px;
+	    z-index: 1;
+	    top: -105px;
+	    background-color: #FF7F50;
+	    color: white;
+	    border-radius: 5px;
+	    padding: 2px;
+	    
+	    font-size: 13px;
+	}
+	
+	#room_img {
+		position: relative;
+	}
+	
+	#room_img > img {
+		border-radius: 20px 0px 0px 20px;
+		width: 40%; 
+		height: 300px;
+	}
+}
+@media screen and (max-width:320px) {
+
+=======
 #content {
 	width: 100%;
 	height: 700px;
@@ -462,6 +965,7 @@ button {
 	width: 150px;
 	border-bottom: solid 1px black;
 	float: left;
+
 }
 
 /* 회원가입 CSS */
