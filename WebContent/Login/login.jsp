@@ -7,12 +7,14 @@
 <meta charset="utf-8" />
 
 <title>login</title>
-<jsp:include page="../common/header.jsp"></jsp:include>
+<jsp:include page="../common/header2.jsp"></jsp:include>
+<link href="../CSS/footer.css" rel="stylesheet" />
 </head>
-<body>
 
-	<section id="login">
-		<form name="loginform" action="../Login/LoginServelet" method="post"
+<header class="masthead" style="background: white !important; color : black;">
+	<div id="login">
+		<form name="loginform" action="LoginServelet" method="post"
+
 			id="loginForm">
 			<h2>ZOOM OUT</h2>
 			<div class="idForm">
@@ -59,7 +61,8 @@
 													document
 															.getElementById("nickname").value = nickname;
 													document.getElementById(
-															"loginkakao").submit();
+															"loginkakao")
+															.submit();
 													//location.href = "LoginKakaoServelet?email="+response.kakao_account.email+
 													//"&nickname="+response.kakao_account.profile.nickname;
 												}
@@ -101,39 +104,54 @@
 		</div>
 
 
-	</section>
-	<script>
-		var x = document.getElementById("login");
-		var y = document.getElementById("register");
-		var z = document.getElementById("btn");
 
-		function login() {
-			x.style.left = "50px";
-			y.style.left = "450px";
-			z.style.left = "0";
-		}
+	</div>
 
-		function register() {
-			x.style.left = "-400px";
-			y.style.left = "50px";
-			z.style.left = "110px";
-		}
-	</script>
+</header>
+<div id="footer">
+	<p>&copyZOOMOUT 팀원 강성빈 고석우 김성휘 남후승 임세혁</p>
+	<p>
+		<a href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"
+			target="_blank" style="color: grey;">
+			https://github.com/halo-wi/KOSTA_Public_Reservation_Service</a>
+	</p>
+
+</div>
 
 
-	<!-- Bootstrap core JS-->
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Third party plugin JS-->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-	<!-- Contact form JS-->
-	<script src="assets/mail/jqBootstrapValidation.js"></script>
-	<script src="assets/mail/contact_me.js"></script>
-	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
-	<%-- <jsp:include page="/common/footer.jsp"></jsp:include> --%>
+
+<script>
+	var x = document.getElementById("login");
+	var y = document.getElementById("register");
+	var z = document.getElementById("btn");
+
+	function login() {
+		x.style.left = "50px";
+		y.style.left = "450px";
+		z.style.left = "0";
+	}
+
+	function register() {
+		x.style.left = "-400px";
+		y.style.left = "50px";
+		z.style.left = "110px";
+	}
+</script>
+
+
+<!-- Bootstrap core JS-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Third party plugin JS-->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<!-- Contact form JS-->
+<script src="assets/mail/jqBootstrapValidation.js"></script>
+<script src="assets/mail/contact_me.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+
 
 </body>
 </html>

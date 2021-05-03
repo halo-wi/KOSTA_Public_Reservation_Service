@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"> 	 	 	
+<meta charset="UTF-8">
 <title>예약 확인 페이지</title>
-<jsp:include page="/common/header.jsp"></jsp:include>
+<jsp:include page="/common/header2.jsp"></jsp:include>
 
 <link href="../CSS/footer.css" rel="stylesheet" />
 
@@ -15,6 +15,12 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans+KR:wght@100&family=Nunito+Sans:wght@200&display=swap"
 	rel="stylesheet">
+<!-- Bootstrap CSS -->
+<link rel='stylesheet'
+	href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<!-- Font Awesome CSS -->
+<link rel='stylesheet'
+	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
 
 <div id="contents">
@@ -26,9 +32,14 @@
 		<div id="checkbyNo-inside">
 			<h5 style="font-family: 'Noto Sans KR', sans-serif;">예약번호로 조회</h5>
 			<form action="BookNum">
-				<input type="number" name="booknum" id="bookchkSid"
-					placeholder="예약번호"> <input type="submit"
-					id="checkBybooknumber_btn" value="조회">
+				<div class="input-group">
+					<input type="number" class="form-control" name="booknum" id="bookchkSid" placeholder="예약번호">
+					<div class="input-group-append">
+						<button onclick="submit()" class="btn btn-secondary" type="button" id="checkBybooknumber_btn">
+							<i class="fa fa-search"></i>
+						</button>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>
@@ -47,6 +58,8 @@
 		</div>
 	</div>
 </div>
+
+
 <div id="footer">
 	<p>&copyZOOMOUT 팀원 강성빈 고석우 김성휘 남후승 임세혁</p>
 	<p>
@@ -74,21 +87,21 @@
 
 <style>
 div.left {
-        width: 50%;
-        float: left;
-        box-sizing: border-box;
-        border: solid 1px black;
-        text-align: center;
-        height: 100%;
-      }
-      div.right {
-        width: 50%;
-        float: right;
-        box-sizing: border-box;
-        border: solid 1px black;
-        text-align: center;
-         height: 100%;
-      }
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+	border: solid 1px black;
+	text-align: center;
+	height: 100%;
+}
 
+div.right {
+	width: 50%;
+	float: right;
+	box-sizing: border-box;
+	border: solid 1px black;
+	text-align: center;
+	height: 100%;
+}
 </style>
 </html>
