@@ -25,7 +25,7 @@ public class UpdateServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		String id = request.getParameter("customer_id");
+		String id = request.getParameter("list_customer_id");
 		String pw = request.getParameter("customer_pw");
 		String email = request.getParameter("email");
 		String customer_name = request.getParameter("customer_name");
@@ -44,7 +44,7 @@ public class UpdateServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("mypage.jsp");
 			rd.forward(request, response);
 		} else {
-			RequestDispatcher rd = request.getRequestDispatcher("../join/Join.html");
+			RequestDispatcher rd = request.getRequestDispatcher("../join/Join.jsp");
 			rd.forward(request, response);
 		}
 

@@ -32,7 +32,7 @@ td, tr {
 			<h3>내 정보 수정하기</h3>
 		</div>
 		<hr>
-		<form action="Join" method="post" name="join" id="mypagetable">
+		<form action="Update" method="post" name="join" id="mypagetable">
 			<table id  = "mypage-table">
 				<tbody>
 					<tr>
