@@ -169,13 +169,15 @@ td, tr {
 	height: 100%;
 	margin: 0 auto;
 	color: black;
-	background-color: white;
+	background-color: #f1f3f5;
+	
+	
 }
 
 #bookingCheckTitle {
 	text-align: center;
 	position: relative;
-	margin-top: 220px;
+	margin-top: 180px;
 	left: 50%;
 	width: 300px;
 	margin-left: -170px;
@@ -218,7 +220,7 @@ button {
 	margin-top: 20px;
 	text-align: center;
 	padding: 30px;
-	margin-left: 140px;
+	margin-left: 210px;
 	height: 400px;
 }
 
@@ -491,8 +493,8 @@ input[type=text]#date_input {
 }
 
 .item_viewbox_top {
-    min-height: 1500px;
-    margin-top: 40px;
+	min-height: 1500px;
+	margin-top: 40px;
 }
 
 /* 왼쪽 콘텐츠 영역 */
@@ -921,83 +923,94 @@ input[type=text]#date_input {
 		height: 300px;
 	}
 }
+
 @media screen and (max-width:320px) {
 }
 
-	/* 마이페이지 CSS */
-	#mypagecontent {
-		position: absolute;
-		top: 30%;
-		width: 70%;
-		height: 500px;
-		border: 1px solid black;
-		margin-left: 210px;
-		padding: 40px;
-	}
-	.form-control {
-		width: 150px;
-		border-bottom: solid 1px black;
-		float: left;
-	}
+/* 마이페이지 CSS */
+#mypagecontent {
+	position: absolute;
+	top: 30%;
+	width: 70%;
+	height: 500px;
+	border: 1px solid black;
+	margin-left: 210px;
+	padding: 40px;
+}
 
-	/* 회원가입 CSS */
-	#join {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		width: 800px;
-		height: 700px;
-		margin-left: -400px;
-		margin-top: -270px;
-	}
-	#btn_dup {
-		margin-left: 125px !important;;
-		text-align: center;
-		padding: 4px auto;
-		width: 70px !important;
-		height: 35px !important;
-		background-color: lightblue;
-		border: none;
-		color: #fff;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 15px;
-		margin: 4px;
-		cursor: pointer;
-		border-radius: 10px;
-		font-size: 4px;
-	}
+.form-control {
+	width: 150px;
+	border-bottom: solid 1px black;
+	float: left;
+}
 
-	/* mypage CSS */
-	#mypagetitle {
-		text-align: center;
-		position: relative;
-		margin-top: -120px;
-		margin-bottom: 30px;
-		left: 5%;
-		width: 300px;
-	}
-	#mypagecontents {
-		width: 80%;
-		height: 600px;
-		border: 1px solid black;
-		margin: 0 auto;
-		text-align: left;
-		line-height: 150%;
-	}
-	#mypageform {
-		line-height: 70px;
-		margin-left: 30px;
-	}
-	#mypagetable {
-		margin-top: 50px;
-		margin-left: 300px;;
-		margin-right: auto;
-	}
-	#mypage_submitBtn {
-		width: 140px;
-		margin-left: 400px;
-		margin-top: 40px;
-		clear: both;
-	}
+#list_customer_id {
+	margin-left: -650px;
+}
+
+/* 회원가입 CSS */
+#join {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 800px;
+	height: 700px;
+	margin-left: -400px;
+	margin-top: -270px;
+}
+
+#btn_dup {
+	margin-left: 125px !important;;
+	text-align: center;
+	padding: 4px auto;
+	width: 70px !important;
+	height: 35px !important;
+	background-color: lightblue;
+	border: none;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	margin: 4px;
+	cursor: pointer;
+	border-radius: 10px;
+	font-size: 4px;
+}
+
+/* mypage CSS */
+#mypagetitle {
+	text-align: center;
+	position: relative;
+	margin-top: -120px;
+	margin-bottom: 30px;
+	left: 5%;
+	width: 300px;
+}
+
+#mypagecontents {
+	width: 80%;
+	height: 600px;
+	border: 1px solid black;
+	margin: 0 auto;
+	text-align: left;
+	line-height: 150%;
+}
+
+#mypageform {
+	line-height: 70px;
+	margin-left: 30px;
+}
+
+#mypagetable {
+	margin-top: 50px;
+	margin-left: 300px;;
+	margin-right: auto;
+}
+
+#mypage_submitBtn {
+	width: 140px;
+	margin-left: 400px;
+	margin-top: 40px;
+	clear: both;
+}

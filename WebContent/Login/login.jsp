@@ -8,13 +8,13 @@
 
 <title>login</title>
 <jsp:include page="../common/header2.jsp"></jsp:include>
-<link href="../CSS/footer.css" rel="stylesheet" />
+
 </head>
 
-<header class="masthead" style="background: white !important; color : black;">
+<header class="masthead"
+	style="background: white !important; color: black;">
 	<div id="login">
 		<form name="loginform" action="LoginServelet" method="post"
-
 			id="loginForm">
 			<h2>ZOOM OUT</h2>
 			<div class="idForm">
@@ -108,15 +108,32 @@
 	</div>
 
 </header>
-<div id="footer">
-	<p>&copyZOOMOUT 팀원 강성빈 고석우 김성휘 남후승 임세혁</p>
-	<p>
-		<a href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"
-			target="_blank" style="color: grey;">
-			https://github.com/halo-wi/KOSTA_Public_Reservation_Service</a>
-	</p>
 
-</div>
+<footer class="footer py-4" style="background-color: black !important;">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-4 text-lg-left">
+				<span style="color: white !important;">Copyright &copy; Your
+					Website <!-- This script automatically adds the current year to your website footer-->
+					<!-- (credit: https://updateyourfooter.com/)--> <script>
+						document.write(new Date().getFullYear());
+					</script>
+				</span>
+			</div>
+			<div class="col-lg-4 my-3 my-lg-0">
+				<a class="btn btn-dark btn-social mx-2" href="#!"><i
+					class="fab fa-twitter"></i></a> <a class="btn btn-dark btn-social mx-2"
+					href="#!"><i class="fab fa-facebook-f"></i></a> <a
+					class="btn btn-dark btn-social mx-2" href="#!"><i
+					class="fab fa-linkedin-in"></i></a>
+			</div>
+			<div class="col-lg-4 text-lg-right">
+				<a class="mr-3" href="#!">Privacy Policy</a> <a href="#!">Terms
+					of Use</a>
+			</div>
+		</div>
+	</div>
+</footer>
 
 
 

@@ -21,16 +21,21 @@
 <!-- Font Awesome CSS -->
 <link rel='stylesheet'
 	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+	
+	
+<!-- 폰트 -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap" rel="stylesheet">
 </head>
 
 <div id="contents">
 	<h2 id="bookingCheckTitle"
-		style="font-family: 'Noto Sans KR', sans-serif;">예약조회</h2>
-	<hr>
+		style="font-family: font-family: 'PT Sans Caption, sans-serif;'">예약조회</h2>
+	<hr style = "border : 0; height : 1px; background:black;">
 
 	<div id="checkbyNo">
 		<div id="checkbyNo-inside">
-			<h5 style="font-family: 'Noto Sans KR', sans-serif;">예약번호로 조회</h5>
+			<h5 style="font-family: 'PT Sans Caption, sans-serif;'">예약번호로 조회</h5>
 			<form action="BookNum">
 				<div class="input-group">
 					<input type="number" class="form-control" name="booknum" id="bookchkSid" placeholder="예약번호">
@@ -46,9 +51,9 @@
 
 	<div id="checkbyId">
 		<div id="checkbyId-inside">
-			<h5 style="font-family: 'Noto Sans KR', sans-serif;">아이디로 조회</h5>
+			<h5 style="font-family: 'PT Sans Caption, sans-serif;'">아이디로 조회</h5>
 			<c:if test="${email==null}">
-			<button type="button" id="checkById_btn" name="bookid"
+			<button type="button" class="btn btn-secondary" id="checkById_btn" name="bookid"
 				onclick="idchk()" value="">로그인</button>
 				</c:if>
 				<c:if test="${email!=null}">
