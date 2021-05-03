@@ -492,8 +492,8 @@ input[type=text]#date_input {
 }
 
 .item_viewbox_top {
-	min-height: 1200px;
-	margin-top: 40px;
+    min-height: 1500px;
+    margin-top: 40px;
 }
 
 /* 왼쪽 콘텐츠 영역 */
@@ -922,7 +922,8 @@ input[type=text]#date_input {
 		height: 300px;
 	}
 }
-
+@media screen and (max-width:320px) {
+}
 
 	/* 마이페이지 CSS */
 	#mypagecontent {
