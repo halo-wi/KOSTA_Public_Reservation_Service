@@ -24,95 +24,50 @@ h1 {
 <body>
 	<jsp:include page="/common/header2.jsp"></jsp:include>
 	
-	<!-- <div id="contents">
+	<div id="contents">
 		<h2 id="BookCheckResultTitle"
-			style="font-family: 'Noto Sans KR', sans-serif;">예약내역</h2> -->
-		
-			<div id="BookCheckResultreservelook">
-			<span id="tabcon4" class="BookCheckResultreservelook_title">예약상세조회</span>
-			<div id="BookCheckResultreservelook_inner">
-				<div class="BookCheckResult_reservelook_left">
-					<img src=${bookinfo2.img } width="250px" height="90px">
-				</div>
-				<div class="BookCheckResult_reservelook_right">
-					<c:if test="${bookinfo!=null}"> 
-						<ul style="list-style-type: none;">
-							<li>
-								<i class="fas fa-angle-right"></i>
-								<div class="BookCheckResult_reservelook_right_contents_f">예약 번호</div>
-								<div class="BookCheckResult_reservelook_right_contents_s">${bookinfo.book_id}</div><br>
-							</li>
-							<li>
-								<i class="fas fa-angle-right"></i>
-								<div class="BookCheckResult_reservelook_right_contents_f">주소</div>
-								<div class="BookCheckResult_reservelook_right_contents_s">${bookinfo2.adress}</div><br>
-							</li>
-							<li>
-								<i class="fas fa-angle-right"></i>
-								<div class="BookCheckResult_reservelook_right_contents_f">예약일</div>
-								<div class="BookCheckResult_reservelook_right_contents_s">${bookinfo.book_date }</div><br>
-							</li>
-							<li>
-								<i class="fas fa-angle-right"></i>	
-								<div class="BookCheckResult_reservelook_right_contents_f">예약 시간	</div>
-								<div class="BookCheckResult_reservelook_right_contents_s">${bookinfo.book_begin}~${bookinfo.book_last}</div><br>
-							</li>
-							<li>
-								<i class="fas fa-angle-right"></i>
-								<div class="BookCheckResult_reservelook_right_contents_f">전화번호</div>
-								<div class="BookCheckResult_reservelook_right_contents_s">${bookinfo2.phone}<br>
-								</div>
-							</li>
-							<li>
-								<div class="BookCheckResult_reservelook_bottom_contents">※ 예약 취소는 예약일로부터 ${bookinfo2.room_cancel}일전까지 가능합니다.</div>
-							</li>
-						</ul>
-					</c:if> 
+			style="font-family: 'Noto Sans KR', sans-serif;">예약내역</h2>
+		<div id="room-img">
+			<img
+				style="border: 1px solid black; border-radius: 7px; -moz-border-radius: 7px; -khtml-border-radius: 7px; -webkit-border-radius: 7px;"
+				src="${bookinfo2.img}" width="500px" height="400px">
+		</div>
+
+		<div id="BookCheck">
+			<h3>${bookinfo2.adress}</h3>
+			<div id="bookchkcontents">
+				<p class="bookchkcontentsText">예약번호 : ${bookinfo.book_id }</p>
+				<p class="bookchkcontentsText">예약일 : ${bookinfo.book_date }</p>
+				<p class="bookchkcontentsText">시작시간 : ${bookinfo.book_begin }</p>
+				<p class="bookchkcontentsText">종료시간 : ${bookinfo.book_last }</p>
+
+				<div id="bookCancel">
+					<button type="button" id="bookCancelBtn" class="btn btn-dark" onclick="bookdelet()">예약취소</button>
 				</div>
 			</div>
-			
+		</div>
 		<!-- 오시는 길 -->
-			<div class="BookCheckResult_item_viewbox_top_tabcon_box" style=" clear: both; margin-left: 100px;">
-				<span id="tabcon4" class="BookCheckResult_sub_text_tit_type01">오시는 길</span>
-				<div class="BookCheckResult_map_address">
+			<div class="item_viewbox_top_tabcon_box" style=" clear: both; margin-left: 100px;">
+				<p id="tabcon4" class="sub_text_tit_type01">오시는 길</p>
+				<div class="map_address">
 					<i class="fas fa-map-marker-alt" style="color:blue" aria-hidden="true"></i>
-					<p class="item_viewbox_top_tabcon_box05_text">${bookinfo2.adress}</p>
+					<p class="item_viewbox_top_tabcon_box05_text">${list.adress}</p>
 				</div>
 				<!-- 네이버 map -->
 				<div id="map" style="width:780px;height:330px;"></div>
 			</div>
-			<button type="button" class="bookCancelBtn" onclick="bookdelet()">예약취소</button>
-		</div>	
+	</div>
+	
+	<div id="footer">
+		<p>&copyZOOMOUT 팀원 강성빈 고석우 김성휘 남후승 임세혁</p>
+		<p>
+			<a href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"
+				target="_blank" style="color: grey;">
+				https://github.com/halo-wi/KOSTA_Public_Reservation_Service</a>
+		</p>
 
+	</div>
 
-	<!-- footer -->
-   <footer class="footer py-4" style="background-color: black !important;">
-      <div class="container">
-         <div class="row align-items-center">
-            <div class="col-lg-4 text-lg-left">
-               <span style="color: white !important;">Copyright &copy;
-                  ZOOMOUT <!-- This script automatically adds the current year to your website footer-->
-                  <!-- (credit: https://updateyourfooter.com/)--> <script>
-                     document.write(new Date().getFullYear());
-                  </script>
-               </span>
-            </div>
-            <div class="col-lg-4 my-3 my-lg-0"
-               style="margin-left: -40px; font-size: 3px; color: white;">
-               <a
-                  href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"><img
-                  src="../img/git-logo-black.png"
-                  style="width: 35px; height: 35px; display: inline-block;"> <span
-                  style="margin-left: 10px; color: white;">https://github.com/halo-wi/KOSTA_Public_Reservation_Service</span></a>
-            </div>
-            <div class="col-lg-4 text-lg-right">
-               <p
-                  style="color: white; font-size: 0.8em; margin-top: 10px; margin-right: -35px;">Members
-                  : 김성휘 남후승 임세혁 고석우 강성빈</p>
-            </div>
-         </div>
-      </div>
-   </footer>
 <script>
 	function bookdelet() {
 		var bookid=${bookinfo.book_id };
