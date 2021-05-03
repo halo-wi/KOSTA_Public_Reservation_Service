@@ -28,7 +28,7 @@ h1 {
 		<div id="room-img">
 			<img
 				style="border: 1px solid black; border-radius: 7px; -moz-border-radius: 7px; -khtml-border-radius: 7px; -webkit-border-radius: 7px;"
-				src="../img/test.jpg" width="500px" height="400px">
+				src="${bookinfo2.img}" width="500px" height="400px">
 		</div>
 
 		<div id="BookCheck">
