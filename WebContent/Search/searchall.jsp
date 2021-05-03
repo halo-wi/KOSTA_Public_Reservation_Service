@@ -8,7 +8,8 @@
 <title>Insert title here</title>
 
 <!-- jQeury -->
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <!-- 제이쿼리 ui css -->
 <link rel="stylesheet"
@@ -38,7 +39,7 @@
 			</select>
 			<!-- 날짜 입력하는 부분 -->
 			<input type="text" class="date_input" id="date_input">
-			
+
 			<!-- 셀렉트 된 입력 값들 전송하는 버튼 -->
 			<button type="button" class="btn_search" id="btn_search" value="1">검색</button>
 		</div>
@@ -46,45 +47,84 @@
 		<div id="here"></div>
 
 	</section>
+	
+	<footer class="footer py-4" style = "background-color: black !important;">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-4 text-lg-left">
+					<span style = "color : white !important;">Copyright &copy; ZOOMOUT
+					<!-- This script automatically adds the current year to your website footer-->
+					<!-- (credit: https://updateyourfooter.com/)-->
+					<script>
+						document.write(new Date().getFullYear());
+					</script></span>
+				</div>
+				<div class="col-lg-4 my-3 my-lg-0" style = "margin-left: -40px; font-size: 1px; color : white;">
+					<a href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"><img src="../img/git-logo-black.png" style ="width:35px; height:35px; display: inline-block; ">
+					<span style = "margin-left: 10px; color : white;">https://github.com/halo-wi/KOSTA_Public_Reservation_Service</span></a>
+				</div>
+				<div class="col-lg-4 text-lg-right">
+					<p style = "color : white; font-size: 0.8em; margin-top: 10px; margin-right: -35px;">Members : 김성휘 남후승 임세혁 고석우 강성빈</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 	<script>
+		$(function() {
 
-$(function() {
-	
-	 // datepicker의 default값을 오늘 날짜로 바꿔준다./ 오늘 날짜 이전은 비활성화 시킴
-    jQuery( "#date_input" ).datepicker({ 
-    	minDate: 0,       
-        dateFormat : "yy-mm-dd",
-	  	changeYear: true, 
-	  	changeMonth: true,
-	  	yearRange : 'c-80:c+10',
-	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-	  	monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
-    
-    }).datepicker("setDate", new Date());
-  
-	 
-	console.log($("#room_location option:selected").val());
-	console.log($(".btn_search_dd").val());
-   /* 검색 버튼 클릭 시 셀렉트 된 옵션을 서블릿으로 전달 */ 
-	$("#btn_search").on("click", function() {
-		// 지역구 선택유도
-		/* if($("#room_location option:selected").val() == "지역구"){
-			alert("지역구를 선택해주세요.");
-		} */
-		console.log($("#room_location option:selected").val());
-		var date = new Date($('#date_input').val());
-		$.ajax({
-			url:"searchall2",
-			data: {"room_location":$("#room_location option:selected").val(),
-				"page_num":$(".btn_search").val(),
-				"year":date.getFullYear(),
-				"month":date.getMonth() + 1,
-				"day":date.getDate()}, 
-			success:function(responseData) {
-				$("#here").html(responseData); /* 받아온 값들을 here에 찍어줌 */
-			}
+			// datepicker의 default값을 오늘 날짜로 바꿔준다./ 오늘 날짜 이전은 비활성화 시킴
+			jQuery("#date_input").datepicker(
+					{
+						minDate : 0,
+						dateFormat : "yy-mm-dd",
+						changeYear : true,
+						changeMonth : true,
+						yearRange : 'c-80:c+10',
+						dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+						monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+								'7월', '8월', '9월', '10월', '11월', '12월' ]
+
+					}).datepicker("setDate", new Date());
+
+			console.log($("#room_location option:selected").val());
+			console.log($(".btn_search_dd").val());
+			/* 검색 버튼 클릭 시 셀렉트 된 옵션을 서블릿으로 전달 */
+			$("#btn_search")
+					.on(
+							"click",
+							function() {
+								// 지역구 선택유도
+								/* if($("#room_location option:selected").val() == "지역구"){
+									alert("지역구를 선택해주세요.");
+								} */
+								console.log($("#room_location option:selected")
+										.val());
+								var date = new Date($('#date_input').val());
+								$
+										.ajax({
+											url : "searchall2",
+											data : {
+												"room_location" : $(
+														"#room_location option:selected")
+														.val(),
+												"page_num" : $(".btn_search")
+														.val(),
+												"year" : date.getFullYear(),
+												"month" : date.getMonth() + 1,
+												"day" : date.getDate()
+											},
+											success : function(responseData) {
+												$("#here").html(responseData); /* 받아온 값들을 here에 찍어줌 */
+											}
+										});
+							});
+
+			// onload시 바로 전체 검색 되도록 설정
+			$("#btn_search").trigger("click");
+
 		});
+
 	});
 
     // onload시 바로 전체 검색 되도록 설정
@@ -121,5 +161,6 @@ $(function() {
       </div>
    </footer>
 	
+
 </body>
 </html>

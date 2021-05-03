@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">  
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <!-- Bootstrap icon-->
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
@@ -46,6 +47,7 @@ $(function() {
 </script>
 </head>
 <body>
+
 
 <!-- 서블릿에서 보내준 값을 찍는 jsp -->
 <div id="search_room">
@@ -116,10 +118,43 @@ $(function() {
 					    </c:choose>
 					</form>
 				</div>
-				<!-- <td><a href="../Room/roomdetail.jsp">예약하기</button> -->
-			</li>
+			</c:forEach>
+		</ul>
+		<!-- page숫자 띄워주는 부분 -->
+		<ul id="room_page">
+			<c:forEach var="row" items="${pages}" begin="0" end="${searchRow}"
+				varStatus="status">
+				<input type="button" class="btn_search_dd" value="${row}">
+			</c:forEach>
+		</ul>
+	</div>
+
+	<footer class="footer py-4" style="background-color: black !important;">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-4 text-lg-left">
+					<span style="color: white !important;">Copyright &copy;
+						ZOOMOUT <!-- This script automatically adds the current year to your website footer-->
+						<!-- (credit: https://updateyourfooter.com/)--> <script>
+						document.write(new Date().getFullYear());
+					</script>
+					</span>
+				</div>
+				<div class="col-lg-4 my-3 my-lg-0"
+					style="margin-left: -40px; font-size: 1px; color: white;">
+					<a
+						href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"><img
+						src="../img/git-logo-black.png"
+						style="width: 35px; height: 35px; display: inline-block;"> <span
+						style="margin-left: 10px; color: white;">https://github.com/halo-wi/KOSTA_Public_Reservation_Service</span></a>
+				</div>
+				<div class="col-lg-4 text-lg-right">
+					<p
+						style="color: white; font-size: 0.8em; margin-top: 10px; margin-right: -35px;">Members
+						: 김성휘 남후승 임세혁 고석우 강성빈</p>
+				</div>
 			</div>
-			</div>
+
 		</c:forEach>
 	</ul>
 	<!-- page숫자 띄워주는 부분 -->
@@ -131,6 +166,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 function onver(cnt) {
+
 	var uid="<%=(String) session.getAttribute("email")%>";
 	
 	if (uid == "null") {
@@ -140,7 +176,7 @@ function onver(cnt) {
 	}
 }
 </script>
-<!-- header -->
-<header><jsp:include page="/common/header2.jsp"></jsp:include></header>
+	<!-- header -->
+	<header><jsp:include page="/common/header2.jsp"></jsp:include></header>
 </body>
 </html>
