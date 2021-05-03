@@ -43,7 +43,7 @@ public class SearchDetailServlet extends HttpServlet {
 		try {
 			String nsession=(String)session.getAttribute("email");
 			
-				CustomerVO vo2=dao2.customer_search_email(nsession);
+				CustomerVO vo2=dao2.customer_searchByEmail(nsession);
 			request.setAttribute("session",vo2.getCustomer_id() );
 			
 		} catch (SQLException e) {

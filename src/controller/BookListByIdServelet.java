@@ -32,7 +32,7 @@ public class BookListByIdServelet extends HttpServlet {
 		CustomerDAO cDAO = new CustomerDAO();
 		CustomerVO cVO = new CustomerVO();
 		try {
-			cVO = cDAO.customer_search_email(email);
+			cVO = cDAO.customer_searchByEmail(email);
 			booklist = bookDAO.bookSelectbyId(cVO.getCustomer_id());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

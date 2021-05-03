@@ -32,7 +32,7 @@ public class IntoMyPageServlet extends HttpServlet {
 		String val=request.getParameter("email");//값 받아오기
 		CustomerDAO dao2=new CustomerDAO();//비교용 dao 획득
 		try {
-			CustomerVO bo2=dao2.customer_search_email(val);//customer_id 구하기
+			CustomerVO bo2=dao2.customer_searchById(val);//customer_id 구하기
 			
 			request.setAttribute("list", bo2); //값 저장
 			RequestDispatcher rd=request.getRequestDispatcher("../Mypage/mypage.jsp");

@@ -104,13 +104,13 @@ public class CustomerDAO {
 		DBUtil.dbClose(rs, ps, conn);
 		return customer;
 	}
-	public CustomerVO customer_searchByEmail(String customer_id) throws SQLException {
+	public CustomerVO customer_searchByEmail(String email) throws SQLException {
 		
 		CustomerVO customer = new CustomerVO();
 		String sql = "select * from customer where email = ?";
 		conn = DBUtil.getConnection();
 		ps = conn.prepareStatement(sql);
-		ps.setString(1, customer_id);
+		ps.setString(1, email);
 		rs = ps.executeQuery();
 		while (rs.next()) {
 			customer.setCustomer_id(rs.getString(1));
