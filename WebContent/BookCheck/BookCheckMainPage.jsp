@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,8 +47,14 @@
 	<div id="checkbyId">
 		<div id="checkbyId-inside">
 			<h5 style="font-family: 'Noto Sans KR', sans-serif;">아이디로 조회</h5>
+			<c:if test="${email==null}">
 			<button type="button" id="checkById_btn" name="bookid"
 				onclick="idchk()" value="">로그인</button>
+				</c:if>
+				<c:if test="${email!=null}">
+			<button type="button" id="checkById_btn" name="bookid"
+				onclick="bookchk()" value="">예약조회</button>
+				</c:if>
 		</div>
 	</div>
 </div>
@@ -66,16 +73,16 @@
 
 <script>
 	function idchk() {
-		var uid =
-<%=(String) session.getAttribute("email")%>
-	;
-
-		if (uid == null) {
 			location.href = "../Login/login.jsp";
-		} else {
-			location.href = "../Mypage/bookchk?email=" + uid;
-		}
 	}
+	
+	function bookchk() {	
+		var uid="<%=(String) session.getAttribute("email")%>";
+			location.href = "../BookCheck/BookListByIdServelet?email=" + uid;
+	}
+
+	
+	
 </script>
 
 <style>

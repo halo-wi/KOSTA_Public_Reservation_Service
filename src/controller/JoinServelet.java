@@ -37,7 +37,7 @@ public class JoinServelet extends HttpServlet {
 				out.println("alert('가입을 축하합니다');");
 				out.println("</script>");
 			
-				response.setHeader("refresh", "1;url=../Login/MainLogin.html");
+				response.setHeader("refresh", "1;url=../Login/login.jsp");
 			}
 			else {
 				

@@ -119,15 +119,16 @@ public class BookDAO {
 	}
 	
 	// book 입력받아서 예약 테이블에 추가
-	public int insertBook(BookVO book) {
+	public long insertBook(BookVO book) {
 		BookId bookId = new BookId();
+		long id = Long.parseLong(bookId.getBookId());
 		int result = 0; // insert된 건 수
 		Connection conn = DBUtil.getConnection();
 		PreparedStatement st = null;
 		String sql = "insert into book values(?,?,?,?,?,?)";
 		try {
 			st = conn.prepareStatement(sql);
-			st.setLong(1, Long.parseLong(bookId.getBookId()));
+			st.setLong(1, id);
 			st.setInt(2, book.getRoom_id());
 			st.setString(3, book.getCustomer_id());
 			st.setString(4, book.getBook_begin());
@@ -135,23 +136,26 @@ public class BookDAO {
 			st.setDate(6, book.getBook_date());
 			
 			result = st.executeUpdate();
+			conn.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBUtil.dbClose(null, st, conn);
 		}
-		return result;
+		
+		if(result!=0) return id;
+		else return result;
 	}
 
-	public int deleteBook(int emp) {
-		String sql = "delete from room     " + "where book_id=?";
+	public int deleteBook(long book_id) {
+		String sql = "delete from book" + "where book_id=?";
 		Connection conn;
 		PreparedStatement st = null;
 		int result = 0;
 		conn = DBUtil.getConnection();
 		try {
 			st = conn.prepareStatement(sql);
-			st.setInt(1, emp);
+			st.setLong(1, book_id);
 			result = st.executeUpdate();
 
 		} catch (SQLException e) {
@@ -163,4 +167,37 @@ public class BookDAO {
 		}
 		return result;
 	}
+	
+	public List<BookVO> bookSelectbyId(String customer_id) {
+		List<BookVO> booklist = new ArrayList<BookVO>();
+		BookVO bookVO = new BookVO();
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String sql = "select * from book join room on book.room_id=room.room_id where customer_id = ?";
+		try {
+			st = conn.prepareStatement(sql);
+			st.setString(1, customer_id);
+			rs = st.executeQuery();
+			
+			while(rs.next()) {
+				bookVO.setBook_id(rs.getLong(1));
+				bookVO.setBook_begin(rs.getString("book_begin"));
+				bookVO.setBook_last(rs.getString("book_last"));
+				bookVO.setBook_date(rs.getDate("book_date"));
+				bookVO.setAdress(rs.getString("adress"));
+				bookVO.setRoom_cancel(rs.getInt("room_cancel"));
+				bookVO.setPhone(rs.getString("phone"));
+				booklist.add(bookVO);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.dbClose(rs, st, conn);
+		}
+		return booklist;
+	}
+	
+	
 }

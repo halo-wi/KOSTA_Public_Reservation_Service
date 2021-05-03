@@ -10,9 +10,11 @@
 <jsp:include page="../common/header2.jsp"></jsp:include>
 <link href="../CSS/footer.css" rel="stylesheet" />
 </head>
+
 <header class="masthead" style="background: white !important; color : black;">
 	<div id="login">
 		<form name="loginform" action="LoginServelet" method="post"
+
 			id="loginForm">
 			<h2>ZOOM OUT</h2>
 			<div class="idForm">
