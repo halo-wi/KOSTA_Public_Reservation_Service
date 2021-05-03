@@ -41,6 +41,7 @@ $(function() {
 		});
 	});
 	$('html').scrollTop(0);
+	
 });
 </script>
 </head>
@@ -54,10 +55,17 @@ $(function() {
 			<div class="col" id="room_container_col" style="padding-left:0px;">
 			<li id="room_list">
 				<span id="room_img">
-					<img src="${room.img}">
+					<img src="${room.img}" loading="lazy">
 					<div id="info_img">
 						<span id="room_info_roomid">No.&nbsp;${room.room_id}</span>
-						<span id="room_info_state">${room.room_state}</span>					
+							<c:choose>
+						    	<c:when test="${room.today_state eq true}">
+						    		<span id="room_info_state">${room.room_state}</span>
+						    	</c:when>
+								<c:when test="${room.today_state eq false}">
+									<span id="room_info_state" style="background-color: black;">접수종료</span>
+						    	</c:when>
+						    </c:choose>			
 					</div>
 				</span>
 				<span id="room_info">
@@ -98,10 +106,10 @@ $(function() {
 					    <input type="hidden" name="room_end" value="${room.room_end}">
 					    <c:choose>
 					    	<c:when test="${room.today_state eq true}">
-					    		<input id="reservation_btn" type="submit" value="예약하기">
+					    		<input class="reservation_btn_on" type="submit" value="예약하기">
 					    	</c:when>
 							<c:when test="${room.today_state eq false}">
-								<span>예약불가</span>				    
+								<span class="reservation_btn_off" value="예약불가">예약불가</span>		    
 					    	</c:when>
 					    </c:choose>
 					</form>

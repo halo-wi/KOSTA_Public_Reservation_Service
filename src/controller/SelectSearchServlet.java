@@ -79,9 +79,12 @@ public class SelectSearchServlet extends HttpServlet {
 					if(num == 0) {
 						today_state = true;
 						break;
+					} else {
+						today_state = false;
 					}
 				}
 				// RoomVO의 today_state를 set해준다.
+				System.out.println(today_state);
 				room.setToday_state(today_state);
 			}
 			try {
@@ -105,6 +108,7 @@ public class SelectSearchServlet extends HttpServlet {
 					}
 				}
 				// RoomVO의 today_state를 set해준다.
+				System.out.println(today_state);
 				room.setToday_state(today_state);
 			}
 			try {
