@@ -94,7 +94,7 @@ $(function() {
 						</div>
 					</span>		
 				<div>
-					<form action="searchDetail">
+					<form id="detalform" action="searchDetail">
 					    <input type="hidden" name="roomid" value="${room.room_id}">
 					    <input type="hidden" name="year" value="${year}">
 					    <input type="hidden" name="month" value="${month}">
@@ -106,7 +106,7 @@ $(function() {
 					    <input type="hidden" name="room_end" value="${room.room_end}">
 					    <c:choose>
 					    	<c:when test="${room.today_state eq true}">
-					    		<input class="reservation_btn_on" type="submit" value="예약하기" onclick="onclick()">
+					    		<input class="reservation_btn_on" type="button" value="예약하기" onclick="onver()">
 					    	</c:when>
 							<c:when test="${room.today_state eq false}">
 								<span class="reservation_btn_off" value="예약불가">예약불가</span>		    
@@ -127,13 +127,15 @@ $(function() {
 	</c:forEach>
 	</ul>
 </div>
-<script>
-function onclick() {
+<script type="text/javascript">
+function onver() {
 	var uid="<%=(String) session.getAttribute("email")%>";
+	
+	
 	if (uid == null) {
 		location.href = "../Login/login.jsp";
 	} else {
-		location.href = "../Room/searchDetail"
+		 $('#detalform').submit();
 	}
 	
 }
