@@ -19,7 +19,7 @@ padding:10px;
 </style>
 </head>
 <body>
-<header><jsp:include page="/common/header.jsp"></jsp:include></header>
+<header><jsp:include page="/common/header2.jsp"></jsp:include></header>
 <h1 id="c2" class="cen">해당 예약 번호는 검색 결과가 존재하지 않습니다.</h1>
 <h1 class="cen">다시 확인 후 검색해주세요</h1>
 <div id="diva">

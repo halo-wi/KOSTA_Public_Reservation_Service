@@ -60,8 +60,12 @@
 						</c:if>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="../join/Join.jsp">회원가입</a></li>
-						<li class="nav-item"><a class="nav-link js-scroll-trigger"
-							href="../Mypage/ontoMypage.jsp">마이페이지</a></li>
+						<li class="nav-item">
+						<c:if test="${email==null}">
+						<a class="nav-link js-scroll-trigger" href="../Login/login.jsp">마이페이지</a></c:if>
+						<c:if test="${email!=null}">
+						<a class="nav-link js-scroll-trigger" href="../Mypage/ontoMypage.jsp">마이페이지</a></c:if>
+						</li>
 					</ul>
 			</div>
 		</div>
