@@ -49,8 +49,10 @@ $(function() {
 
 <!-- 서블릿에서 보내준 값을 찍는 jsp -->
 <div id="search_room">
+    <c:set var="cnt" value="0"/>
 	<ul>
 		<c:forEach var="room" items="${room_list}">
+		<c:set var="cnt" value="${cnt+1}"/>
 			<div id="room_container" class="row">
 			<div class="col" id="room_container_col" style="padding-left:0px;">
 			<li id="room_list">
@@ -94,7 +96,7 @@ $(function() {
 						</div>
 					</span>		
 				<div>
-					<form id="detalform" action="searchDetail">
+					<form id="detalform${cnt}" action="searchDetail">
 					    <input type="hidden" name="roomid" value="${room.room_id}">
 					    <input type="hidden" name="year" value="${year}">
 					    <input type="hidden" name="month" value="${month}">
@@ -106,7 +108,7 @@ $(function() {
 					    <input type="hidden" name="room_end" value="${room.room_end}">
 					    <c:choose>
 					    	<c:when test="${room.today_state eq true}">
-					    		<input class="reservation_btn_on" type="button" value="예약하기" onclick="onver()">
+					    		<input class="reservation_btn_on" type="button" value="예약하기" onclick="onver(${cnt})">
 					    	</c:when>
 							<c:when test="${room.today_state eq false}">
 								<span class="reservation_btn_off" value="예약불가">예약불가</span>		    
@@ -128,16 +130,14 @@ $(function() {
 	</ul>
 </div>
 <script type="text/javascript">
-function onver() {
+function onver(cnt) {
 	var uid="<%=(String) session.getAttribute("email")%>";
 	
-	
-	if (uid == null) {
+	if (uid == "null") {
 		location.href = "../Login/login.jsp";
 	} else {
-		 $('#detalform').submit();
+ 		 $('#detalform'+cnt).submit();
 	}
-	
 }
 </script>
 <!-- header -->

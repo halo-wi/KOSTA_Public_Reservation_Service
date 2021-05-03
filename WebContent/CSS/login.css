@@ -261,7 +261,7 @@ button {
 #BookCheckResultTitle {
 	text-align: center;
 	position: relative;
-	margin-top: 150px;
+	margin-top: 100px;
 	left: 5%;
 	width: 300px;
 }
@@ -325,6 +325,36 @@ button {
 	border: 1px solid gray;
 }
 
+.reservation_btn_on {
+	position: absolute;
+    bottom: 13px;
+    right: -21px;
+ 	width: 100px;
+    background-color: #fed136;
+    border: none;
+    color: black;
+    padding: 9px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 18px 0px 18px 0px;
+}
+
+.btn_search_dd {
+	border: 0;
+    outline: 0;
+    margin: 3px;
+    font-size: 20px;
+    background: none;
+    margin-top: 19px;
+    color: gray;
+    border-bottom: 1px solid;
+}
+
 #room_list {
 	position: relative;
 	list-style: none;
@@ -367,17 +397,12 @@ button {
 #room_page {
 	text-align: center;
 }
-
-.reservation_btn_on {
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-}
-
 .reservation_btn_off {
 	position: absolute;
-	bottom: 20px;
-	right: 20px;
+    bottom: 19px;
+    right: 1px;
+    font-size: 19px;
+    font-weight: bold;
 }
 
 #room_container img {
@@ -772,6 +797,140 @@ input[type=text]#date_input {
     margin-left: 20px;
     font-size: 9pt;
     color: red;
+}
+
+/* 남후승 CSS (BookCheckResult.jsp) */
+#BookCheckResult_reservelook {
+    text-align: center;
+    position: relative;
+    
+    width: 1000px;
+    height: 400px;
+    margin: 0 auto;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.BookCheckResultreservelook_title {
+	margin-top: 150px;
+    margin-left: 100px;
+     display: block;
+    text-align: left;
+    position: relative;
+    padding: 0 0 0 16px;
+    margin-bottom: 8px;
+    font-family: "nanumsquare-eb";
+    font-size: 20px;
+    line-height: 32px;
+    color: #444444;
+    letter-spacing: -1px;
+}
+
+.BookCheckResultreservelook_title:before {
+	content: '';
+	display: block;
+	width: 6px;
+	height: 20px;
+	border-radius: 3px;
+	background: #97ccff;
+	position: absolute;
+	top: 6px;
+	left: 0;
+}
+
+.BookCheckResult_reservelook_left {
+	float:left;
+}
+.BookCheckResult_reservelook_left > img{
+	width: 450px;
+    height: 350px;
+    box-shadow: 2px 2px 2px grey;
+    border-radius: 6px;
+}
+
+.BookCheckResult_reservelook_right {
+	font-size: 36px;
+    float: left;
+    text-align: left;
+    margin-left: 113px;
+    
+}
+
+.BookCheckResult_reservelook_right_contents_f {
+    position: relative;
+    width: 155px;
+    padding: 0 3px 0 4px;
+    font-family: "nanumsquare-eb";
+    font-size: 16px;
+    line-height: 32px;
+    color: #252526;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.BookCheckResult_reservelook_right_contents_s {
+    width: calc(100% - 180px);
+    /* padding-right: 10px; */
+    font-family: "nanumsquare-r";
+    font-size: 16px;
+    line-height: 32px;
+    color: #252526;
+    display: inline;
+}
+
+.BookCheckResult_reservelook_bottom_contents {
+    font-size: 9pt;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 9pt;
+    color: red;
+}
+
+.BookCheckResult_item_viewbox_top_tabcon_box {
+    position: relative;
+    padding-top: 30px;
+    margin: 30px 0;
+}
+
+.BookCheckResult_sub_text_tit_type01 {
+    /* float: left; */
+    display: block;
+    text-align: left;
+    position: relative;
+    padding: 0 0 0 16px;
+    margin-bottom: 8px;
+    font-family: "nanumsquare-eb";
+    font-size: 20px;
+    line-height: 32px;
+    color: #444444;
+    letter-spacing: -1px;
+}
+
+.BookCheckResult_sub_text_tit_type01:before {
+	content: '';
+	display: block;
+	width: 6px;
+	height: 20px;
+	border-radius: 3px;
+	background: #97ccff;
+	position: absolute;
+	top: 6px;
+	left: 0;
+}
+
+.BookCheckResult_map_address {
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+#BookCheckResultreservelook_inner {
+    margin-left: 160px;
+}
+
+.bookCancelBtn {
+	margin-left: 45%;
+    margin-bottom: 29px;
 }
 
 @media screen and (max-width:1024px) {
