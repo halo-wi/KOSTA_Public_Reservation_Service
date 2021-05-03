@@ -124,7 +124,7 @@ public class CustomerDAO {
 	}
 	
 	//회원정보 조회
-		public CustomerVO customer_inquery(String customer_id, String customer_pw, String customer_name,
+		/*public CustomerVO customer_inquery(String customer_id, String customer_pw, String customer_name,
 				String customer_phone, String email) throws SQLException {
 
 			CustomerVO customer = new CustomerVO();
@@ -190,5 +190,5 @@ public class CustomerDAO {
 	 				}
 	 			}
 	 			return customer;
-	 		}
+	 		}*/
 }
