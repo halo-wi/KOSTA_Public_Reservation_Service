@@ -33,7 +33,7 @@
 <td>${list.book_date}</td>
 <td>${list.adress}</td>
 <td>${list.phone}</td>
-<td>${list.room_cancel}</td></tr>
+<td>예약일기준 ${list.room_cancel}일 전 까지</td></tr>
 </c:forEach>
 </table>
 </body>

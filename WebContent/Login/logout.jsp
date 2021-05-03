@@ -2,12 +2,17 @@
 	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8" />
 
 <title>logout</title>
-<jsp:include page="../common/header.jsp"></jsp:include>
+<jsp:include page="../common/header2.jsp"></jsp:include>
+<style>
+	body{
+		background-image : url('../img/로그아웃.jpg');
+		}
+</style>
 </head>
 <body>
 
