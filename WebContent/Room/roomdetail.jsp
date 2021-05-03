@@ -64,7 +64,8 @@ padding:5px;
 		<div class="item_viewbox_top_left">
 			<!-- 제일 상단 컨텐츠 --> 
 			<header class="header">
-				<h1 class="getdown">No.${list.room_id} ${list.adress}</h1>
+				<span class="header_room_id">No.${list.room_id}</span>
+				<span class="header_room_address"> ${list.adress}</span>
 			</header>
 			<hr>
 			
