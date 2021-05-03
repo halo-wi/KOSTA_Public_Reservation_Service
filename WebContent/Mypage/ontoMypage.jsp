@@ -12,7 +12,7 @@ form {
 </style>
 </head>
 <body>
-	<header><jsp:include page="/common/header.jsp"></jsp:include></header>
+	<header><jsp:include page="/common/header2.jsp"></jsp:include></header>
 	<form>
 		<button type="button" name="bookid" onclick="idchk()">회원정보 수정</button>
 		<button type="button" name="bookid" onclick="bookchk()">예약내역 조회</button>
