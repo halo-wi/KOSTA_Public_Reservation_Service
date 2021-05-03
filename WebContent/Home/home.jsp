@@ -23,14 +23,17 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../CSS/home.css" rel="stylesheet" />
 <link href="../CSS/footer.css" rel="stylesheet" />
+
+<!-- 폰트 -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap" rel="stylesheet">
 </head>
 <body id="page-top">
 
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top"><img
-				src="../img/navbar-logo.svg" alt="..." /></a>
+			<a class="navbar-brand js-scroll-trigger" href="#page-top"><p style = "color : white; font-family: 'PT Sans Caption, sans-serif;'">zoomout</p></a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -66,7 +69,7 @@
 	<!-- Masthead-->
 	<header class="masthead">
 		<div class="container">
-			<div class="masthead-subheading">Welcome To Our Studio!</div>
+			<div class="masthead-subheading">With us, Be Creative!</div>
 			<div class="masthead-heading text-uppercase">Zoom Out</div>
 			<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" id = "footerbutton"
 				href="../Search/roomlocation">예약하기</a>

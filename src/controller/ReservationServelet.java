@@ -3,14 +3,18 @@ package controller;
 import java.io.IOException;
 import java.sql.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import logic.BookId;
 import model.BookDAO;
 import model.BookVO;
+import model.RoomDAO;
+import model.RoomVO;
 
 /**
  * Servlet implementation class ReservationServelet
@@ -42,11 +46,21 @@ public class ReservationServelet extends HttpServlet {
 		bookVO.setBook_begin(book_begin);
 		bookVO.setBook_last(book_last);
 		bookVO.setBook_date(Date.valueOf(search_date));
-		
-		int result = bookDAO.insertBook(bookVO);
+		System.out.println(bookVO);
+		long result = bookDAO.insertBook(bookVO);
 		String msg = result>0?"예약되었습니다.":"실패";
-		System.out.println(msg);
 		
+		System.out.println(msg);
+		RoomDAO roomDAO=new RoomDAO();
+		System.out.println(Integer.parseInt(roomid));
+		System.out.println(bookVO);
+		RoomVO roomVO=roomDAO.selectByRoomId(Integer.parseInt(roomid));
+
+		request.setAttribute("id", result);
+		request.setAttribute("chk", bookVO );//book 값 저장
+		request.setAttribute("chk2", roomVO);//Room 값 저장
+		RequestDispatcher rd=request.getRequestDispatcher("../View/ReservLook.jsp");//jsp로 보냄
+		rd.forward(request, response);
 	}
 
 

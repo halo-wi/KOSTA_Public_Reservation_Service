@@ -20,7 +20,7 @@ h1{ color: red; }
 		<div class="left">
 		<c:if test="${chk!=null}"> 
 			<ul  style="list-style-type: none;">
-				<li>예약 번호: ${chk.book_id }</li>
+				<li>예약 번호: ${id }</li>
 				<li>주소: ${chk2.adress}</li>
 				<li>예약일: ${chk.book_date }</li>
 				<li>시작 시간: ${chk.book_begin }</li>

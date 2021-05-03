@@ -1,9 +1,9 @@
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button
+	{
+	-webkit-appearance: none;
+	margin: 0;
 }
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -18,7 +18,6 @@ nav {
 body {
 	background-color: white;
 	font-family: lato;
-	
 }
 
 #loginForm {
@@ -26,7 +25,6 @@ body {
 	width: 300px;
 	height: 400px;
 	padding: 30px, 20px;
-	background-color: #E5E5E5;
 	text-align: center;
 	top: 40%;
 	left: 50%;
@@ -117,7 +115,7 @@ hr {
 	left: 50%;
 	top: 50%;
 	width: 600px;
-	height: 800px;
+	height: 700px;
 	margin-left: -300px;
 	margin-top: -270px;
 }
@@ -129,7 +127,6 @@ hr {
 	border: none;
 	text-align: center;
 }
-
 
 #signup {
 	position: absolute;
@@ -144,21 +141,18 @@ hr {
 
 table {
 	text-align: center;
-	width: 800px;
+	width: 1000px;
 	margin: 20px auto;
-	border: solid 1px black;
 }
-td,tr {
-	border: solid 1px black;
+
+td, tr {
 	width: 100px;
 	height: 40px;
 }
 
-
-
 #sighupsubmitbuttons {
 	width: 140px;
-	margin-left: 450px;
+	margin: 0 auto;
 }
 
 #resetbt {
@@ -166,35 +160,33 @@ td,tr {
 }
 
 #signuptitle {
-	margin-top: 100px;
+	margin-top: 80px;
 }
 
 /* CSS (BookCheckMainPage) */
-
-#contents{
-	width : 90%;
-	height:150%;
-	margin : 0 auto;
-	color : black;
+#contents {
+	width: 90%;
+	height: 150%;
+	margin: 0 auto;
+	color: black;
 	background-color: white;
 }
 
-
 #bookingCheckTitle {
-	text-align : center;
+	text-align: center;
 	position: relative;
-	margin-top: 150px;
-	left : 50%;
+	margin-top: 220px;
+	left: 50%;
 	width: 300px;
 	margin-left: -170px;
-
 }
 
 #checkBybooknumber_btn {
 	display: inline-block;
 	margin-left: 40px;
+	width : 50px;
+	height: 39%;
 }
-
 
 #checkById_btn {
 	display: inline-block;
@@ -217,100 +209,108 @@ button {
 	margin-left: 0px;
 }
 
-
 #checkbyNo {
-	border : 1px solid black;
-	border-radius : 10px;
+	border: 1px solid black;
+	border-radius: 10px;
 	width: 500px;
-	height: 400px;
-	float :left;
+	height : 400px;
+	float: left;
 	margin-top: 20px;
 	text-align: center;
 	padding: 30px;
-	margin-left: 60px;
-
-}
-#checkbyNo-inside{
-	width : 300px;
-	display: block;
-	margin: 90px auto;
-}
-#checkbyId-inside{
-	width : 300px;
-	display: block;
-	margin: 90px auto;
-}
-
-#bookchkSid{
-	display: inline-block;
-	margin-top: 20px;
-}
-#checkBybooknumber_btn{
-	display: inline-block;
-	margin-top: 20px;
-}
-#checkbyId {
-	border : 1px solid black;
-	border-radius : 10px;
-
-	width: 500px;
+	margin-left: 140px;
 	height: 400px;
+}
+
+#checkbyNo-inside {
+	width: 300px;
+	display: block;
+	margin: 90px auto;
+}
+
+#checkbyId-inside {
+	width: 300px;
+	display: block;
+	margin: 90px auto;
+}
+
+#bookchkSid {
+	display: inline-block;
+	margin-top: 20px;
+}
+
+#checkBybooknumber_btn {
+	display: inline-block;
+	margin-top: 20px;
+}
+
+#checkbyId {
+	border: 1px solid black;
+	border-radius: 10px;
+	width: 500px;
+	height : 400px;
 	float: left;
-	margin-left:60px;
+	margin-left: 60px;
 	margin-top: 20px;
 	text-align: center;
 	padding: 30px;
 }
 /* reservelook */
-#BookCheckResultTitle{
-	text-align : center;
+#BookCheckResultTitle {
+	text-align: center;
 	position: relative;
 	margin-top: 150px;
-	left : 5%;
+	left: 5%;
 	width: 300px;
-
-
 }
 
-#bookchklist{
+#bookchklist {
 	margin-top: 120px;
 	margin-left: 40px;
 	list-style-type: none;
 	font-size: 12pt;
 }
 
-#bookingCheck{
+#bookingCheck {
 	margin-top: 1px;
-
 }
-#room-img{
-	margin-top:20px;
-	position : absolute;
-	width : 400px;
-	height: 400px;
-	background-image: url("../img/test.jpg");
-	background-size : contain;
-	background-repeat: no-repeat;
-	background-position:center;
-	left : 10%;
-	margin-left: -10px;
-	border : 1px solid black;
 
-	
+#room-img {
+	width: 500px;
+	height: 400px;
+	float: left;
+	margin-top: 20px;
+	text-align: center;
+	padding: 30px;
+	margin-left: 60px;
 }
-#BookCheck{
-	margin-top:20px;
-	position : absolute;
-	width : 400px;
+
+#BookCheck {
+	border: 1px solid black;
+	border-radius: 10px;
+	width: 500px;
 	height: 400px;
-	background-image: url("../img/test.jpg");
-	background-size : contain;
-	background-repeat: no-repeat;
-	background-position:center;
+	float: left;
+	margin-top: 50px;
+	padding: 30px;
+	margin-left: 60px;
+}
 
-	margin-left: -10px;
-	border : 3px solid red;
+#bookchkcontents {
+	border: 1px solid black;
+	margin-top: 20px;
+	margin-left: 20px;
+	text-align: left;
+}
 
+.bookchkcontentsText {
+	margin-left: 20px;
+}
+
+#bookCancelBtn {
+	background-color: lightblue !important;
+	color: white;
+	width: 100px;
 }
 
 #content{
@@ -325,7 +325,6 @@ button {
 
 
 /* 남후승 CSS (searchRoom.jsp) */
-
 #room_container:hover {
 	border: 1px solid gray;
 }
@@ -333,12 +332,12 @@ button {
 #room_list {
 	position: relative;
 	list-style: none;
-	margin: 0px 20px 0px 0px;	
+	margin: 0px 20px 0px 0px;
 }
 
 #room_container {
 	border: 1px solid white;
-	background-color:  rgb(239, 239, 239);
+	background-color: rgb(239, 239, 239);
 	margin: 10px 15% 10px 15%;
 	border-radius: 20px;
 }
@@ -346,18 +345,18 @@ button {
 #room_info {
 	position: absolute;
 	left: 45%;
-/* 	left: 350px; */
+	/* 	left: 350px; */
 	/* margin-top: 20px; */
 	top: 20px;
 }
 
-#room_info > #room_info_address {
+#room_info>#room_info_address {
 	font-size: 25px;
 	font-weight: bold;
 	margin-bottom: 10px;
 }
 
-#room_info > #room_info_location {
+#room_info>#room_info_location {
 	font-size: 20px;
 }
 
@@ -382,48 +381,48 @@ button {
 .reservation_btn_off {
 	position: absolute;
 	bottom: 20px;
-	right:20px;
+	right: 20px;
 }
 
 #room_container img {
 	position: relative;
-	
-	 -webkit-transform:scale(1);
-    -moz-transform:scale(1);
-    -ms-transform:scale(1); 
-    -o-transform:scale(1);  
-    transform:scale(1);
-    -webkit-transition:.3s;
-    -moz-transition:.3s;
-    -ms-transition:.3s;
-    -o-transition:.3s;
-    transition:.3s;
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s;
+	-moz-transition: .3s;
+	-ms-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
 }
 
 #room_container:hover img {
-    -webkit-transform:scale(1.1);
-    -moz-transform:scale(1.1);
-    -ms-transform:scale(1.1);   
-    -o-transform:scale(1.1);
-    transform:scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
 }
 
-#room_container {overflow: hidden;}
+#room_container {
+	overflow: hidden;
+}
 
 #info_img {
 	left: 10px;
 	z-index: 2;
 	top: -133px;
-	width:200px;
+	width: 200px;
 }
 
-#info_img > #room_info_roomid {
+#info_img>#room_info_roomid {
 	position: absolute;
 	left: 10px;
 	z-index: 1;
 	top: -133px;
 	font-weight: bold;
-	
 	background-color: #fed136;
 	color: black;
 	border-radius: 5px;
@@ -431,31 +430,28 @@ button {
 	font-size: 13px;
 }
 
-#info_img > #room_info_state {
+#info_img>#room_info_state {
 	position: absolute;
 	right: 10px;
 	z-index: 1;
 	top: -133px;
-	
 	background-color: #FF7F50;
 	color: white;
 	border-radius: 5px;
 	padding: 2px;
 	margin-left: 51%;
-	font-size: 13px;	
+	font-size: 13px;
 }
 
 #room_img {
 	position: relative;
 }
 
-#room_img > img {
+#room_img>img {
 	border-radius: 20px 0px 0px 20px;
-	width: 40%; 
+	width: 40%;
 	height: 300px;
 }
-
-
 
 /* 남후승 CSS (searchall.jsp) */
 #room_location_list {
@@ -947,6 +943,98 @@ input[type=text]#date_input {
 }
 @media screen and (max-width:320px) {
 
+=======
+#content {
+	width: 100%;
+	height: 700px;
+	background-image: url("../img/gradation.jpg");
+}
+
+/* 마이페이지 CSS */
+#mypagecontent {
+	position: absolute;
+	top: 30%;
+	width: 70%;
+	height: 500px;
+	border: 1px solid black;
+	margin-left: 210px;
+	padding: 40px;
+}
+
+.form-control {
+	width: 150px;
+	border-bottom: solid 1px black;
+	float: left;
+
+}
+
+/* 회원가입 CSS */
+#join {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 800px;
+	height: 700px;
+	margin-left: -400px;
+	margin-top: -270px;
+}
+
+#btn_dup {
+	margin-left: 125px !important;;
+	text-align: center;
+	padding: 4px auto;
+	width: 70px !important;
+	height: 35px !important;
+	background-color: lightblue;
+	border: none;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	margin: 4px;
+	cursor: pointer;
+	border-radius: 10px;
+	font-size: 4px;
 }
 
 
+
+
+/* mypage CSS */
+#mypagetitle{
+	text-align: center;
+	position: relative;
+	margin-top: -120px;
+	margin-bottom : 30px;
+	left: 5%;
+	width: 300px;
+}
+#mypagecontents{
+	width : 80%;
+	height: 600px;
+	border : 1px solid black;
+	margin : 0 auto;
+	text-align: left;
+	line-height: 150%;
+	
+}
+
+#mypageform{
+	line-height: 70px;
+	margin-left: 30px;
+}
+#mypagetable{
+	margin-top : 50px;
+	margin-left: 300px;;
+	margin-right: auto;
+}
+
+#mypage_submitBtn{
+	width: 140px;
+	margin-left : 400px;
+	
+	margin-top : 40px;
+	clear: both;
+	
+}

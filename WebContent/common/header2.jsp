@@ -22,6 +22,7 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../CSS/home.css" rel="stylesheet" />
 <link href="../CSS/login.css" rel="stylesheet" />
+
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -29,8 +30,8 @@
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top"
 			id="mainNav">
 			<div class="container">
-				<a class="navbar-brand js-scroll-trigger" href="../Home/home.jsp"><img
-					src="../img/navbar-logo.svg" alt="..." /></a>
+					<a class="navbar-brand js-scroll-trigger" href="../Home/home.jsp">
+					<p style = "color : white; font-family: 'PT Sans Caption, sans-serif;'">zoomout</p></a>
 				<button class="navbar-toggler navbar-toggler-right" type="button"
 					data-toggle="collapse" data-target="#navbarResponsive"
 					aria-controls="navbarResponsive" aria-expanded="false"
