@@ -21,26 +21,30 @@
 <!-- Font Awesome CSS -->
 <link rel='stylesheet'
 	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-	
-	
+
+
 <!-- 폰트 -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap"
+	rel="stylesheet">
 </head>
 
 <div id="contents">
 	<h2 id="bookingCheckTitle"
-		style="font-family: font-family: 'PT Sans Caption, sans-serif;'">예약조회</h2>
-	<hr style = "border : 0; height : 1px; background:black;">
+		style="font-family: font-family : 'PT Sans Caption, sans-serif;'">예약조회</h2>
+	<hr style="border: 0; height: 1px; background: black;">
 
 	<div id="checkbyNo">
 		<div id="checkbyNo-inside">
 			<h5 style="font-family: 'PT Sans Caption, sans-serif;'">예약번호로 조회</h5>
 			<form action="BookNum">
 				<div class="input-group">
-					<input type="number" class="form-control" name="booknum" id="bookchkSid" placeholder="예약번호">
+					<input type="number" class="form-control" name="booknum"
+						id="bookchkSid" placeholder="예약번호">
 					<div class="input-group-append">
-						<button onclick="submit()" class="btn btn-secondary" type="button" id="checkBybooknumber_btn">
+						<button onclick="submit()" class="btn btn-secondary" type="button"
+							id="checkBybooknumber_btn">
 							<i class="fa fa-search"></i>
 						</button>
 					</div>
@@ -53,28 +57,45 @@
 		<div id="checkbyId-inside">
 			<h5 style="font-family: 'PT Sans Caption, sans-serif;'">아이디로 조회</h5>
 			<c:if test="${email==null}">
-			<button type="button" class="btn btn-secondary" id="checkById_btn" name="bookid"
-				onclick="idchk()" value="">로그인</button>
-				</c:if>
-				<c:if test="${email!=null}">
-			<button type="button" id="checkById_btn" name="bookid"
-				onclick="bookchk()" value="">예약조회</button>
-				</c:if>
+				<button type="button" class="btn btn-secondary" id="checkById_btn"
+					name="bookid" onclick="idchk()" value="">로그인</button>
+			</c:if>
+			<c:if test="${email!=null}">
+				<button type="button" id="checkById_btn" name="bookid"
+					onclick="bookchk()" value="">예약조회</button>
+			</c:if>
 		</div>
 	</div>
 </div>
 
 
-<div id="footer">
-	<p>&copyZOOMOUT 팀원 강성빈 고석우 김성휘 남후승 임세혁</p>
-	<p>
-		<a href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"
-			target="_blank" style="color: grey;">
-			https://github.com/halo-wi/KOSTA_Public_Reservation_Service</a>
-	</p>
-
-</div>
-
+<footer class="footer py-4" style="background-color: black !important;">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-4 text-lg-left">
+				<span style="color: white !important;">Copyright &copy;
+					ZOOMOUT <!-- This script automatically adds the current year to your website footer-->
+					<!-- (credit: https://updateyourfooter.com/)--> <script>
+						document.write(new Date().getFullYear());
+					</script>
+				</span>
+			</div>
+			<div class="col-lg-4 my-3 my-lg-0"
+				style="margin-left: -40px; font-size: 1px; color: white;">
+				<a
+					href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"><img
+					src="../img/git-logo-black.png"
+					style="width: 35px; height: 35px; display: inline-block;"> <span
+					style="margin-left: 10px; color: white;">https://github.com/halo-wi/KOSTA_Public_Reservation_Service</span></a>
+			</div>
+			<div class="col-lg-4 text-lg-right">
+				<p
+					style="color: white; font-size: 0.8em; margin-top: 10px; margin-right: -35px;">Members
+					: 김성휘 남후승 임세혁 고석우 강성빈</p>
+			</div>
+		</div>
+	</div>
+</footer>
 
 <script>
 	function idchk() {
@@ -82,12 +103,10 @@
 	}
 	
 	function bookchk() {	
-		var uid="<%=(String) session.getAttribute("email")%>";
-			location.href = "../BookCheck/BookListByIdServelet?email=" + uid;
+		var uid="<%=(String) session.getAttribute("email")%>
+	";
+		location.href = "../BookCheck/BookListByIdServelet?email=" + uid;
 	}
-
-	
-	
 </script>
 
 <style>

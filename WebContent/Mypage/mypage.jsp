@@ -62,7 +62,7 @@ td, tr {
 						<th>이메일</th>
 						<td><input type="text" value="${list.email}" id="customer_phone" class="form-control"
 							required
-							style="border-color: white; border-bottom-color: black; width: 40%;"> ${list.email}</td>
+							style="border-color: white; border-bottom-color: black; width: 40%;"> </td>
 					</tr>
 				</tbody>
 			</table>
