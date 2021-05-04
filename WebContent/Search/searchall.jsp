@@ -49,6 +49,7 @@
 	
 
 	<script>
+
 	$(function() {
 	 	
 	 	 // datepicker의 default값을 오늘 날짜로 바꿔준다./ 오늘 날짜 이전은 비활성화 시킴
@@ -93,5 +94,6 @@
    
 });
 </script>
+
 </body>
 </html>
