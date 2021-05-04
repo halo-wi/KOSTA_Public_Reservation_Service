@@ -29,6 +29,7 @@ public class JoinServelet extends HttpServlet {
 		CustomerDAO dao = new CustomerDAO();
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
+		System.out.println("join:"+customerid);
 		try {
 			if(0!=dao.customer_join(customerid, nickname, customerpw, phone, email)) {
 				//response.setHeader(nickname, email);
@@ -41,7 +42,7 @@ public class JoinServelet extends HttpServlet {
 			}
 			else {
 				
-				response.sendRedirect("Join.html");
+				response.sendRedirect("../join/Join.jsp");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

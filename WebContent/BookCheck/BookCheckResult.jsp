@@ -20,6 +20,21 @@ h1 {
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=99s5cztafe"></script>
 	<link href="../CSS/footer.css" rel="stylesheet" />
+
+<!-- jQeury -->
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- 세션 없을 시 예약취소 비활성화 -->
+<script type="text/javascript">
+$(function() {
+	var uid="<%=(String) session.getAttribute("email")%>";
+	if (uid == "null") {
+		$('.bookCancelBtn').attr('disabled', true);
+		console.log("여기");
+	} 
+});
+</script>
+	
 </head>
 <body>
 	<jsp:include page="/common/header2.jsp"></jsp:include>
@@ -119,15 +134,11 @@ h1 {
 			location.href = "../BookCheck/DeleteServelet?bookid="+bookid;
 	}
 </script>
-
-
-
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
 <script>
 var map = new naver.maps.Map('map', {
     center: new naver.maps.LatLng(${bookinfo2.mapy}, ${bookinfo2.mapx}),
@@ -139,5 +150,8 @@ var marker = new naver.maps.Marker({
     map: map
 });
 </script>
+
+
+
 </body>
 </html>

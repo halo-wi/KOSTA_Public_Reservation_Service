@@ -45,31 +45,25 @@
 				var nickname;
 				window.Kakao.init("6eb4a80e6c215b46736c99b7c1857a09");
 				function kakaologin() {
-					window.Kakao.Auth
-							.login({
-								scope : 'profile, account_email',
-								success : function(authObj) {
-									console.log(authObj);
-									window.Kakao.API
-											.request({
-												url : '/v2/user/me',
-												success : function(response) {
-													console.log(response);
-													email = response.kakao_account.email;
-													nickname = response.kakao_account.profile.nickname;
-													document
-															.getElementById("email").value = email;
-													document
-															.getElementById("nickname").value = nickname;
-													document.getElementById(
-															"loginkakao")
-															.submit();
-													//location.href = "LoginKakaoServelet?email="+response.kakao_account.email+
-													//"&nickname="+response.kakao_account.profile.nickname;
-												}
-											});
+					window.Kakao.Auth.login({
+						scope : 'profile, account_email',
+						success : function(authObj) {
+							console.log(authObj);
+							window.Kakao.API.request({
+								url : '/v2/user/me',
+								success : function(response) {
+									console.log(response);
+									email = response.kakao_account.email;
+									nickname = response.kakao_account.profile.nickname;
+									document.getElementById("email").value = email;
+									document.getElementById("nickname").value = nickname;
+									document.getElementById("loginkakao").submit();
+									//location.href = "LoginKakaoServelet?email="+response.kakao_account.email+
+									//"&nickname="+response.kakao_account.profile.nickname;
 								}
 							});
+						}
+					});
 				}
 			</script>
 			<form action="LoginKakaoServelet" method="post" id="loginkakao">
@@ -101,7 +95,7 @@
 		</div>
 
 		<div id="bottomText">
-			아직 회원이 아니신가요? <a href="signup.jsp" style="color: #2c98bf">회원가입</a>
+			아직 회원이 아니신가요? <a href="../join/Join.jsp" style="color: #2c98bf">회원가입</a>
 		</div>
 
 
