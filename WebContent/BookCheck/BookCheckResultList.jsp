@@ -29,7 +29,7 @@
 </style>
 </head>
 <body>
-
+<div style = "width:100%; height:100%">
 <h3 >${nickname }님의 예약내역</h3>
 <hr>
 <table id="bookchklist">
@@ -55,14 +55,34 @@
 <td>예약일기준 ${list.room_cancel}일 전 까지</td></tr>
 </c:forEach>
 </table>
-<div id="footer">
-		<p>&copyZOOMOUT 팀원 강성빈 고석우 김성휘 남후승 임세혁</p>
-		<p>
-			<a href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"
-				target="_blank" style="color: grey;">
-				https://github.com/halo-wi/KOSTA_Public_Reservation_Service</a>
-		</p>
-
-	</div>
+</div>
+<!-- footer -->
+   <footer class="footer py-4" style="background-color: black !important; margin-top: 394px;">
+      <div class="container">
+         <div class="row align-items-center">
+            <div class="col-lg-4 text-lg-left">
+               <span style="color: white !important;">Copyright &copy;
+                  ZOOMOUT <!-- This script automatically adds the current year to your website footer-->
+                  <!-- (credit: https://updateyourfooter.com/)--> <script>
+                     document.write(new Date().getFullYear());
+                  </script>
+               </span>
+            </div>
+            <div class="col-lg-4 my-3 my-lg-0"
+               style="margin-left: -40px; font-size: 3px; color: white;">
+               <a
+                  href="https://github.com/halo-wi/KOSTA_Public_Reservation_Service"><img
+                  src="../img/git-logo-black.png"
+                  style="width: 35px; height: 35px; display: inline-block;"> <span
+                  style="margin-left: 10px; color: white;">https://github.com/halo-wi/KOSTA_Public_Reservation_Service</span></a>
+            </div>
+            <div class="col-lg-4 text-lg-right">
+               <p
+                  style="color: white; font-size: 0.8em; margin-top: 10px; margin-right: -35px;">Members
+                  : 김성휘 남후승 임세혁 고석우 강성빈</p>
+            </div>
+         </div>
+      </div>
+   </footer>
 </body>
 </html>

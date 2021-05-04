@@ -103,8 +103,7 @@
 	}
 	
 	function bookchk() {	
-		var uid="<%=(String) session.getAttribute("email")%>
-	";
+		var uid="<%=(String) session.getAttribute("email")%>";
 		location.href = "../BookCheck/BookListByIdServelet?email=" + uid;
 	}
 </script>

@@ -9,26 +9,7 @@
 <link href="../CSS/footer.css" rel="stylesheet" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript">
-	function fn() {
-		var id = $('#idchk').val();
-		if (id == '') {
-			alert("id를 입력하세요");
-			return;
-		}
-		$.ajax({
-			type : "post",
-			async : "true",
-			url : "JoinChkServelet",
-			data : {
-				"id" : id
-			},
-			success : function(data, textStatus) {
-				$('#message').text(data);
-			}
-		})
-	}
-</script>
+
 
 <link href="../CSS/footer.css" rel="stylesheet" />
 
@@ -63,58 +44,56 @@ td, tr {
 			</div>
 			<hr>
 
-			<form action="Join" method="post" name="join" id="joinTable">
-				<table>
-					<tbody>
-						<tr>
-							<th>아이디</th>
-							<td><input type="text" name="customerid" id="idchk"
-								class="form-control" required
-								style="border-color: white; border-bottom-color: black; width: 150%; margin-right:10px;"></td>
+			<form action="../join/Join" method="post" name="join" id = "joinTable">
+			<table>
+				<tbody>
+					<tr>
+						<th>아이디</th>
+						<td><input type="text" name="customerid" id="idchk"
+							class="form-control" required
+							style="border-color: white; border-bottom-color: black; width: 150%;"></td>
 
-							<td><input type="button" value="중복체크" id="btn_dup_1"
-								onclick="fn()" ></td>
-							<td><span id="message" style="width: 10%;"></span></td>
-						</tr>
-						<tr>
-							<th>비밀번호</th>
-							<td><input type="password" name="customerpw"
-								class="form-control" required
-								style="border-color: white; border-bottom-color: black; width: 150%;"></td>
-						</tr>
-						<tr>
-							<th>비밀번호 확인</th>
-							<td><input type="password" name="customerpwchk"
-								class="form-control" required
-								style="border-color: white; border-bottom-color: black; width: 150%;"></td>
-						</tr>
-						<tr>
-							<th>이름</th>
-							<td><input type="text" name="name" class="form-control"
-								required
-								style="border-color: white; border-bottom-color: black; width: 150%;"></td>
-						</tr>
-						<tr>
-							<th>전화번호</th>
-							<td><input type="text" name="phone" class="form-control"
-								required
-								style="border-color: white; border-bottom-color: black; width: 150%;"></td>
-						</tr>
-						<tr>
-							<th>이메일</th>
-							<td><input type="email" name="email" class="form-control"
-								required
-								style="border-color: white; border-bottom-color: black; width: 150%;"></td>
-						</tr>
+						<td><input type="button" value="중복체크" id="btn_dup"
+							onclick="fn()"></td>
+						<td><span id="message" style="width: 10%;"></span></td>
+					</tr>
+					<tr>
+						<th>비밀번호</th>
+						<td><input type="password" name="customerpw"
+							class="form-control" required
+							style="border-color: white; border-bottom-color: black; width: 150%;"></td>
+					</tr>
+					<tr>
+						<th>비밀번호 확인</th>
+						<td><input type="password" name="customerpwchk"
+							class="form-control" required
+							style="border-color: white; border-bottom-color: black; width: 150%;"></td>
+					</tr>
+					<tr>
+						<th>이름</th>
+						<td><input type="text" name="name" class="form-control"
+							required
+							style="border-color: white; border-bottom-color: black; width: 150%;"></td>
+					</tr>
+					<tr>
+						<th>전화번호</th>
+						<td><input type="text" name="phone" class="form-control"
+							required
+							style="border-color: white; border-bottom-color: black; width: 150%;"></td>
+					</tr>
+					<tr>
+						<td><input type="hidden" name="email" class="form-control" value=${email}></td>
+					</tr>
 
-					</tbody>
-				</table>
-				<div id="sighupsubmitbuttons">
-					<input type="submit" name="Newjoin" value="회원가입"
-						class="btn btn-primary">
-				</div>
-
-			</form>
+				</tbody>
+			</table>
+			<div id="sighupsubmitbuttons">
+				<input type="submit" name="Newjoin" value="회원가입" class="btn btn-primary">
+			</div>
+		</form>
+			
+			
+			
 			<div id="kakaoJoin" style = "margin-bottom: 250px;">
 				<h3>이미 회원이라면?</h3>
 				<hr>
@@ -166,7 +145,26 @@ td, tr {
 			</div>
 		</div>
 	</footer>
-
+<script type="text/javascript">
+	function fn() {
+		var id = $('#idchk').val();
+		if (id == '') {
+			alert("id를 입력하세요");
+			return;
+		}
+		$.ajax({
+			type : "post",
+			async : "true",
+			url : "../join/JoinChkServelet",
+			data : {
+				"id" : id
+			},
+			success : function(data, textStatus) {
+				$('#message').text(data);
+			}
+		})
+	}
+</script>
 
 
 </body>

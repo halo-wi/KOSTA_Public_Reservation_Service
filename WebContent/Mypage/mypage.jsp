@@ -32,13 +32,13 @@ td, tr {
 			<h3>내 정보 수정하기</h3>
 		</div>
 		<hr>
-		<form action="Join" method="post" name="join" id="mypagetable">
+		<form action="Update" method="post" name="join" id="mypagetable">
 			<table id  = "mypage-table">
 				<tbody>
 					<tr>
 						<th>아이디</th>
-						<td><div id = "list_customer_id">${list.customer_id}</div></td>
-
+						<td><div id = "list_customer_id" value="${id}">${id}</div></td>
+						<input id = "customer_id" type="hidden" value="${id}">
 					</tr>
 					<tr>
 						<th>비밀번호</th>
